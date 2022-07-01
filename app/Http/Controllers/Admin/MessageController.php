@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Apartment;
+use App\Models\Message;
 
-class ApartmentController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
