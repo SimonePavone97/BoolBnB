@@ -30,7 +30,7 @@ class AddApartmentIdToStatsTable extends Migration
     public function down()
     {
         Schema::table('stats', function (Blueprint $table) {
-            $table->dropForeign('apartments_apartment_id_foreign');
+            $table->dropForeign('stats_apartment_id_foreign');
 
             $table->dropColumn('apartment_id');
         });
