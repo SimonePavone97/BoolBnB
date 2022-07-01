@@ -37275,6 +37275,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
