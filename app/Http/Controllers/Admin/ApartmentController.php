@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use Illuminate\Support\Str;
 
 class ApartmentController extends Controller
 {
@@ -15,7 +16,9 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::all();
+
+        return view('admin.apartments.index', compact('apartments'));
     }
 
     /**
