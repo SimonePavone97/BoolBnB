@@ -17,13 +17,11 @@ class ApartmentSeeder extends Seeder
     public function run(Faker $faker)
     {
         $user_ids = User::pluck('id')->toArray();
-        $service_id = Service::pluck('id')->toArray();
 
         for ($i = 0; $i < 10; $i++) {
             $apartment = new Apartment();
             
             $apartment->user_id = Arr::random($user_ids);
-            $apartment->service_id = Arr::random($service_id);
             $apartment->title = $faker->sentence();
             $apartment->rooms = $faker->numberBetween(1, 20);
             $apartment->bathrooms = $faker->numberBetween(1, 6);
