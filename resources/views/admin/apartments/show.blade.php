@@ -7,7 +7,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ $apartment->title }}</h5>
 
-        <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top mt-2" alt="{{ $post->title }}">
+        <img src="{{ asset('storage/' . $apartment->image) }}" class="card-img-top mt-2" alt="{{ $apartment->title }}">
         <p class="card-text">{{ $apartment->description }}</p>
 
         <div>
