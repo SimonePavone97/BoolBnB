@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -68,9 +69,25 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        $data = $request->all();
+
+        // $apartment['slug'] = Str::slug($request->title, '-');
+
+        if(array_key_exists('image', $data)){
+            if($apartment->image) Storage::delete($apartment->image);
+            $image_url = Storage::put('apartment_images', $data['image']);
+            $data['image'] = $image_url;
+        };
+        //php artisan storage:link
+        
+        if( array_key_exists('services', $data)) $apartment->services()->sync( $data['services']);
+
+        $apartment->fill($data);
+        $apartment->update($data);
+
+        return redirect()->route('admin.apartments.show', $apartment)->with('message', "Hai aggiornato con successo: $apartment->title");
     }
 
     /**
@@ -79,8 +96,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
+
+        return redirect()->route('admin.apartments.index')->with('message', "Hai eliminato con successo: $apartment->title");
     }
 }
