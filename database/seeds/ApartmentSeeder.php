@@ -23,7 +23,7 @@ class ApartmentSeeder extends Seeder
             $apartment = new Apartment();
             
             $apartment->user_id = Arr::random($user_ids);
-            $apartment->service_id = Arr::random($service_ids);
+            $apartment->service_ids = Arr::random($service_ids);
             $apartment->title = $faker->sentence();
             $apartment->rooms = $faker->numberBetween(1, 20);
             $apartment->bathrooms = $faker->numberBetween(1, 6);
