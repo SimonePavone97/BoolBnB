@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -73,8 +74,15 @@ class ApartmentController extends Controller
         $data = $request->all();
 
         // $apartment['slug'] = Str::slug($request->title, '-');
+
+        if(array_key_exists('image', $data)){
+            if($apartment->image) Storage::delete($apartment->image);
+            $image_url = Storage::put('apartment_images', $data['image']);
+            $data['image'] = $image_url;
+        };
+        //php artisan storage:link
         
-        if( array_key_exists('services', $data)) $apartment->tags()->sync( $data['services']);
+        if( array_key_exists('services', $data)) $apartment->services()->sync( $data['services']);
 
         $apartment->fill($data);
         $apartment->update($data);
