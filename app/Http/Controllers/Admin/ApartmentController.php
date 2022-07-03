@@ -30,7 +30,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+
+        return view('admin.apartments.create', compact('services'));
     }
 
     /**
@@ -41,7 +43,17 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $apartment = new Apartment();
+
+        $apartment->fill($data);
+        $apartment->visibility = true;
+        $apartment->longitude = 40.00000;
+        $apartment->latitude = 40.00000;
+        $apartment->save();
+
+        return redirect()->route('admin.apartments.index');
     }
 
     /**
