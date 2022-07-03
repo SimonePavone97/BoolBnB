@@ -14,7 +14,7 @@
           <span class="card-text">Rooms: {{ $apartment->rooms }}</span>
           <span class="card-text">Bathrooms: {{ $apartment->bathrooms }}</span>
           <span class="card-text">Beds: {{ $apartment->beds }}</span>
-          <span class="card-text">Mq: {{ $apartment->Mq }}</span>
+          <span class="card-text">Mq: {{ $apartment->mq }}</span>
         </div>
 
         <span>Services:</span>
