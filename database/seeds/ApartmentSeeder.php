@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Models\Apartment;
+use App\Models\Service;
 use App\User;
 use Illuminate\Support\Arr;
 
@@ -16,11 +17,13 @@ class ApartmentSeeder extends Seeder
     public function run(Faker $faker)
     {
         $user_ids = User::pluck('id')->toArray();
+        $service_ids = Service::pluck('id')->toArray();
 
         for ($i = 0; $i < 10; $i++) {
             $apartment = new Apartment();
             
             $apartment->user_id = Arr::random($user_ids);
+            $apartment->service_id = Arr::random($service_ids);
             $apartment->title = $faker->sentence();
             $apartment->rooms = $faker->numberBetween(1, 20);
             $apartment->bathrooms = $faker->numberBetween(1, 6);
