@@ -16,7 +16,7 @@ class StatSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $apartment_ids = Apartment::pluck('id')->toArray;
+        $apartment_ids = Apartment::pluck('id')->toArray();
 
         for ($i = 0; $i < 10; $i++) {
             $stat = new Stat();
