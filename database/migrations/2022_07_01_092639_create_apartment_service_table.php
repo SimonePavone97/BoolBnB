@@ -13,7 +13,7 @@ class CreateApartmentServiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartment_service', function (Blueprint $table) {
+        Schema::create('apartment_services', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('apartment_id');
