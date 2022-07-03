@@ -43,6 +43,7 @@
                     <td class="d-flex">
                         <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Details</a>
                         <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a>
+                        <a class="btn btn-success" href="{{ route('admin.sponsorship.index', $apartment->id) }}">Sponsor</a>
                     </td>
 
                 </tr>
