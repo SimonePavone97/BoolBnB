@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Models\Service;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -49,9 +50,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apartment $apartment)
     {
-        //
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -62,7 +63,11 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $services = Service::all();
+
+        $apartment_services_id = $apartment->services->pluck('id')->toArray();
+
+        return view('admin.apartments.edit', compact('apartment','services', 'apartment_services_id'));
     }
 
     /**
