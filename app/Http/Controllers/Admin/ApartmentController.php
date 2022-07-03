@@ -68,9 +68,18 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        $data = $request->all();
+
+        // $apartment['slug'] = Str::slug($request->title, '-');
+        
+        if( array_key_exists('services', $data)) $apartment->tags()->sync( $data['services']);
+
+        $apartment->fill($data);
+        $apartment->update($data);
+
+        return redirect()->route('admin.apartments.show', $apartment)->with('message', "Hai aggiornato con successo: $apartment->title");
     }
 
     /**
