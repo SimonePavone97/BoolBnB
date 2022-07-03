@@ -18,11 +18,13 @@
         </div>
 
         <span>Services:</span>
+        <ul>
         @forelse($apartment->services as $service)
-          <span  class="badge badge-pill">{{$service->name}}</span>
+          <li>{{$service->name}}</li>
         @empty
-          <h3>There are no reported services</h3>
+          <li>There are no reported services</li>
         @endforelse
+        </ul>
 
         <div>
           <button type="button" class="btn btn-primary my-2"><a class="text-white" href="{{route('admin.apartments.edit', $apartment->id)}}">Update</a></button>
