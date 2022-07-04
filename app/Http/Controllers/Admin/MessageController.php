@@ -17,7 +17,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
@@ -59,9 +61,9 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        $messages = Message::all();
+        // $messages = Message::all();
 
-        return view('admin.messages.show', compact('messages'));
+        // return view('admin.messages.show', compact('messages'));
     }
     
     /**
@@ -97,6 +99,6 @@ class MessageController extends Controller
     {
         $message->delete();
 
-        return redirect()->route('admin.apartments.show')->with('message', "Hai eliminato con successo il messaggio di: $message->sender");
+        return redirect()->route('admin.messages.index')->with('message', "Hai eliminato con successo il messaggio di: $message->sender");
     }
 }

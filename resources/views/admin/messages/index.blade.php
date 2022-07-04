@@ -4,6 +4,12 @@
 
 <div class="container">
 
+    @if (session('message'))
+    <div class="alert alert-danger">
+        {{ session('message') }}
+    </div>
+    @endif
+
     <h1 class="text-center m-3">Messages</h1>
 
     <div>
@@ -33,13 +39,14 @@
                     </td>
                 </tr>
             @empty
-                <p>No messages</p>
+                <p class="text-center font-weight-bold text-danger">No messages for this apartment</p>
             @endforelse
             </tbody>
         </table>
 
     </div>
 
-    <a href=" {{route('admin.messages.create')}} " class="btn btn-success mb-2">Create message</a>
+    {{-- Bottone provvisorio, in attesa di fare la pagina apposta dove inserirlo nel frontend --}}
+    <a href=" {{route('admin.messages.create')}} " class="btn btn-success mb-2">Create message</a>  
     
 <div>
