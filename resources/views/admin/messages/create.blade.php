@@ -19,7 +19,8 @@
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email" required>
+            <input type="text" class="form-control" id="email" name="email" required
+            value="{{ old('email', $user->email) }}">
         </div>
 
         <button type="submit" class="btn btn-primary">Invia messaggio</button>
