@@ -33,6 +33,7 @@
             @method('DELETE')
             <button type='submit' class="btn btn-primary">Delete</button>
           </form>
+          <button type="button" class="btn btn-secondary my-2"><a class="text-white" href="{{route('admin.messages.show', $apartment->id)}}">View messages</a></button>
         </div>
       </div>
     </div>
