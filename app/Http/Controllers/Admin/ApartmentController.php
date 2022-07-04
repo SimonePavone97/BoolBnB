@@ -8,6 +8,7 @@ use App\Models\Apartment;
 use App\Models\Service;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -48,6 +49,7 @@ class ApartmentController extends Controller
         $apartment = new Apartment();
 
         $apartment->fill($data);
+        $apartment->user_id = Auth::id();
         $apartment->visibility = true;
         $apartment->longitude = 40.00000;
         $apartment->latitude = 40.00000;
