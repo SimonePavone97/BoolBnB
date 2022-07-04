@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Service;
@@ -19,7 +20,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $apartments = DB::table('apartments')->where('user_id', Auth::id())->get();
 
         return view('admin.apartments.index', compact('apartments'));
     }
@@ -81,7 +82,12 @@ class ApartmentController extends Controller
 
         $apartment_services_id = $apartment->services->pluck('id')->toArray();
 
-        return view('admin.apartments.edit', compact('apartment','services', 'apartment_services_id'));
+        if ($apartment->user_id == Auth::id()) {
+            return view('admin.apartments.edit', compact('apartment','services', 'apartment_services_id'));
+        } else {
+            // Sostituire con 404
+            abort(404);
+        }
     }
 
     /**
@@ -120,7 +126,9 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        $apartment->delete();
+        if ($apartment->user_id == Auth::id()) {
+            $apartment->delete();
+        }
 
         return redirect()->route('admin.apartments.index')->with('message', "Hai eliminato con successo: $apartment->title");
     }
