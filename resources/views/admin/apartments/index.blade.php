@@ -43,6 +43,11 @@
                     <td class="d-flex">
                         <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Details</a>
                         <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a>
+                        <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="post" class="delete-form" data-title="{{ $apartment->title }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type='submit' class="btn btn-primary">Delete</button>
+                        </form>
                         <a class="btn btn-success" href="{{ route('admin.sponsorship.index', $apartment->id) }}">Sponsor</a>
                     </td>
 
