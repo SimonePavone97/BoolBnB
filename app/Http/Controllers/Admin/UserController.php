@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -47,7 +48,12 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('admin.user.show', compact('user'));
+        if ($user->id == Auth::id()) {
+            return view('admin.user.show', compact('user'));
+        } else {
+            // Sostituire con 404
+            abort(404);
+        }
     }
 
     /**
@@ -58,7 +64,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.user.edit', compact('user'));
+        if ($user->id == Auth::id()) {
+            return view('admin.user.edit', compact('user'));
+        } else {
+            // Sostituire con 404
+            abort(404);
+        }
     }
 
     /**
