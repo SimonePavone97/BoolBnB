@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Apartment;
 use App\Models\Message;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,7 +17,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
@@ -25,7 +29,10 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $apartment = Apartment::all();
+
+        return view('admin.messages.create', compact('user','apartment'));
     }
 
     /**
@@ -36,7 +43,14 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $message = new Message();
+
+        $message->fill($data);
+        $message->save();
+
+        return redirect()->route('admin.apartments.index');
     }
 
     /**
@@ -45,11 +59,13 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Message $message)
     {
-        //
-    }
+        // $messages = Message::all();
 
+        // return view('admin.messages.show', compact('messages'));
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -79,8 +95,10 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Message $message)
     {
-        //
+        $message->delete();
+
+        return redirect()->route('admin.messages.index')->with('message', "Hai eliminato con successo il messaggio di: $message->sender");
     }
 }
