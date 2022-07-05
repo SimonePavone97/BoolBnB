@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -44,9 +45,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('admin.user.show', compact('user'));
     }
 
     /**
@@ -55,9 +56,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -67,9 +68,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $data = $request->all();
+
+        // $apartment['slug'] = Str::slug($request->title, '-');
+
+        $user->fill($data);
+        $user->update($data);
+
+        return redirect()->route('admin.user.show', $user)->with('message', "Hai aggiornato con successo i tuoi dati");
     }
 
     /**
