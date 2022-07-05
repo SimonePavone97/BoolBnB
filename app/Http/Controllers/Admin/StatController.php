@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Stat;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class StatController extends Controller
@@ -14,7 +14,7 @@ class StatController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.stats.index');
     }
 
     /**
@@ -41,10 +41,10 @@ class StatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Stat  $stat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Stat $stat)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class StatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Stat  $stat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Stat $stat)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class StatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Stat  $stat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Stat $stat)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class StatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Stat  $stat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Stat $stat)
+    public function destroy($id)
     {
         //
     }
