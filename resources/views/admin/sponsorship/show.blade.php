@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="text-center">
-    <h3>Stai acquistando la sponsorizzazione {{$sponsorship->name}} a {{$sponsorship->price}}€ e durerà per {{$sponsorship->duration}} ore</h3>
+    <img class="img-fluid" src="https://play-lh.googleusercontent.com/1zfN_BL13q20v0wvBzMWiZ_sL_t4KcCJBeAMRpOZeT3p34quM-4-pO-VcLj8PJNXPA0" alt="">
+    <h3 class="mt-5">Stai acquistando la sponsorizzazione {{$sponsorship->name}} a {{$sponsorship->price}}€ e durerà per {{$sponsorship->duration}} ore</h3>
 </div>
 
 <div id="dropin-container" class="d-flex justify-content-center">
