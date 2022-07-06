@@ -37,6 +37,11 @@
         <label for="birth_date">Birthday:</label>
         <input type="date" name="birth_date" class="form-control" value="{{ old('birth_date', $user->birth_date) }}" id="birth_date" required>
       </div>
+
+      <div class="form-group col-6">
+        <label for="email">Email:</label>
+        <input type="text" name="email" class="form-control" value="{{ old('email', $user->email) }}" id="email" required>
+      </div>
   
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Update</button>
