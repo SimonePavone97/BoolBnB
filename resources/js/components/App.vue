@@ -1,20 +1,16 @@
 <template>
     <div>
-        <main>
-            <div class="container">
-                <router-view></router-view>
-            </div>
-        </main>
+        <HeaderComp/>
     </div>
 </template>
 
 <script>
-    import HomePage from './pages/HomePage.vue';
-
+    import HeaderComp from './pages/HeaderComp.vue';
+    
     export default {
         name: "App",
         components: {
-            HomePage
+            HeaderComp
         }
     }
 </script>
