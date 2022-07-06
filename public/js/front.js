@@ -102,6 +102,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
@@ -121,6 +124,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -623,7 +629,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("HeaderComp")], 1)
+  return _c(
+    "div",
+    [_c("HeaderComp"), _vm._v(" "), _c("div", { staticClass: "container" })],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -655,31 +665,50 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("nav", { staticClass: "navbar navbar-light bg-light" }, [
-        _c("img", { attrs: { src: "", alt: "" } }),
-        _vm._v(" "),
-        _c("a", { staticClass: "navbar-brand" }, [_vm._v("Navbar")]),
-        _vm._v(" "),
-        _c("form", { staticClass: "form-inline" }, [
-          _c("input", {
-            staticClass: "form-control mr-sm-2",
+      _c(
+        "nav",
+        {
+          staticClass:
+            "d-flex justify-content-around align-items-center mt-2 navbar-light bg-light",
+        },
+        [
+          _c("img", {
             attrs: {
-              type: "search",
-              placeholder: "Search",
-              "aria-label": "Search",
+              src: "https://www.theriver.asia/wp-content/uploads/2020/01/pngkey.com-airbnb-logo-png-605967.png",
+              alt: "",
+              width: "50px",
             },
           }),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-success my-2 my-sm-0",
-              attrs: { type: "submit" },
-            },
-            [_vm._v("Search")]
-          ),
-        ]),
-      ]),
+          _c("form", { staticClass: "form-inline" }, [
+            _c("input", {
+              staticClass: "form-control mr-sm-2",
+              attrs: {
+                type: "search",
+                placeholder: "Search",
+                "aria-label": "Search",
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success my-2 my-sm-0",
+                attrs: { type: "submit" },
+              },
+              [_vm._v("Search")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("a", { staticClass: "mr-3", attrs: { href: "#" } }, [
+              _vm._v("Logout"),
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Dashboard")]),
+          ]),
+        ]
+      ),
     ])
   },
 ]
