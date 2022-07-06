@@ -1999,6 +1999,16 @@ __webpack_require__.r(__webpack_exports__);
   name: 'HomePage',
   components: {
     Header: _components_Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    queryFunDad: function queryFunDad(query) {
+      var _this = this;
+
+      axios.get("http://127.0.0.1:8000/api/apartments/".concat(this.$route.params.id)).then(function (res) {
+        console.log(res);
+        _this.saveApiArrayApartments = res.data.results;
+      });
+    }
   }
 });
 
