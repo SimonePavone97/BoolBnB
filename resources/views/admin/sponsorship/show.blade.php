@@ -2,10 +2,12 @@
 
 @section('content')
 
-<div id="dropin-container">
+<div id="dropin-container" class="d-flex justify-content-center">
 
 </div>
-<button id="submit-button" type="submit" class="btn btn-success">Acquista</button>
+<div class="text-center">
+    <button id="submit-button" type="submit" class="btn btn-success">Acquista</button>   
+</div>
 
 @endsection
 

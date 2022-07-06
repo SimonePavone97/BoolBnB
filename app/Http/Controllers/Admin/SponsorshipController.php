@@ -46,9 +46,10 @@ class SponsorshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sponsorship $sponsorship)
     {
-        //
+        $sponsorship = Sponsorship::all();
+        return view('admin.sponsorship.show', compact('sponsorship'));
     }
 
     /**
