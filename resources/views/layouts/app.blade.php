@@ -73,7 +73,7 @@
         </nav>
     </header>
     
-    <main class="my-4">
+    <main>
         @yield('content')
     </main>
 

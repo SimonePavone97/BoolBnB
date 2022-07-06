@@ -16,6 +16,7 @@
     <div class="container">
         <div class="dashboard-content">
             <div class="row">
+                {{-- Action --}}
                 <div class="col-4">
                     <div class="dashboard-action">
                         <ul>
@@ -44,6 +45,39 @@
                                 </a>
                             </li>
                         </ul>
+                    </div>
+                </div>
+
+                <div class="col-8 d-flex">
+                    {{-- Annunci --}}
+                    <div class="infobox">
+                        <div class="infobox-text">
+                            <h2>0</h2>
+                            <p>Annunci</p>
+                        </div>
+                        <div class="infobox-icon">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                    </div>
+                    {{-- Messaggi --}}
+                    <div class="infobox">
+                        <div class="infobox-text">
+                            <h2>0</h2>
+                            <p>Messaggi</p>
+                        </div>
+                        <div class="infobox-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </div>
+                    {{-- Visualizzazioni --}}
+                    <div class="infobox">
+                        <div class="infobox-text">
+                            <h2>0</h2>
+                            <p>Annunci</p>
+                        </div>
+                        <div class="infobox-icon">
+                            <i class="fa-regular fa-eye"></i>
+                        </div>
                     </div>
                 </div>
             </div>
