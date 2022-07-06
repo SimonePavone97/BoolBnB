@@ -11,7 +11,7 @@ export default {
     // emit per portare una funz da padre a figlio 
     // props per portare da figlio a padre
     props: {
-        apartment: Object,
+        apartment: Array,
     },
     
     data() {
