@@ -2,6 +2,10 @@
 
 @section('content')
 
+<div class="text-center">
+    <h3>Stai acquistando la sponsorizzazione {{$sponsorship->name}} a {{$sponsorship->price}}€ e durerà per {{$sponsorship->duration}} ore</h3>
+</div>
+
 <div id="dropin-container" class="d-flex justify-content-center">
 
 </div>

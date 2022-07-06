@@ -11,8 +11,8 @@
                 <div class="card-body">
                     <h4 class="card-title">{{$sponsorship->name}}</h4>
                     <h5 class="card-title">{{$sponsorship->price}}€</h5>
-                    <h5 class="card-title">{{$sponsorship->duration}}/h</h5>
-                    <a href="{{route('admin.sponsorship.show', $sponsorship)}}" class="btn btn-primary">Acquista</a>
+                    <h5 class="card-title">{{$sponsorship->duration}}h</h5>
+                    <a href="{{route('admin.sponsorship.show', $sponsorship)}}" class="btn btn-danger">Acquista</a>
                 </div>
             </div>
         @endforeach

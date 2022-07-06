@@ -48,7 +48,6 @@ class SponsorshipController extends Controller
      */
     public function show(Sponsorship $sponsorship)
     {
-        $sponsorship = Sponsorship::all();
         return view('admin.sponsorship.show', compact('sponsorship'));
     }
 
