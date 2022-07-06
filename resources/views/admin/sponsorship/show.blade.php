@@ -7,12 +7,16 @@
     <h3 class="mt-5">Stai acquistando la sponsorizzazione {{$sponsorship->name}} a {{$sponsorship->price}}€ e durerà per {{$sponsorship->duration}} ore</h3>
 </div>
 
-<div id="dropin-container" class="d-flex justify-content-center">
+<form action=" {{route('admin.apartmentSponsorship.store')}}"> 
+    <div id="dropin-container" class="d-flex justify-content-center">
+    </div>
+    <div class="text-center">
+        <button id="submit-button" type="submit" class="btn btn-success">Acquista</button>   
+    </div>
+</form>
 
-</div>
-<div class="text-center">
-    <button id="submit-button" type="submit" class="btn btn-success">Acquista</button>   
-</div>
+
+
 
 @endsection
 
