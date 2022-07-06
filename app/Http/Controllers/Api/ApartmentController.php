@@ -16,7 +16,7 @@ class ApartmentController extends Controller
     public function index()
     {
         
-        $apartment = Apartment::orderBy('updated_at', 'DESC')->with('Service');
+        $apartment = Apartment::orderBy('updated_at', 'DESC')->with('services');
         //->paginate(5);
 
         return response()->json( compact('apartment') );
@@ -52,7 +52,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
         // in questa pag, grazie a slug (o id o qualsiasi cosa voglio), mi salvo lo spacifico id di riferimento
-        $apartment = Apartment::where('id', $id)->with('Service')->first();
+        $apartment = Apartment::where('id', $id)->with('services')->first();
         //if(!$apartment) return response('apartment not found', 404);
 
         // tale query la passo ora nel json. Verrà generata un Api: api/apartments/id(di riferimento)

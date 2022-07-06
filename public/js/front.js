@@ -1947,6 +1947,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentDetailPage',
@@ -1962,17 +1963,17 @@ __webpack_require__.r(__webpack_exports__);
 
       // il routing mi permette di usare $route che mi da determinate info (this.$route è parte di vue)
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments/".concat(this.$route.params.id)).then(function (res) {
-        console.log(res.data);
-        _this.post = res.data;
+        console.log("res.data");
+        _this.apartment = res.data;
       })["catch"](function (err) {
         console.log(err);
         _this.isError = true;
       });
-    },
-    mounted: function mounted() {
-      this.getApartment();
-      console.log(this.$route);
     }
+  },
+  mounted: function mounted() {
+    this.getApartment();
+    console.log("this.$route");
   }
 });
 
@@ -3193,6 +3194,8 @@ var render = function () {
   return _c("div", [
     _vm._v("\n    ciaooooooooooooooo\n    "),
     _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.apartment.service.name))]),
   ])
 }
 var staticRenderFns = []
