@@ -11,7 +11,7 @@
 
         <!-- Styles -->
         <style>
-            html, body {
+            /* html, body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
@@ -60,7 +60,7 @@
 
             .m-b-md {
                 margin-bottom: 30px;
-            }
+            } */
         </style>
     </head>
     <body>
