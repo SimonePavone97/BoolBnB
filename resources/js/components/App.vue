@@ -1,23 +1,21 @@
 <template>
     <div>
-        <HomePage/>
         <div class="container">
-            
+            <router-view></router-view>
         </div>
     </div>
 </template>
 
 <script>
-import HomePage from './pages/HomePage.vue';
 
 export default {
     name: "App",
     components: {
-        HomePage
+
     }
 }
 </script>
 
-<style scoped>
+<style lang="scss">
     
 </style>

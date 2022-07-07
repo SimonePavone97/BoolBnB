@@ -7,8 +7,8 @@
         <p>Codice errore: 404</p>
         <span>Ecco qualche link utile:</span>
         <ul>
-          <li><span class="text-black" @click="$router.back()">Indietro</span></li>
-          <li><router-link class="td-none text-black" :to="{name: 'home'}">Home</router-link></li>
+          <li><span class="text-dark" @click="$router.back()">Indietro</span></li>
+          <li><router-link class="td-none text-dark" :to="{name: 'home'}">Home</router-link></li>
         </ul>
       </div>
       <div id="omino-404">
@@ -27,7 +27,6 @@ export default{
 <style lang="scss" scoped>
 // text decoration none
 .td-none{text-decoration: none;}
-.text-black{color: #000;}
 
 #not-found{
   &__text{
