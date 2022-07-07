@@ -10,10 +10,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
-<<<<<<< HEAD
+
         
 
-=======
+
         <!-- Styles -->
         <style>
             /* html, body {
@@ -67,7 +67,7 @@
                 margin-bottom: 30px;
             } */
         </style>
->>>>>>> 765ff6dcde9b798373641c2732c9e7ab7db9ca6f
+
     </head>
     <body>
         <div class="text-center">

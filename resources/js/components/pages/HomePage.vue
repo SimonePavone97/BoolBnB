@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-=======
+
+
 <template>
     <div>
         <Header @queryFunSon="queryFunDad" />
@@ -48,5 +48,6 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
->>>>>>> 765ff6dcde9b798373641c2732c9e7ab7db9ca6f
+
