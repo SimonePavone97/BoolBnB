@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div id="omino-404">
-        <img src="../../../../public/assets/img/404.png" alt="page not found">
+        <img src="../../../images/404.png" alt="page not found">
       </div>
     </div>
   </div>
