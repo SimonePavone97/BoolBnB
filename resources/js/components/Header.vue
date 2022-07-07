@@ -2,7 +2,7 @@
     <div>
         <nav class="d-flex justify-content-around align-items-center mt-2 navbar-light bg-light">
             <div class="d-flex">
-                <img src="../../../public/images/logo.png" alt="logo-Airbnb" width="70px">
+                <img src="../../images/logo.png" alt="logo-Airbnb" width="70px">
                 <form class="form-inline">
                     <input type="text" v-model="querySon" @keydown.enter.prevent="$emit('queryFunSon', querySon)">
                     <button @click.prevent="$emit('queryFunSon', querySon)" type="button"

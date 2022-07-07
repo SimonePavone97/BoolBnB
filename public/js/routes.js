@@ -3211,7 +3211,13 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "d-flex" }, [
-          _c("img", { attrs: { src: "", alt: "logo-Airbnb", width: "70px" } }),
+          _c("img", {
+            attrs: {
+              src: __webpack_require__(/*! ../../images/logo.png */ "./resources/images/logo.png"),
+              alt: "logo-Airbnb",
+              width: "70px",
+            },
+          }),
           _vm._v(" "),
           _c("form", { staticClass: "form-inline" }, [
             _c("input", {
@@ -3404,7 +3410,7 @@ var staticRenderFns = [
     return _c("div", { attrs: { id: "omino-404" } }, [
       _c("img", {
         attrs: {
-          src: __webpack_require__(/*! ../../../../public/assets/img/404.png */ "./public/assets/img/404.png"),
+          src: __webpack_require__(/*! ../../../images/404.png */ "./resources/images/404.png"),
           alt: "page not found",
         },
       }),
@@ -18760,14 +18766,25 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./public/assets/img/404.png":
-/*!***********************************!*\
-  !*** ./public/assets/img/404.png ***!
-  \***********************************/
+/***/ "./resources/images/404.png":
+/*!**********************************!*\
+  !*** ./resources/images/404.png ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = "/images/404.png?4fe07a44f2a5c969502ac27cbfb369a4";
+
+/***/ }),
+
+/***/ "./resources/images/logo.png":
+/*!***********************************!*\
+  !*** ./resources/images/logo.png ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/logo.png?38f5414b6b8853c33bf1457fc240e65f";
 
 /***/ }),
 
@@ -19114,7 +19131,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
+module.exports = __webpack_require__(/*! C:\Users\gabri\OneDrive\Desktop\esBoolean\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
 
 
 /***/ })
