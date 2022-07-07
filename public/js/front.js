@@ -1992,7 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
 
       // il routing mi permette di usare $route che mi da determinate info (this.$route è parte di vue)
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments/".concat(this.$route.params.id)).then(function (res) {
-        console.log("res.data");
+        console.log(res.data);
         _this.apartment = res.data;
       })["catch"](function (err) {
         console.log(err);
@@ -3343,12 +3343,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n    ciaooooooooooooooo\n    "),
-    _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.apartment.service.name))]),
-  ])
+  return _c(
+    "div",
+    [
+      _vm._v("\n    ciaooooooooooooooo\n    "),
+      _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+      _vm._v(" "),
+      _vm._l(_vm.apartment.services, function (element, index) {
+        return _c("p", [_vm._v(_vm._s(element.name))])
+      }),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -19277,7 +19283,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\gabri\OneDrive\Desktop\esBoolean\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

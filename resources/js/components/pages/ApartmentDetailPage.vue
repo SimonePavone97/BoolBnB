@@ -2,7 +2,7 @@
     <div>
         ciaooooooooooooooo
         <h2>{{ apartment.title }}</h2>
-        <p>{{ apartment.service.name }}</p>
+        <p v-for="(element, index) in apartment.services">{{ element.name }}</p>
     </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
             // il routing mi permette di usare $route che mi da determinate info (this.$route è parte di vue)
             axios.get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.id}`)
                 .then((res) => {
-                    console.log("res.data");
+                    console.log(res.data);
                     this.apartment = res.data;
                 }).catch((err) => {
                     console.log(err);
