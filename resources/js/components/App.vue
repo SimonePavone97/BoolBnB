@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeaderComp/>
+        <HomePage/>
         <div class="container">
             <ApartmentsComp/>
         </div>
@@ -8,15 +8,16 @@
 </template>
 
 <script>
-    import HeaderComp from './pages/HeaderComp.vue';
+    
     import ApartmentsComp from './pages/ApartmentsComp.vue';
+    import HomePage from './pages/HomePage.vue';
     
     export default {
         name: "App",
         components: {
-            HeaderComp,
-            ApartmentsComp
-        }
+            ApartmentsComp,
+            HomePage
+}
     }
 
 </script>

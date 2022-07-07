@@ -1917,6 +1917,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   data: function data() {
@@ -1987,7 +1993,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Header */ "./resources/js/components/Header.vue");
+/* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Header.vue */ "./resources/js/components/Header.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 //
@@ -2012,7 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HomePage',
   components: {
-    Header: _components_Header__WEBPACK_IMPORTED_MODULE_0__["default"] //Apartment
+    Header: _Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"] //Apartment
 
   },
   data: function data() {
@@ -3198,54 +3204,67 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
-    _c("div", { staticClass: "d-flex" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.querySon,
-            expression: "querySon",
-          },
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.querySon },
-        on: {
-          keydown: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            $event.preventDefault()
-            return _vm.$emit("queryFunSon", _vm.querySon)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.querySon = $event.target.value
-          },
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger mx-3",
-          attrs: { type: "button" },
-          on: {
-            click: function ($event) {
-              $event.preventDefault()
-              return _vm.$emit("queryFunSon", _vm.querySon)
-            },
-          },
-        },
-        [_vm._v("cerca")]
-      ),
-    ]),
+  return _c("div", [
+    _c(
+      "nav",
+      {
+        staticClass:
+          "d-flex justify-content-around align-items-center mt-2 navbar-light bg-light",
+      },
+      [
+        _c("div", { staticClass: "d-flex" }, [
+          _c("img", { attrs: { src: "", alt: "logo-Airbnb", width: "70px" } }),
+          _vm._v(" "),
+          _c("form", { staticClass: "form-inline" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.querySon,
+                  expression: "querySon",
+                },
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.querySon },
+              on: {
+                keydown: function ($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  $event.preventDefault()
+                  return _vm.$emit("queryFunSon", _vm.querySon)
+                },
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.querySon = $event.target.value
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger mx-3",
+                attrs: { type: "button" },
+                on: {
+                  click: function ($event) {
+                    $event.preventDefault()
+                    return _vm.$emit("queryFunSon", _vm.querySon)
+                  },
+                },
+              },
+              [_vm._v("cerca")]
+            ),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []

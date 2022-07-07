@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Header from '../../components/Header'
+import Header from '../Header.vue'
 //import Apartment from '../subFolder/Apartment'
 import axios from 'axios'
 
