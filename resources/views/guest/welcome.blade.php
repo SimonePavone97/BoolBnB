@@ -4,10 +4,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD
         <title>Boolbnb</title>
+=======
+        <title>BoolBnB</title>
+>>>>>>> b82e43b15e1ba4b97fd4fc32b05406e46fc23145
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+
+        
+
 
         <!-- Styles -->
         <style>
@@ -62,9 +71,10 @@
                 margin-bottom: 30px;
             } */
         </style>
+
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="text-center">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -86,5 +96,6 @@
             </div>
         </div>
         <script src="{{ asset('js/front.js') }}"></script>
+        
     </body>
 </html>
