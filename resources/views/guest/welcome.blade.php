@@ -73,9 +73,9 @@
 
     </head>
     <body>
-        <div class="text-center">
+        <div>
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links text-center">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else

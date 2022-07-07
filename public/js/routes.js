@@ -2086,7 +2086,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".td-none[data-v-490206f6] {\n  text-decoration: none;\n}\n#not-found__text[data-v-490206f6] {\n  flex-basis: 60%;\n  text-align: left;\n}\n#not-found__text h2[data-v-490206f6] {\n  font-size: 3.5rem;\n}\n#not-found__text h3[data-v-490206f6] {\n  font-size: 1.5rem;\n}\n#not-found__text p[data-v-490206f6] {\n  font-weight: bold;\n}\n#not-found__text ul li[data-v-490206f6] {\n  list-style-type: none;\n  margin-left: -2em;\n  text-decoration: none;\n  color: #000;\n  cursor: pointer;\n  background-color: transparent;\n  padding: 0.5em;\n}\n#not-found__text ul li[data-v-490206f6] :hover {\n  padding: 0.5em;\n  color: #fff;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n#not-found #omino-404[data-v-490206f6] {\n  flex-basis: 40%;\n}\n#not-found > div[data-v-490206f6] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
+exports.push([module.i, "#not-found[data-v-490206f6] {\n  height: 100vh;\n}\n#not-found__text h2[data-v-490206f6] {\n  font-size: 3.5rem;\n}\n#not-found__text h3[data-v-490206f6] {\n  font-size: 1.5rem;\n}\n#not-found__text ul li[data-v-490206f6] {\n  cursor: pointer;\n  background-color: transparent;\n  padding: 0.5em;\n}\n#not-found__text ul li[data-v-490206f6] :hover {\n  padding: 0.5em;\n  color: #fff;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n#not-found #omino-404[data-v-490206f6] {\n  display: none;\n}\n@media screen and (min-width: 700px) {\n#not-found #omino-404[data-v-490206f6] {\n    display: unset;\n}\n}", ""]);
 
 // exports
 
@@ -3360,60 +3360,80 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "not-found" } }, [
-    _c("div", [
-      _c("div", { attrs: { id: "not-found__text" } }, [
-        _c("h2", [_vm._v("Ops!")]),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Non troviamo la pagina che stai cercando.")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Codice errore: 404")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("Ecco qualche link utile:")]),
-        _vm._v(" "),
-        _c("ul", [
-          _c("li", [
-            _c(
-              "span",
-              {
-                staticClass: "text-dark",
-                on: {
-                  click: function ($event) {
-                    return _vm.$router.back()
-                  },
-                },
-              },
-              [_vm._v("Indietro")]
-            ),
-          ]),
-          _vm._v(" "),
+  return _c(
+    "div",
+    {
+      staticClass: "d-flex justify-content-center align-items-center",
+      attrs: { id: "not-found" },
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-left d-flex justify-content-center align-items-center",
+        },
+        [
           _c(
-            "li",
+            "div",
+            { staticClass: "col-8", attrs: { id: "not-found__text" } },
             [
-              _c(
-                "router-link",
-                {
-                  staticClass: "td-none text-dark",
-                  attrs: { to: { name: "home" } },
-                },
-                [_vm._v("Home")]
-              ),
-            ],
-            1
+              _c("h2", [_vm._v("Ops!")]),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Non troviamo la pagina che stai cercando.")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "font-weight-bold" }, [
+                _vm._v("Codice errore: 404"),
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Ecco qualche link utile:")]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "text-dark",
+                      on: {
+                        click: function ($event) {
+                          return _vm.$router.back()
+                        },
+                      },
+                    },
+                    [_vm._v("Indietro")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "text-dark",
+                        attrs: { to: { name: "home" } },
+                      },
+                      [_vm._v("Home")]
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+            ]
           ),
-        ]),
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-    ]),
-  ])
+          _vm._v(" "),
+          _vm._m(0),
+        ]
+      ),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "omino-404" } }, [
+    return _c("div", { staticClass: "col-4", attrs: { id: "omino-404" } }, [
       _c("img", {
         attrs: {
           src: __webpack_require__(/*! ../../../images/404.png */ "./resources/images/404.png"),
