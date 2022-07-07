@@ -161,9 +161,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HeaderComp"
 });
@@ -759,14 +756,6 @@ var staticRenderFns = [
               },
               [_vm._v("Search")]
             ),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("a", { staticClass: "mr-3", attrs: { href: "#" } }, [
-              _vm._v("Login"),
-            ]),
-            _vm._v(" "),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Registrazione")]),
           ]),
         ]
       ),

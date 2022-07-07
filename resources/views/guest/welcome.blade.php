@@ -10,11 +10,13 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
+        
+
     </head>
     <body>
-        <!--<div class="flex-center position-ref full-height">
+        <div class="text-center ">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="badge badge-primary">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -25,7 +27,7 @@
                         @endif
                     @endauth
                 </div>
-            @endif-->
+            @endif
 
             <div class="content">
                 
