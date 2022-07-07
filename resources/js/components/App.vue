@@ -1,11 +1,9 @@
 <template>
     <div>
-        <main>
-            <div class="container">
-            <HomePage/>
-            <router-view></router-view>
-            </div>
-        </main>
+        <HomePage/>
+        <div class="container">
+            
+        </div>
     </div>
 </template>
 

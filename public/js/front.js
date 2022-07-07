@@ -1903,10 +1903,37 @@ module.exports = {
 /*!**************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/App.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************/
+<<<<<<< HEAD
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\resources\\js\\components\\App.vue: Unexpected token (19:0)\n\n\u001b[0m \u001b[90m 17 |\u001b[39m \u001b[90m//\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 20 |\u001b[39m     \u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m     \u001b[36mimport\u001b[39m \u001b[33mApartmentsComp\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'./pages/ApartmentsComp.vue'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m     \u001b[36mimport\u001b[39m \u001b[33mHomePage\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'./pages/HomePage.vue'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at instantiate (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:359:12)\n    at Parser.raise (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:3339:19)\n    at Parser.unexpected (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:3377:16)\n    at Parser.parseExprAtom (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:13123:22)\n    at Parser.parseExprSubscripts (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12648:23)\n    at Parser.parseUpdate (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12627:21)\n    at Parser.parseMaybeUnary (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12598:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12392:61)\n    at Parser.parseExprOps (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12399:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12369:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12321:21)\n    at Parser.parseExpressionBase (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12257:23)\n    at C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12251:39\n    at Parser.allowInAnd (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14346:16)\n    at Parser.parseExpression (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:12251:17)\n    at Parser.parseStatementContent (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14786:23)\n    at Parser.parseStatement (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14643:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:15286:25)\n    at Parser.parseBlockBody (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:15277:10)\n    at Parser.parseProgram (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14561:10)\n    at Parser.parseTopLevel (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:14548:25)\n    at Parser.parse (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:16556:10)\n    at parse (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\parser\\lib\\index.js:16608:38)\n    at parser (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\core\\lib\\parser\\index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:87:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\@babel\\core\\lib\\transform.js:25:41)\n    at transform.next (<anonymous>)\n    at step (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\gensync\\index.js:261:32)\n    at C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\gensync\\index.js:273:13\n    at async.call.result.err.err (C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\gensync\\index.js:223:11)\n    at C:\\Users\\Ludovica\\Desktop\\corso_boolean\\esercizi\\BoolBnB\\node_modules\\gensync\\index.js:189:28");
+=======
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pages_HomePage_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/HomePage.vue */ "./resources/js/components/pages/HomePage.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "App",
+  components: {
+    HomePage: _pages_HomePage_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+>>>>>>> d9cc4e9cd77a6c9bf7cc15ee272ceda5f7896dce
 
 /***/ }),
 
@@ -3215,17 +3242,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _vm._v("\n<<<<<<< HEAD\n        "),
-      _c("HomePage"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [_c("ApartmentsComp")], 1),
-      _vm._v("\n=======\n        "),
-      _c("main", [
-        _c("div", { staticClass: "container" }, [_c("router-view")], 1),
-      ]),
-      _vm._v("\n>>>>>>> a3d30ec979559a23091758eb66dc4011a9265d71\n    "),
-    ],
+    [_c("HomePage"), _vm._v(" "), _c("div", { staticClass: "container" })],
     1
   )
 }
