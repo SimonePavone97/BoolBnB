@@ -50,3 +50,4 @@
     <a href=" {{route('admin.messages.create')}} " class="btn btn-success mb-2">Create message</a>  
     
 <div>
+@endsection
