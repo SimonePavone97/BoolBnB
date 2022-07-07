@@ -14,9 +14,9 @@
 
     </head>
     <body>
-        <div class="text-center ">
+        <div class="text-center">
             @if (Route::has('login'))
-                <div class="badge badge-primary">
+                <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
