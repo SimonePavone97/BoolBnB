@@ -33,7 +33,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="{{ route('admin.apartments.create') }}">
                                     <i class="fa-solid fa-plus"></i>
                                     Pubblica un annuncio
                                 </a>
