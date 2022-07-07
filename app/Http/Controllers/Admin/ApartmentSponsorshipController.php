@@ -36,17 +36,17 @@ class ApartmentSponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->All();
 
         $apartment_sponsorship = new ApartmentSponsorship();
 
         $apartment_sponsorship->fill($data);
-        $apartment_sponsorship->apartment_id;
-        $apartment_sponsorship->sponsorship_id;
+        $apartment_sponsorship->apartment_id = $apartment->id;
+        $apartment_sponsorship->sponsorship_id = $sponsorhip->id;
         $apartment_sponsorship->end_sponsorship;
         $apartment_sponsorship->save();
 
-        return redirect()->route('admin.apartments.index');
+        return redirect()->route('admin.sponsorship.index')->with('message', "Pagamento avvenuto con successo");
     }
 
     /**
