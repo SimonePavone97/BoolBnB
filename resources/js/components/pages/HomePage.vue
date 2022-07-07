@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <Header @queryFunSon="queryFunDad" />
@@ -48,6 +46,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
-
