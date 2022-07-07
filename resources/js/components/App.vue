@@ -1,26 +1,24 @@
 <template>
     <div>
-        <HeaderComp/>
-        <div class="container">
-            <ApartmentsComp/>
-        </div>
+        <main>
+            <div class="container">
+                <router-view></router-view>
+            </div>
+        </main>
     </div>
 </template>
 
 <script>
-    import HeaderComp from './pages/HeaderComp.vue';
-    import ApartmentsComp from './pages/ApartmentsComp.vue';
-    
+    import HomePage from './pages/HomePage.vue';
+
     export default {
         name: "App",
         components: {
-            HeaderComp,
-            ApartmentsComp
+            HomePage
         }
     }
-
 </script>
 
 <style scoped>
-
+    
 </style>

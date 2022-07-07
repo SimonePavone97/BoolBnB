@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<<<<<<< HEAD
+        <title>Boolbnb</title>
+=======
         <title>BoolBnB</title>
+>>>>>>> b82e43b15e1ba4b97fd4fc32b05406e46fc23145
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
