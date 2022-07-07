@@ -37346,9 +37346,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\simon\Desktop\esame finale\BoolBnB\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\esame finale\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> c9e2b3da0432a6a94a30cb24c4f1b685a0067499
+=======
+__webpack_require__(/*! C:\Users\gabri\OneDrive\Desktop\esBoolean\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\gabri\OneDrive\Desktop\esBoolean\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> origin/inizio-ricerca
+>>>>>>> 765ff6dcde9b798373641c2732c9e7ab7db9ca6f
 
 
 /***/ })
