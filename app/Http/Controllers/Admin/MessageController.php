@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Apartment;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,10 @@ class MessageController extends Controller
      */
     public function index()
     {
+        // $id = DB::table('apartments')->where('user_id', Auth::id())->get();
+
+        // $messages = Message::all()->where('apartment_id', '=', '$id');
+
         $messages = Message::all();
 
         return view('admin.messages.index', compact('messages'));
