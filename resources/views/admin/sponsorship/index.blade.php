@@ -3,28 +3,21 @@
 @section('content')
 <div class="container text-center">
     <h2>Sponsorizzazione</h2>
-    <p>Sponsorizza il tuo contenuto per raggiungere più utenti</p>
-
-    <form action="{{route('admin.sponsorship.index')}}">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="d-flex flex-column">
-                    @foreach ($sponsorship as $sponsorship)
-                        <div class="d-flex">
-                            <input type="radio" aria-label="Radio button for following text input" name="sponsorship" class="d-flex">
-                            <div class="ml-1">
-                                <span>{{$sponsorship->name}}</span>
-                                <span>-</span>
-                                <span>{{$sponsorship->duration}} ore</span>
-                                <span>-</span>
-                                <span>{{$sponsorship->price}} $</span>
-                            </div>  
-                        </div>
-                    @endforeach
-                </div>               
+    <h5>Sponsorizza il tuo contenuto per raggiungere più utenti</h5>
+    <div class="d-flex justify-content-center">
+        @foreach ($sponsorship as $sponsorship)
+            <div class="card mx-2" style="width: 18rem;">
+                <img class="card-img-top" src="https://play-lh.googleusercontent.com/1zfN_BL13q20v0wvBzMWiZ_sL_t4KcCJBeAMRpOZeT3p34quM-4-pO-VcLj8PJNXPA0" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">{{$sponsorship->name}}</h4>
+                    <h5 class="card-title">{{$sponsorship->price}}€</h5>
+                    <h5 class="card-title">{{$sponsorship->duration}}h</h5>
+                    <a href="{{route('admin.sponsorship.show', $sponsorship)}}" class="btn btn-danger">Acquista</a>
+                </div>
             </div>
-        </div>
-        <button type="submit" class="btn btn-success">Acquista</button>
-    </form>
+        @endforeach
+    </div>
 </div>
 @endsection
+
+

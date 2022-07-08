@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Sponsorship;
+use App\Models\ApartmentSponsorship;
 
-class SponsorshipController extends Controller
+class ApartmentSponsorshipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        $sponsorship = Sponsorship::all();
-        return view('admin.sponsorship.index', compact('sponsorship'));
+        //
     }
 
     /**
@@ -42,9 +41,9 @@ class SponsorshipController extends Controller
         $apartment_sponsorship = new ApartmentSponsorship();
 
         $apartment_sponsorship->fill($data);
-        //$apartment_sponsorship->apartment_id;
-        //$apartment_sponsorship->sponsorship_id;
-        //$apartment_sponsorship->end_sponsorship;
+        $apartment_sponsorship->apartment_id = $apartment->id;
+        $apartment_sponsorship->sponsorship_id = $sponsorhip->id;
+        $apartment_sponsorship->end_sponsorship;
         $apartment_sponsorship->save();
 
         return redirect()->route('admin.sponsorship.index')->with('message', "Pagamento avvenuto con successo");
@@ -56,9 +55,9 @@ class SponsorshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Sponsorship $sponsorship)
+    public function show($id)
     {
-        return view('admin.sponsorship.show', compact('sponsorship'));
+        //
     }
 
     /**

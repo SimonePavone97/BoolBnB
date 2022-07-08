@@ -19370,7 +19370,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+module.exports = __webpack_require__(/*! /Users/valentinodestefano/Desktop/BoolBnB/resources/js/front.js */"./resources/js/front.js");
+=======
 module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+>>>>>>> 1181e378d7b9a5fb44702c866d13c66d100fb375
 
 
 /***/ })
