@@ -16,10 +16,10 @@ class ApartmentController extends Controller
     public function index()
     {
         
-        $apartment = Apartment::orderBy('updated_at', 'DESC')->with('services');
+        $apartments = Apartment::all();
         //->paginate(5);
 
-        return response()->json( compact('apartment') );
+        return response()->json( compact('apartments') );
     }
 
     /**
