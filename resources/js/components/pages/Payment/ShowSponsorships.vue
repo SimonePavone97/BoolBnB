@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="container">
-            <div class="" v-if="loading">Loading {{sponsorships}}</div>
-
+            <div class="" v-if="loading">Loading</div>
+            <div v-else>{{sponsorships}}</div>
         </div>
     </div>
 </template>
@@ -27,6 +27,7 @@ export default {
                 .then((res) => {
                     console.log(res.data);
                     this.sponsorships = res.data;
+                    this.loading = false;
                 });
         }
     },
