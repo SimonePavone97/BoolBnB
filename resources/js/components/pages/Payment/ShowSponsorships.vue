@@ -1,17 +1,39 @@
 <template>
     <div>
         <div class="container">
-            <div>test</div>
+            <div class="" v-if="loading">Loading {{sponsorships}}</div>
+
         </div>
     </div>
 </template>
 
 <script>
-
+import axios from 'axios';
 export default {
     name: "ShowSponsorships",
     components: {
 
+    },
+    data(){
+        return {
+            loading: true,
+            sponsorships : []
+        }
+
+    },
+    methods: {
+        getSponsorships(){
+            axios.get('http://localhost:8000/api/sponsorships')
+                .then((res) => {
+                    console.log(res.data);
+                    this.sponsorships = res.data;
+                });
+        }
+    },
+    mounted (){
+        this.loading = true;
+        this.getSponsorships();
+        
     }
 }
 </script>
