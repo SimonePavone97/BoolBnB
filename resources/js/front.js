@@ -1,6 +1,7 @@
 window.Vue = require('vue');
 
 
+
 import Vue from 'vue';
 
 import router from './routes.js';

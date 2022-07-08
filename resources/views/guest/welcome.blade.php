@@ -56,6 +56,12 @@
                 font-size: 84px;
             }
 
+            
+
+            .m-b-md {
+                margin-bottom: 30px;
+            } */
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -65,10 +71,6 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            } */
         </style>
 
     </head>
@@ -95,6 +97,6 @@
             </div>
         </div>
         <script src="{{ asset('js/front.js') }}"></script>
-        
+        <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
