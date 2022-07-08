@@ -2,7 +2,7 @@
     <div>
         ciaooooooooooooooo
         <h2>{{ apartment.title }}</h2>
-        <p v-for="(element, index) in apartment.services">{{ element.name }}</p>
+        <p v-for="element in apartment.services" :key="element.id">{{ element.name }}</p>
     </div>
 </template>
 
