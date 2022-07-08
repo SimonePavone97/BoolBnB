@@ -39,13 +39,13 @@
         </div>
 
         <div class="col-12">
-          <button type="button" class="btn btn-primary my-2"><a class="text-white" href="{{route('admin.apartments.edit', $apartment->id)}}">Update</a></button>
+          <button type="button" class="btn btn-primary my-2"><a class="text-white" href="{{route('admin.apartments.edit', $apartment->id)}}">Modifica</a></button>
           <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="post" class="delete-form" data-title="{{ $apartment->title }}">
             @csrf
             @method('DELETE')
-            <button type='submit' class="btn btn-danger">Delete</button>
+            <button type='submit' class="btn btn-danger">Cancella</button>
           </form>
-          <button type="button" class="btn btn-secondary my-2"><a class="text-white" href="{{route('admin.messages.index', $apartment->id)}}">View messages</a></button>
+          <button type="button" class="btn btn-secondary my-2"><a class="text-white" href="{{route('admin.messages.index', $apartment->id)}}">Vedi i messaggi</a></button>
         </div>
       </div>
     </div>
