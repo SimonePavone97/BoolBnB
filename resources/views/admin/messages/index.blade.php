@@ -10,7 +10,7 @@
     </div>
     @endif
 
-    <h1 class="text-center m-3">Messages</h1>
+    <h1 class="text-center m-3">Messaggi</h1>
 
     <div class="container">
 
