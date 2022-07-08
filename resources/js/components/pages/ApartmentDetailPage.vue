@@ -1,13 +1,32 @@
 <template>
     <div>
-        <Header class="sticky-top"/>
+        <Header class="sticky-top" />
         <h2>{{ apartment.title }}</h2>
         <span>{{ apartment.address }}</span>
-        <img :src="(`${apartment.image}`)" alt="">
+        <img :src="(`${apartment.image}`)" alt="img-apartment" class="w-100 rounded">
 
-        <div class="row">
-            <div class="col-7">
-                <p>{{ apartment.description }}</p>
+        <div class="row justify-content-between mt-4">
+            <div class="col-6">
+                <h3>{{ apartment.description }}</h3>
+                <div>
+                    <!-- <span>{{ apartment.rooms }} camere - {{ apartment.beds }} letti - {{ apartment.bathrooms }} bagni - {{ apartment.mq }} mq</span> -->
+
+                    <span v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
+                    <span v-else>{{ apartment.rooms }} camere - </span>
+
+                    <span v-if="`${apartment.beds}` == 1">{{ apartment.beds }} letto - </span>
+                    <span v-else>{{ apartment.beds }} letti - </span>
+
+                    <span v-if="`${apartment.bathrooms}` == 1">{{ apartment.bathrooms }} bagno - </span>
+                    <span v-else>{{ apartment.bathrooms }} bagni</span>
+
+                    <span>{{ apartment.mq }} mq</span>
+
+                </div>
+
+                <hr>
+
+                <h3>Servizi</h3>
                 <ul>
                     <li v-for="(element, index) in apartment.services">{{ element.name }}</li>
                 </ul>
@@ -76,7 +95,7 @@
             </div>
 
             <div class="col-5">
-                <div class="prova_riquadro_prenota sticky-top mt-3"></div>
+                <div class="prova_riquadro_prenota rounded mt-1"></div>
             </div>
         </div>
     </div>
@@ -128,5 +147,7 @@ export default {
     height: 500px;
     width: 100%;
     background-color: red;
+    position: sticky;
+    top: 50px;
 }
 </style>

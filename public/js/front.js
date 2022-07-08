@@ -2054,6 +2054,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2229,7 +2248,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-color: red;\n}\r\n", ""]);
+exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-color: red;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 50px;\n}\r\n", ""]);
 
 // exports
 
@@ -3531,11 +3550,40 @@ var render = function () {
       _vm._v(" "),
       _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
       _vm._v(" "),
-      _c("img", { attrs: { src: "" + _vm.apartment.image, alt: "" } }),
+      _c("img", {
+        staticClass: "w-100 rounded",
+        attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-7" }, [
-          _c("p", [_vm._v(_vm._s(_vm.apartment.description))]),
+      _c("div", { staticClass: "row justify-content-between mt-4" }, [
+        _c("div", { staticClass: "col-6" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.apartment.description))]),
+          _vm._v(" "),
+          _c("div", [
+            "" + _vm.apartment.rooms == 1
+              ? _c("span", [_vm._v(_vm._s(_vm.apartment.rooms) + " camera - ")])
+              : _c("span", [
+                  _vm._v(_vm._s(_vm.apartment.rooms) + " camere - "),
+                ]),
+            _vm._v(" "),
+            "" + _vm.apartment.beds == 1
+              ? _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letto - ")])
+              : _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letti - ")]),
+            _vm._v(" "),
+            "" + _vm.apartment.bathrooms == 1
+              ? _c("span", [
+                  _vm._v(_vm._s(_vm.apartment.bathrooms) + " bagno - "),
+                ])
+              : _c("span", [
+                  _vm._v(_vm._s(_vm.apartment.bathrooms) + " bagni"),
+                ]),
+            _vm._v(" "),
+            _c("span", [_vm._v(_vm._s(_vm.apartment.mq) + " mq")]),
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Servizi")]),
           _vm._v(" "),
           _c(
             "ul",
@@ -3564,7 +3612,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-5" }, [
-      _c("div", { staticClass: "prova_riquadro_prenota sticky-top mt-3" }),
+      _c("div", { staticClass: "prova_riquadro_prenota rounded mt-1" }),
     ])
   },
 ]
