@@ -1953,6 +1953,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentDetailPage',
@@ -3293,18 +3295,19 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._v("\n    ciaooooooooooooooo\n    "),
-      _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-      _vm._v(" "),
+  return _c("div", [
+    _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+    _vm._v(" "),
+    _c("img", { attrs: { src: "" + _vm.apartment.image, alt: "" } }),
+    _vm._v(" "),
+    _c(
+      "ul",
       _vm._l(_vm.apartment.services, function (element, index) {
-        return _c("p", [_vm._v(_vm._s(element.name))])
+        return _c("li", [_vm._v(_vm._s(element.name))])
       }),
-    ],
-    2
-  )
+      0
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -19157,7 +19160,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
+module.exports = __webpack_require__(/*! C:\Users\gabri\OneDrive\Desktop\esBoolean\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
 
 
 /***/ })

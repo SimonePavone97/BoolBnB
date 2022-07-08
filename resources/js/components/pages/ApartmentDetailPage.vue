@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>{{ apartment.title }}</h2>
-        <img :src=" require(` '${apartment.image}' `) " alt="">
+        <img :src="(`${apartment.image}`)" alt="">
         <ul>
             <li v-for="(element, index) in apartment.services">{{ element.name }}</li>
         </ul>
