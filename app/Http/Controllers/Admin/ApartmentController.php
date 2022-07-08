@@ -11,6 +11,7 @@ use App\Models\Message;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;;
 
 class ApartmentController extends Controller
 {
@@ -53,8 +54,13 @@ class ApartmentController extends Controller
         $apartment->fill($data);
         $apartment->user_id = Auth::id();
         $apartment->visibility = true;
-        $apartment->longitude = 40.00000;
-        $apartment->latitude = 40.00000;
+
+        // Chiamata a TOMTOM API per calcolo latitude e logitude
+        $APIrequest = 'https://api.tomtom.com/search/2/geocode/' . $apartment->address . '.json?key=cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9';
+        $response = Http::get($APIrequest)->json();
+        $apartment->longitude = $response['results'][0]['position']['lon'];
+        $apartment->latitude = $response['results'][0]['position']['lat'];
+
         $apartment->save();
 
         return redirect()->route('admin.apartments.index');
@@ -120,6 +126,13 @@ class ApartmentController extends Controller
         if( array_key_exists('services', $data)) $apartment->services()->sync( $data['services']);
 
         $apartment->fill($data);
+
+        // Chiamata a TOMTOM API per calcolo latitude e logitude
+        $APIrequest = 'https://api.tomtom.com/search/2/geocode/' . $apartment->address . '.json?key=cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9';
+        $response = Http::get($APIrequest)->json();
+        $apartment->longitude = $response['results'][0]['position']['lon'];
+        $apartment->latitude = $response['results'][0]['position']['lat'];
+
         $apartment->update($data);
 
         return redirect()->route('admin.apartments.show', $apartment)->with('message', "Hai aggiornato con successo: $apartment->title");
