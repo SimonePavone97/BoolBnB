@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\Apartment;
 
-class UserController extends Controller
+class ApartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        
+        $apartment = Apartment::orderBy('updated_at', 'DESC')->with('services');
+        //->paginate(5);
+
+        return response()->json( compact('apartment') );
     }
 
     /**
@@ -46,7 +51,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        // in questa pag, grazie a slug (o id o qualsiasi cosa voglio), mi salvo lo spacifico id di riferimento
+        $apartment = Apartment::where('id', $id)->with('services')->first();
+        //if(!$apartment) return response('apartment not found', 404);
+
+        // tale query la passo ora nel json. Verrà generata un Api: api/apartments/id(di riferimento)
+        return response()->json( $apartment );
     }
 
     /**

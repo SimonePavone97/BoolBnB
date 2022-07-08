@@ -4,14 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+
+        <title>Boolbnb</title>
+
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+
+        
+
 
         <!-- Styles -->
         <style>
-            html, body {
+            /* html, body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
@@ -60,13 +68,14 @@
 
             .m-b-md {
                 margin-bottom: 30px;
-            }
+            } */
         </style>
+
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div>
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links text-center">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -86,5 +95,6 @@
             </div>
         </div>
         <script src="{{ asset('js/front.js') }}"></script>
+        
     </body>
 </html>

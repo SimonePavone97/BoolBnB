@@ -1,24 +1,34 @@
 <template>
     <div>
-        <main>
-            <div class="container">
-                <router-view></router-view>
-            </div>
-        </main>
+        <div class="container">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script>
-    import HomePage from './pages/HomePage.vue';
 
-    export default {
-        name: "App",
-        components: {
-            HomePage
-        }
+export default {
+    name: "App",
+    components: {
+
     }
+}
 </script>
 
-<style scoped>
-    
+<style lang="scss">
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
 </style>

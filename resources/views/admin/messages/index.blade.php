@@ -10,17 +10,17 @@
     </div>
     @endif
 
-    <h1 class="text-center m-3">Messages</h1>
+    <h1 class="text-center m-3">Messaggi</h1>
 
-    <div>
+    <div class="container">
 
         <table class="table">
-            <thead class="thead-dark">
+            <thead style="background-color:#ff385c" class="text-white">
                 <tr>
                     <th scope="col">Sender</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Text</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Messaggio</th>
+                    <th scope="col">Azione</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,12 +34,12 @@
                         <form action=" {{ route('admin.messages.destroy', $message->id) }} " method="POST" class="delete-form">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Cancella</button>
                         </form>
                     </td>
                 </tr>
             @empty
-                <p class="text-center font-weight-bold text-danger">No messages for this apartment</p>
+                <p class="text-center font-weight-bold text-danger">Non ci sono messaggi per questo appartamento</p>
             @endforelse
             </tbody>
         </table>
@@ -47,6 +47,7 @@
     </div>
 
     {{-- Bottone provvisorio, in attesa di fare la pagina apposta dove inserirlo nel frontend --}}
-    <a href=" {{route('admin.messages.create')}} " class="btn btn-success mb-2">Create message</a>  
+    <a href=" {{route('admin.messages.create')}} " class="btn btn-success mb-2">Invia un messaggio</a>  
     
 <div>
+@endsection

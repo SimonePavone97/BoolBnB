@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Apartment;
-use App\Models\Message;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class MessageController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +16,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        // $id = DB::table('apartments')->where('user_id', Auth::id())->get();
-
-        // $messages = Message::all()->where('apartment_id', '=', '$id');
-
-        $messages = Message::all();
-
-        return view('admin.messages.index', compact('messages'));
+        //
     }
 
     /**
@@ -34,10 +26,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        $apartment = Apartment::all();
-
-        return view('admin.messages.create', compact('user','apartment'));
+        //
     }
 
     /**
@@ -48,14 +37,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $message = new Message();
-
-        $message->fill($data);
-        $message->save();
-
-        return redirect()->route('admin.apartments.index');
+        //
     }
 
     /**
@@ -64,22 +46,30 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show(User $user)
     {
-        // $messages = Message::all();
-
-        // return view('admin.messages.show', compact('messages'));
+        if ($user->id == Auth::id()) {
+            return view('admin.user.show', compact('user'));
+        } else {
+            // Sostituire con 404
+            abort(404);
+        }
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        if ($user->id == Auth::id()) {
+            return view('admin.user.edit', compact('user'));
+        } else {
+            // Sostituire con 404
+            abort(404);
+        }
     }
 
     /**
@@ -89,9 +79,16 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $data = $request->all();
+
+        // $apartment['slug'] = Str::slug($request->title, '-');
+
+        $user->fill($data);
+        $user->update($data);
+
+        return redirect()->route('admin.user.show', $user)->with('message', "Hai aggiornato con successo i tuoi dati");
     }
 
     /**
@@ -100,10 +97,8 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy($id)
     {
-        $message->delete();
-
-        return redirect()->route('admin.messages.index')->with('message', "Hai eliminato con successo il messaggio di: $message->sender");
+        //
     }
 }
