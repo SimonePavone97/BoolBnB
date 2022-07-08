@@ -1,8 +1,10 @@
 <template>
     <div>
-        ciaooooooooooooooo
         <h2>{{ apartment.title }}</h2>
-        <p v-for="(element, index) in apartment.services">{{ element.name }}</p>
+        <img :src=" require(` '${apartment.image}' `) " alt="">
+        <ul>
+            <li v-for="(element, index) in apartment.services">{{ element.name }}</li>
+        </ul>
     </div>
 </template>
 
