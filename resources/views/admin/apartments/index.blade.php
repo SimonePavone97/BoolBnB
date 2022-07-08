@@ -18,7 +18,7 @@
                 <thead class="text-white" style="background-color:#ff385c">
                     <tr>
                         <th scope="col">Titolo</th>
-                        <th scope="col">Immagine</th>
+                        <th scope="col" class="table-img">Immagine</th>
                         <!-- <th scope="col">Stanze</th>
                         <th scope="col">Bagni</th>
                         <th scope="col">Letti</th>
@@ -34,7 +34,7 @@
                 @forelse ($apartments as $apartment)
                     <tr>
                         <td>{{ $apartment->title }}</td>
-                        <td><img src="{{ $apartment->image }}" alt="Apartment Image" width="100"></td>
+                        <td class="table-img"><img src="{{ $apartment->image }}" alt="Apartment Image" width="100"></td>
                         <!-- <td>{{ $apartment->rooms }}</td>
                         <td>{{ $apartment->bathrooms }}</td>
                         <td>{{ $apartment->beds }}</td>
@@ -42,15 +42,21 @@
                         <td>{{ $apartment->address }}</td>
                         <td>{{ $apartment->description }}</td>
                         <td>{{ $apartment->visibility }}</td>
-                        <td class="d-flex">
-                            <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Details</a>
-                            <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a>
-                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="post" class="delete-form" data-title="{{ $apartment->title }}">
+                        <td class="d-flex flex-wrap">
+                            <div class="col-12 col-md-6">
+                                <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Dettagli</a>
+                            </div>
+                            <!-- <div>
+                                <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Modifica</a>
+                            </div> -->
+                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="post" class="delete-form col-12 col-md-6" data-title="{{ $apartment->title }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type='submit' class="btn btn-danger">Delete</button>
+                                <button type='submit' class="btn btn-danger">Elimina</button>
                             </form>
-                            <a class="btn btn-success" href="{{ route('admin.sponsorship.index', $apartment->id) }}">Sponsor</a>
+                            <div class="col-12">
+                                <a class="btn btn-success" href="{{ route('admin.sponsorship.index', $apartment->id) }}">Sponsorizza</a>
+                            </div>
                         </td>
                     </tr>
                 @empty
