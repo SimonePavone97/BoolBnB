@@ -4,7 +4,7 @@
 <div class="container">
     <h2 class="text-center py-3">Dati utente</h2>
     <div class="card">
-        <div class="card-body d-flef felx-wrap">
+        <div class="card-body d-flex flex-wrap">
 
             <div class="col-12">
                 <span class="card-text">Nome: {{ $user->first_name }}</span>
