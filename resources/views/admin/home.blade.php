@@ -21,13 +21,13 @@
                     <div class="dashboard-action">
                         <ul>
                             <li>
-                                <a href="">
+                                <a href="{{ route('admin.messages.index') }}">
                                     <i class="fa-solid fa-message"></i>
                                     Messaggi
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="{{ route('admin.apartments.index') }}">
                                     <i class="fa-solid fa-square-pen"></i>
                                     Gestisci gli annunci
                                 </a>
@@ -39,7 +39,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                     Esci
                                 </a>
