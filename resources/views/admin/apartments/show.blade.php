@@ -38,6 +38,11 @@
           </ul>
         </div>
 
+        <h5 class="mb-2">Mappa</h5>
+        <div id="map" class="map mb-3">
+          
+        </div>
+
         <div class="col-12">
           <button type="button" class="btn btn-primary my-2"><a class="text-white" href="{{route('admin.apartments.edit', $apartment->id)}}">Modifica</a></button>
           <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="post" class="delete-form" data-title="{{ $apartment->title }}">
@@ -47,8 +52,25 @@
           </form>
           <button type="button" class="btn btn-secondary my-2"><a class="text-white" href="{{route('admin.messages.index', $apartment->id)}}">Vedi i messaggi</a></button>
         </div>
+
       </div>
     </div>
+
+    {{-- Tomtom Map --}}
+    <script type="text/javascript">
+      let center = [ {{$apartment->longitude}} , {{$apartment->latitude}}];
+      const map = tt.map({
+          key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+          container: "map",
+          center: center,
+          zoom: 15
+      })
+      map.on('load', () => {
+          var marker = new tt.Marker()
+              .setLngLat(center)
+              .addTo(map);
+      })
+  </script>
 
   </div>
 @endsection
