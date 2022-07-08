@@ -22,7 +22,7 @@ class MessageController extends Controller
 
         // $messages = Message::all()->where('apartment_id', '=', '$id');
 
-        $messages = Message::all();
+        $messages = DB::table('messages')->where('apartment_id', Auth::id())->get();;
 
         return view('admin.messages.index', compact('messages'));
     }
@@ -102,7 +102,9 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        $message->delete();
+        if ($message->apartment_id == Auth::id()) {
+            $message->delete();
+        }
 
         return redirect()->route('admin.messages.index')->with('message', "Hai eliminato con successo il messaggio di: $message->sender");
     }
