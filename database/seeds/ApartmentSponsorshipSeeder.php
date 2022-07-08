@@ -14,8 +14,10 @@ class ApartmentSponsorshipSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    
+    public function run()
     {
+        /*
         $sponsorship_id = Sponsorship::pluck('id')->toArray();
         $apartment_id = Apartment::pluck('id')->toArray();
 
@@ -29,5 +31,7 @@ class ApartmentSponsorshipSeeder extends Seeder
             $apartment_sponsorship->save();
 
         }
+        */
     }
+    
 }

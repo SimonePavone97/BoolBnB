@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('sponsorships', 'Api\Sponsorship\SponsorshipController@index');
+Route::get('orders/generate', 'Api\Orders\OrderController@generate');
+Route::post('orders/make/payment', 'Api\Orders\OrderController@makePayment');
