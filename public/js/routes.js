@@ -1908,8 +1908,104 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Header */ "./resources/js/components/Header.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1919,8 +2015,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentDetailPage',
+  components: {
+    Header: _Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       apartment: [],
@@ -1932,7 +2032,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // il routing mi permette di usare $route che mi da determinate info (this.$route è parte di vue)
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments/".concat(this.$route.params.id)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://127.0.0.1:8000/api/apartments/".concat(this.$route.params.id)).then(function (res) {
         console.log(res.data);
         _this.apartment = res.data;
       })["catch"](function (err) {
@@ -2154,6 +2254,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "#not-found[data-v-490206f6] {\n  height: 100vh;\n}\n#not-found__text h2[data-v-490206f6] {\n  font-size: 3.5rem;\n}\n#not-found__text h3[data-v-490206f6] {\n  font-size: 1.5rem;\n}\n#not-found__text ul li[data-v-490206f6] {\n  cursor: pointer;\n  background-color: transparent;\n  padding: 0.5em;\n}\n#not-found__text ul li[data-v-490206f6] :hover {\n  padding: 0.5em;\n  color: #fff;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n#not-found #omino-404[data-v-490206f6] {\n  display: none;\n}\n@media screen and (min-width: 700px) {\n#not-found #omino-404[data-v-490206f6] {\n    display: unset;\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-color: red;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 50px;\n}\r\n", ""]);
 
 // exports
 
@@ -2679,6 +2798,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./NotFound.vue?vue&type=style&index=0&id=490206f6&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/NotFound.vue?vue&type=style&index=0&id=490206f6&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -3302,17 +3451,83 @@ var render = function () {
   return _c(
     "div",
     [
-      _vm._v("\n    ciaooooooooooooooo\n    "),
+      _c("Header", { staticClass: "sticky-top" }),
+      _vm._v(" "),
       _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
       _vm._v(" "),
+<<<<<<< HEAD
       _vm._l(_vm.apartment.services, function (element) {
         return _c("p", { key: element.id }, [_vm._v(_vm._s(element.name))])
+=======
+      _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "w-100 rounded",
+        attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
+>>>>>>> ApartmentDetailPage
       }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row justify-content-between mt-4" }, [
+        _c("div", { staticClass: "col-6" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.apartment.description))]),
+          _vm._v(" "),
+          _c("div", [
+            "" + _vm.apartment.rooms == 1
+              ? _c("span", [_vm._v(_vm._s(_vm.apartment.rooms) + " camera - ")])
+              : _c("span", [
+                  _vm._v(_vm._s(_vm.apartment.rooms) + " camere - "),
+                ]),
+            _vm._v(" "),
+            "" + _vm.apartment.beds == 1
+              ? _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letto - ")])
+              : _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letti - ")]),
+            _vm._v(" "),
+            "" + _vm.apartment.bathrooms == 1
+              ? _c("span", [
+                  _vm._v(_vm._s(_vm.apartment.bathrooms) + " bagno - "),
+                ])
+              : _c("span", [
+                  _vm._v(_vm._s(_vm.apartment.bathrooms) + " bagni"),
+                ]),
+            _vm._v(" "),
+            _c("span", [_vm._v(_vm._s(_vm.apartment.mq) + " mq")]),
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Servizi")]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            _vm._l(_vm.apartment.services, function (element, index) {
+              return _c("li", [_vm._v(_vm._s(element.name))])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n            "
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+      ]),
     ],
-    2
+    1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-5" }, [
+      _c("div", { staticClass: "prova_riquadro_prenota rounded mt-1" }),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -19063,7 +19278,9 @@ module.exports = "/images/logo.png?38f5414b6b8853c33bf1457fc240e65f";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ApartmentDetailPage_vue_vue_type_template_id_645c392c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApartmentDetailPage.vue?vue&type=template&id=645c392c&scoped=true& */ "./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=template&id=645c392c&scoped=true&");
 /* harmony import */ var _ApartmentDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApartmentDetailPage.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _ApartmentDetailPage_vue_vue_type_style_index_0_id_645c392c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css& */ "./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -19071,7 +19288,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ApartmentDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ApartmentDetailPage_vue_vue_type_template_id_645c392c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ApartmentDetailPage_vue_vue_type_template_id_645c392c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -19100,6 +19317,22 @@ component.options.__file = "resources/js/components/pages/ApartmentDetailPage.vu
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApartmentDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ApartmentDetailPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApartmentDetailPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css& ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApartmentDetailPage_vue_vue_type_style_index_0_id_645c392c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApartmentDetailPage_vue_vue_type_style_index_0_id_645c392c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApartmentDetailPage_vue_vue_type_style_index_0_id_645c392c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApartmentDetailPage_vue_vue_type_style_index_0_id_645c392c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ApartmentDetailPage_vue_vue_type_style_index_0_id_645c392c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 
@@ -19413,7 +19646,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
+module.exports = __webpack_require__(/*! C:\Users\gabri\OneDrive\Desktop\esBoolean\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
 
 
 /***/ })
