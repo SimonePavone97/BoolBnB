@@ -29,7 +29,7 @@
 
                 <h3>Servizi</h3>
                 <ul>
-                    <li v-for="(element, index) in apartment.services">{{ element.name }}</li>
+                    <li v-for="(element, index) in apartment.services" :key="element.id">{{ element.name }}</li>
                 </ul>
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque
