@@ -20,7 +20,8 @@ export default {
         return {
             isError: false,
             searchText: "",
-            boh: []
+            boh: [],
+            position:[]
         }
     },
 
@@ -28,21 +29,13 @@ export default {
         getAddress(){
             axios.get(`https://api.tomtom.com/search/2/geocode/${this.searchText}.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3`)
                 .then((res) => {
-                    console.log(res)
-                    this.boh = res;
+                    this.boh = res.data.results;
                     console.log(this.boh);
+                    this.position.push(this.boh[0].position)
+                    console.log(this.position)
                 }).catch((err) => {
                    this.isError = true;
                 });
-                // $response = Http::get($APIrequest)->json();
-                // $apartment->longitude = $response['results'][0]['position']['lon'];
-                // $apartment->latitude = $response['results'][0]['position']['lat'];
-
-                // var request = new XMLHttpRequest();
-                // request.open('GET', this.requestUrl);
-                // request.responseType = 'json';
-                // request.send();
-                // console.log(request);
         }, 
     },
     mounted() {

@@ -1929,7 +1929,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isError: false,
       searchText: "",
-      boh: []
+      boh: [],
+      position: []
     };
   },
   methods: {
@@ -1937,19 +1938,15 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        console.log(res);
-        _this.boh = res;
+        _this.boh = res.data.results;
         console.log(_this.boh);
+
+        _this.position.push(_this.boh[0].position);
+
+        console.log(_this.position);
       })["catch"](function (err) {
         _this.isError = true;
-      }); // $response = Http::get($APIrequest)->json();
-      // $apartment->longitude = $response['results'][0]['position']['lon'];
-      // $apartment->latitude = $response['results'][0]['position']['lat'];
-      // var request = new XMLHttpRequest();
-      // request.open('GET', this.requestUrl);
-      // request.responseType = 'json';
-      // request.send();
-      // console.log(request);
+      });
     }
   },
   mounted: function mounted() {
