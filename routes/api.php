@@ -25,4 +25,5 @@ Route::post('orders/make/payment', 'Api\Orders\OrderController@makePayment');
 Route::namespace('Api')->group( function(){
     Route::get('/apartments', 'ApartmentController@index');
     Route::get('/apartments/{id}', 'ApartmentController@show');
+    Route::get('/positions', 'TomtomController@index');
 });

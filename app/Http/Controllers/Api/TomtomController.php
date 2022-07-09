@@ -17,23 +17,32 @@ class TomtomController extends Controller
     {
         $apartments = Apartment::all();
 
-        $position = [];
+        $positions = [];
 
         foreach ($apartments as $apartment) {
+                $position =
+            [
                 
+              "position" => [
+                "lat"=>$apartment->latitude,
+                "lon"=>$apartment->longitude
+              ],
+        
+            ];
+
+          array_push($positions, $position);
         }
 
-        array_push($position,`$apartment->latitude .", ". $apartment->longitude`);
-
-        array_push($circle, $position);
-
+        dd($positions);
         // [{"position":
         //     {"lat":40.80558,"lon":-73.96548}},
         // {"position":
         //     {"lat":40.80076,"lon":-73.96556}}]
 
+        
 
-        return response()->json( compact('apartments') );
+
+        return response()->json( compact('positions') );
     }
 
     /**
