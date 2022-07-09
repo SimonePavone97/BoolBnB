@@ -1,6 +1,14 @@
 <template>
-    <div class="container">
-        <SearchComp @searchFunction="search"/>
+    <div id="container-apartments">
+        <div class="d-flex align-content-center">
+            <div class="mx-3 col-4">
+                <img src="../../../images/logo.png" alt="logo-Airbnb" width="150px">
+            </div>
+            <div class="col-4">
+                <SearchComp @searchFunction="search"/>
+            </div>
+            <div class="col-4"></div>
+        </div>
 
         <div class="row my-3">
 
@@ -91,11 +99,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.apartment-card{
-    width: calc(100%/12 * 3 - 1em);
-    margin: 0.5em 0.5em;
-    .card-body{
-        height: 25vh;
+
+#container-apartments{
+    width: 100%;
+    .apartment-card{
+        width: calc(100%/10 * 2 - 1em);
+        margin: 0.5em 0.5em;
+        .card-body{
+            height: 25vh;
+        }
     }
 }
 </style>
