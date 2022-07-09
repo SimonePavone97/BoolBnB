@@ -1952,34 +1952,32 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isError: false,
-      requesturl: "'https://api.tomtom.com/search/2/geocode/' . ".concat(this.searchText, " . '.json?key=cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9'"),
-      searchText: ""
+      searchText: "",
+      boh: []
     };
   },
   methods: {
     getAddress: function getAddress() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.requesturl).then(function (res) {
-        console.log(res.data);
-        _this.apartment = res.data;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
+        console.log(res);
+        _this.boh = res;
+        console.log(_this.boh);
       })["catch"](function (err) {
-        console.log(err);
         _this.isError = true;
       }); // $response = Http::get($APIrequest)->json();
       // $apartment->longitude = $response['results'][0]['position']['lon'];
       // $apartment->latitude = $response['results'][0]['position']['lat'];
-
-      var request = new XMLHttpRequest();
-      request.open('GET', this.requestUrl);
-      request.responseType = 'json';
-      request.send();
-      console.log(request);
+      // var request = new XMLHttpRequest();
+      // request.open('GET', this.requestUrl);
+      // request.responseType = 'json';
+      // request.send();
+      // console.log(request);
     }
   },
   mounted: function mounted() {
     this.getAddress();
-    console.log();
   }
 });
 
