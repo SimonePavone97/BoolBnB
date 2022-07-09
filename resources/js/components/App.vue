@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container-bnb">
             <router-view></router-view>
         </div>
     </div>
@@ -29,6 +29,11 @@ li{
 
 a{
     text-decoration: none;
+}
+
+.container-bnb{
+    width: 85%;
+    margin: 0 auto;
 }
 
 </style>
