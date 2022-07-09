@@ -1968,8 +1968,23 @@ __webpack_require__.r(__webpack_exports__);
         _this.position.push(_this.boh[0].position);
 
         console.log(_this.position);
+        console.log(_this.position[0].lon);
       })["catch"](function (err) {
         _this.isError = true;
+      });
+    },
+    getPoi: function getPoi() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\", \"position\":\"".concat(this.position[0].lat, ", ").concat(this.position[0].lon, "\", \"radius\":20000}]&poiList=[{\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]")).then(function (res) {
+        _this2.boh = res.data.results;
+        console.log(_this2.boh);
+
+        _this2.position.push(_this2.boh[0].position);
+
+        console.log(_this2.position);
+      })["catch"](function (err) {
+        _this2.isError = true;
       });
     }
   },

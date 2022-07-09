@@ -17,27 +17,20 @@ class TomtomController extends Controller
     {
         $apartments = Apartment::all();
 
-        $circle = [];
-
         $position = [];
 
         foreach ($apartments as $apartment) {
-            
+                
         }
 
         array_push($position,`$apartment->latitude .", ". $apartment->longitude`);
 
         array_push($circle, $position);
 
-       
-
-        // {
-        //     "type": "CIRCLE"
-        //     "position": "40.80558, -73.96548", 
-        //     "radius": 20000 
-        //      in seguito lo metteremo responsive il radius
-        //   },
-
+        // [{"position":
+        //     {"lat":40.80558,"lon":-73.96548}},
+        // {"position":
+        //     {"lat":40.80076,"lon":-73.96556}}]
 
 
         return response()->json( compact('apartments') );
