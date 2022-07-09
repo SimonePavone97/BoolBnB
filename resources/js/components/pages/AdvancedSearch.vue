@@ -22,49 +22,49 @@ export default {
             searchText: "",
             boh: [],
             poilist:[],
-            position:[]
+            position:[],
+            results:[]
             
         }
     },
 
     methods: {
-        getAddress(){
-            axios.get(`https://api.tomtom.com/search/2/geocode/${this.searchText}.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3`)
-                .then((res) => {
-                    this.boh = res.data.results;
-                    console.log(this.boh);
-                    this.position.push(this.boh[0].position)
-                    console.log(this.position)
-                    console.log(this.position[0].lon);
-                }).catch((err) => {
-                   this.isError = true;
-                });
-        }, 
         getPoilist(){
             axios.get("http://127.0.0.1:8000/api/positions")
                 .then((res) => {
-                    this.poilist = res;
-                    console.log(this.poilist);
+                    this.poilist = res.data;
+                    console.log("POILIST",this.poilist);
                 }).catch((err) => {
                    this.isError = true;
                 });
         },
-        getPoi(){
-            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE", "position":"${this.position[0].lat}, ${this.position[0].lon}", "radius":20000}]&poiList=`)
+        getAddress(){
+            axios.get(`https://api.tomtom.com/search/2/geocode/${this.searchText}.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3`)
                 .then((res) => {
                     this.boh = res.data.results;
-                    console.log(this.boh);
+                    // console.log(this.boh);
                     this.position.push(this.boh[0].position)
-                    console.log(this.position)
+                    console.log("POSITION",this.position)
+                    console.log("LAT",this.position[0].lat);
+                    console.log("LON",this.position[0].lon);
+                }).catch((err) => {
+                   this.isError = true;
+                });
+            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE", "position":"41.99577, 14.99053", "radius":20000}]&poiList=${this.poilist}`)
+                .then((res) => {
+                    this.results = res.data;
+                    console.log("RISULTATI",this.results);
+                    console.log(this.searchText);
                 }).catch((err) => {
                    this.isError = true;
                 });
         }, 
+        
     },
     mounted() {
-        this.getAddress();
-        this.getPoilist();
+        this.getPoilist(); 
         
+   
     },
 }
 
