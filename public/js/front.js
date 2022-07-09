@@ -1954,6 +1954,7 @@ __webpack_require__.r(__webpack_exports__);
       isError: false,
       searchText: "",
       boh: [],
+      poilist: [],
       position: []
     };
   },
@@ -1973,23 +1974,34 @@ __webpack_require__.r(__webpack_exports__);
         _this.isError = true;
       });
     },
-    getPoi: function getPoi() {
+    getPoilist: function getPoilist() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\", \"position\":\"".concat(this.position[0].lat, ", ").concat(this.position[0].lon, "\", \"radius\":20000}]&poiList=[{\"position\":{\"lat\":40.80558,\"lon\":-73.96548}},{\"position\":{\"lat\":40.80076,\"lon\":-73.96556}}]")).then(function (res) {
-        _this2.boh = res.data.results;
-        console.log(_this2.boh);
-
-        _this2.position.push(_this2.boh[0].position);
-
-        console.log(_this2.position);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
+        _this2.poilist = res;
+        console.log(_this2.poilist);
       })["catch"](function (err) {
         _this2.isError = true;
+      });
+    },
+    getPoi: function getPoi() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\", \"position\":\"".concat(this.position[0].lat, ", ").concat(this.position[0].lon, "\", \"radius\":20000}]&poiList=")).then(function (res) {
+        _this3.boh = res.data.results;
+        console.log(_this3.boh);
+
+        _this3.position.push(_this3.boh[0].position);
+
+        console.log(_this3.position);
+      })["catch"](function (err) {
+        _this3.isError = true;
       });
     }
   },
   mounted: function mounted() {
     this.getAddress();
+    this.getPoilist();
   }
 });
 

@@ -33,16 +33,16 @@ class TomtomController extends Controller
           array_push($positions, $position);
         }
 
-        dd($positions);
+         json_encode($positions);
+         json_decode(json_encode($positions));
+
+        // var_dump($positions);
         // [{"position":
         //     {"lat":40.80558,"lon":-73.96548}},
         // {"position":
         //     {"lat":40.80076,"lon":-73.96556}}]
 
-        
-
-
-        return response()->json( compact('positions') );
+        return response()->json( $positions );
     }
 
     /**

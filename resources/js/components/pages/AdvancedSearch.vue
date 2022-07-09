@@ -21,7 +21,9 @@ export default {
             isError: false,
             searchText: "",
             boh: [],
+            poilist:[],
             position:[]
+            
         }
     },
 
@@ -38,8 +40,17 @@ export default {
                    this.isError = true;
                 });
         }, 
+        getPoilist(){
+            axios.get("http://127.0.0.1:8000/api/positions")
+                .then((res) => {
+                    this.poilist = res;
+                    console.log(this.poilist);
+                }).catch((err) => {
+                   this.isError = true;
+                });
+        },
         getPoi(){
-            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE", "position":"${this.position[0].lat}, ${this.position[0].lon}", "radius":20000}]&poiList=[{"position":{"lat":40.80558,"lon":-73.96548}},{"position":{"lat":40.80076,"lon":-73.96556}}]`)
+            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE", "position":"${this.position[0].lat}, ${this.position[0].lon}", "radius":20000}]&poiList=`)
                 .then((res) => {
                     this.boh = res.data.results;
                     console.log(this.boh);
@@ -52,6 +63,7 @@ export default {
     },
     mounted() {
         this.getAddress();
+        this.getPoilist();
         
     },
 }
