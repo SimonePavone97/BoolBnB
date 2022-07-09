@@ -40,7 +40,7 @@
 
         <h5 class="mb-2">Mappa</h5>
         <div id="map" class="map mb-3">
-          
+          <div id="marker"></div>
         </div>
 
         <div class="col-12">
