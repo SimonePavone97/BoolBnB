@@ -1932,9 +1932,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Header */ "./resources/js/components/Header.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2038,12 +2037,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+// import SearchComp from './partials/SearchComp'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentDetailPage',
-  components: {
-    Header: _Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  components: {// SearchComp
   },
   data: function data() {
     return {
@@ -2056,7 +2056,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // il routing mi permette di usare $route che mi da determinate info (this.$route è parte di vue)
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://127.0.0.1:8000/api/apartments/".concat(this.$route.params.id)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments/".concat(this.$route.params.id)).then(function (res) {
         console.log(res.data);
         _this.apartment = res.data;
       })["catch"](function (err) {
@@ -3547,75 +3547,60 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Header", { staticClass: "sticky-top" }),
-      _vm._v(" "),
-      _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-      _vm._v(" "),
-<<<<<<< HEAD
-      _vm._l(_vm.apartment.services, function (element) {
-        return _c("p", { key: element.id }, [_vm._v(_vm._s(element.name))])
-=======
-      _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "w-100 rounded",
-        attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
->>>>>>> ApartmentDetailPage
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-between mt-4" }, [
-        _c("div", { staticClass: "col-6" }, [
-          _c("h3", [_vm._v(_vm._s(_vm.apartment.description))]),
+  return _c("div", [
+    _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+    _vm._v(" "),
+    _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
+    _vm._v(" "),
+    _c("img", {
+      staticClass: "w-100 rounded",
+      attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-between mt-4" }, [
+      _c("div", { staticClass: "col-6" }, [
+        _c("h3", [_vm._v(_vm._s(_vm.apartment.description))]),
+        _vm._v(" "),
+        _c("div", [
+          "" + _vm.apartment.rooms == 1
+            ? _c("span", [_vm._v(_vm._s(_vm.apartment.rooms) + " camera - ")])
+            : _c("span", [_vm._v(_vm._s(_vm.apartment.rooms) + " camere - ")]),
           _vm._v(" "),
-          _c("div", [
-            "" + _vm.apartment.rooms == 1
-              ? _c("span", [_vm._v(_vm._s(_vm.apartment.rooms) + " camera - ")])
-              : _c("span", [
-                  _vm._v(_vm._s(_vm.apartment.rooms) + " camere - "),
-                ]),
-            _vm._v(" "),
-            "" + _vm.apartment.beds == 1
-              ? _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letto - ")])
-              : _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letti - ")]),
-            _vm._v(" "),
-            "" + _vm.apartment.bathrooms == 1
-              ? _c("span", [
-                  _vm._v(_vm._s(_vm.apartment.bathrooms) + " bagno - "),
-                ])
-              : _c("span", [
-                  _vm._v(_vm._s(_vm.apartment.bathrooms) + " bagni"),
-                ]),
-            _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(_vm.apartment.mq) + " mq")]),
-          ]),
+          "" + _vm.apartment.beds == 1
+            ? _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letto - ")])
+            : _c("span", [_vm._v(_vm._s(_vm.apartment.beds) + " letti - ")]),
           _vm._v(" "),
-          _c("hr"),
+          "" + _vm.apartment.bathrooms == 1
+            ? _c("span", [
+                _vm._v(_vm._s(_vm.apartment.bathrooms) + " bagno - "),
+              ])
+            : _c("span", [_vm._v(_vm._s(_vm.apartment.bathrooms) + " bagni")]),
           _vm._v(" "),
-          _c("h3", [_vm._v("Servizi")]),
-          _vm._v(" "),
-          _c(
-            "ul",
-            _vm._l(_vm.apartment.services, function (element, index) {
-              return _c("li", [_vm._v(_vm._s(element.name))])
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n            "
-            ),
-          ]),
+          _c("span", [_vm._v(_vm._s(_vm.apartment.mq) + " mq")]),
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("hr"),
+        _vm._v(" "),
+        _c("h3", [_vm._v("Servizi")]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          _vm._l(_vm.apartment.services, function (element, index) {
+            return _c("li", { key: element.id }, [_vm._v(_vm._s(element.name))])
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n            "
+          ),
+        ]),
       ]),
-    ],
-    1
-  )
+      _vm._v(" "),
+      _vm._m(0),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {

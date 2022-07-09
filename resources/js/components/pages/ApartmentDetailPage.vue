@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header class="sticky-top" />
+        <!-- <SearchComp class="sticky-top" /> -->
         <h2>{{ apartment.title }}</h2>
 
         <span>{{ apartment.address }}</span>
@@ -104,14 +104,14 @@
 </template>
 
 <script>
-import Header from '../Header'
+// import SearchComp from './partials/SearchComp'
 import axios from 'axios';
 
 export default {
     name: 'ApartmentDetailPage',
 
     components: {
-        Header
+        // SearchComp
     },
 
     data() {
