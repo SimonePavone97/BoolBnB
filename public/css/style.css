@@ -91,3 +91,9 @@ header .nav-item i {
     box-shadow: 0 0 10px var(--pink);
 }
 
+/* SHOW */
+.map {
+    display: block;
+    height: 300px;
+    width: 40%;
+}
