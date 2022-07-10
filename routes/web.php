@@ -24,8 +24,7 @@ Route::middleware('auth')
 ->group( function(){
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');
-    Route::resource('sponsorship', 'SponsorshipController');
-    Route::resource('apartmentSponsorship', 'ApartmentSponsorshipController');
+    Route::get('/payment/{apartment}', 'PaymentController@index')->name('payment.index');
     Route::resource('messages', 'MessageController');
     Route::resource('user', 'UserController');
 });
