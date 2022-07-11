@@ -1970,51 +1970,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // import SearchComp from './partials/SearchComp'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2246,7 +2201,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-color: red;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 50px;\n}\r\n", ""]);
+exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\n    height: 500px;\n    width: 100%;\n    background-color: red;\n    position: -webkit-sticky;\n    position: sticky;\n    top: 50px;\n}\n\n", ""]);
 
 // exports
 
@@ -3393,10 +3348,6 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-    _vm._v(" "),
-    _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
-    _vm._v(" "),
     _c("img", {
       staticClass: "w-100 rounded",
       attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
@@ -3404,6 +3355,10 @@ var render = function () {
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-between mt-4" }, [
       _c("div", { staticClass: "col-6" }, [
+        _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
+        _vm._v(" "),
         _c("h3", [_vm._v(_vm._s(_vm.apartment.description))]),
         _vm._v(" "),
         _c("div", [
@@ -3438,7 +3393,7 @@ var render = function () {
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n            "
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                \n            "
           ),
         ]),
       ]),
@@ -3479,92 +3434,84 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "d-flex justify-content-between align-content-center" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-4" },
-          [_c("SearchComp", { on: { searchFunction: _vm.search } })],
-          1
-        ),
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "d-flex justify-content-between" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row my-3" },
-        _vm._l(_vm.apartmentsArr, function (apartment) {
-          return _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: !_vm.searchStatus,
-                  expression: "!searchStatus",
-                },
-              ],
-              key: apartment.id,
-              staticClass:
-                "card align-items-center col-lg-3 col-md-4 col-sm-12",
-              staticStyle: { width: "18rem" },
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "text-dark",
-                  attrs: {
-                    to: {
-                      name: "apartment-detail",
-                      params: { id: apartment.id },
-                    },
-                  },
-                },
-                [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: apartment.image, alt: "Card image cap" },
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(apartment.title)),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(apartment.description)),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Stanze: " + _vm._s(apartment.rooms)),
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Mq: " + _vm._s(apartment.mq)),
-                      ]),
-                    ]),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          )
-        }),
-        0
+        { staticClass: "col-4" },
+        [_c("SearchComp", { on: { searchFunction: _vm.search } })],
+        1
       ),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "row my-3" },
+      _vm._l(_vm.apartmentsArr, function (apartment) {
+        return _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.searchStatus,
+                expression: "!searchStatus",
+              },
+            ],
+            key: apartment.id,
+            staticClass: "card col-lg-3 col-md-4 col-sm-12",
+          },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "text-dark",
+                attrs: {
+                  to: {
+                    name: "apartment-detail",
+                    params: { id: apartment.id },
+                  },
+                },
+              },
+              [
+                _c("img", {
+                  staticClass: "card-img-top",
+                  attrs: { src: apartment.image, alt: "Card image cap" },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(apartment.title)),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(apartment.description)),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "card-text" }, [
+                      _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "card-text" }, [
+                      _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "card-text" }, [
+                      _vm._v("Mq: " + _vm._s(apartment.mq)),
+                    ]),
+                  ]),
+                ]),
+              ]
+            ),
+          ],
+          1
+        )
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = [
