@@ -3434,16 +3434,20 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "d-flex justify-content-between" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-4" },
-        [_c("SearchComp", { on: { searchFunction: _vm.search } })],
-        1
-      ),
-    ]),
+    _c(
+      "div",
+      { staticClass: "d-flex justify-content-between align-items-center" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-4" },
+          [_c("SearchComp", { on: { searchFunction: _vm.search } })],
+          1
+        ),
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -3519,7 +3523,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mx-3 col-4" }, [
+    return _c("div", { staticClass: " col-4" }, [
       _c("img", {
         attrs: {
           src: __webpack_require__(/*! ../../../images/logo.png */ "./resources/images/logo.png"),
@@ -3670,6 +3674,7 @@ var render = function () {
                 expression: "searchText",
               },
             ],
+            staticClass: "text-center",
             attrs: { type: "text", placeholder: "Cerca un appartamento" },
             domProps: { value: _vm.searchText },
             on: {
@@ -3695,7 +3700,7 @@ var render = function () {
           _c(
             "button",
             {
-              staticClass: "btn btn-danger mx-3",
+              staticClass: "btn btn-danger",
               attrs: { type: "submit" },
               on: {
                 click: function ($event) {

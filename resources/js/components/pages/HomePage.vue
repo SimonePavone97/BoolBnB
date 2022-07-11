@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div class="d-flex justify-content-between">
-            <div class="mx-3 col-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class=" col-4">
                 <img src="../../../images/logo.png" alt="logo-Airbnb" width="150px">
             </div>
             <div class="col-4">
