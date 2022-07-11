@@ -28,15 +28,7 @@ Route::middleware('auth')
     Route::resource('user', 'UserController');
     Route::get('/sponsorship/{apartment}', 'SponsorshipController@index')->name('sponsorship.index');
     Route::get('/payment/{sponsorship}/{apartment}', 'PaymentController@index')->name('payment.index');
-});
-
-Route::namespace('Features')
-->middleware('auth')
-->group( function() {
-    
-    Route::post('/payments/checkout/{sponsorship}/{apartment}', 'PaymentController@store')->name('payments.checkout');
-    
-    
+    Route::post('/payment/checkout/{sponsorship}/{apartment}', 'PaymentController@store')->name('payment.checkout');
 });
 
 Route::get('{any?}', function(){

@@ -1,19 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session('success-message'))
+        <div class="alert alert-success">
+            {{session('success-message')}}
+        </div>
+    @endif
+    @if (count($errors) > 0)
+        {{-- @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">
+                {{$error}}
+            </div>
+        @endforeach --}}
+        <script>
+            Swal.fire(
+                'Oops!',
+                'Qualcosa è andato storto!',
+                'error'
+            )
+        </script>
+
+    @endif
 <div class="container text-center">
-    <form method="post" id="payment-form" action="{{ route('admin.payment.checkout', [$sponsorship, $apartment]) }}">
+    <form method="get" id="payment-form" action="{{ route('admin.payment.checkout', [$sponsorship, $apartment]) }}">
         @csrf
         @method('POST')
         <section>
-            <label class="sr-only" for="amount">
+            <label for="amount">
                 <span class="input-label" readonly>Prezzo</span>
                 <div class="input-wrapper amount-wrapper">
-                    <input readonly id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="{{$amount}}">
+                    <input readonly id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="{{$amount}}€">
                 </div>
 
                 <div class="bt-drop-in-wrapper text-start">
-                        <div id="bt-dropin"></div>
+                    <div id="bt-dropin"></div>
                 </div>
             </label>
         </section>
@@ -29,24 +49,26 @@
     var form = document.querySelector('#payment-form');
 
     braintree.dropin.create({
-    authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+    authorization: 'sandbox_245hxbxs_n8pdc2q57r93h69f',
     selector: '#bt-dropin'
-    }, function (createErr, instance) {
+    }, function (createErr, dropInstance) {
         if (createErr) {
             console.log('Create Error', createErr);
             return;
         }
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            instance.requestPaymentMethod(function (err, payload) {
-                if(err){
-                    console.log('Request Payment Method Error', err);
-                    return;
-                }
-                // Submit payload.nonce to your server
-                document.querySelector('#nonce').value = payload.nonce;
-                form.submit();
+        if(form){
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                instance.requestPaymentMethod(function (err, payload) {
+                    if(err){
+                        console.log('Request Payment Method Error', err);
+                        return;
+                    }
+                    // Submit payload.nonce to your server
+                    document.querySelector('#nonce').value = payload.nonce;
+                    form.submit();
+                });
             });
-        });
+        }
     });
 </script>

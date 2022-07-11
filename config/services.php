@@ -31,6 +31,7 @@ return [
     ],
 
     'braintree' => [
+        'model' => App\User::class,
         'environment' => env('BT_ENVIRONMENT','sandbox'),
         'merchantId' => env('BT_MERCHANT_ID'),
         'publicKey' => env('BT_PUBLIC_KEY'),
