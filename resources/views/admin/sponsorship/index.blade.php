@@ -12,45 +12,11 @@
                     <h4 class="card-title">{{$sponsorship->name}}</h4>
                     <h5 class="card-title">{{$sponsorship->price}}€</h5>
                     <h5 class="card-title">{{$sponsorship->duration}}h</h5>
-                    <a href="{{route('admin.payment.index', $sponsorship)}}" class="btn btn-danger">Acquista</a>
+                    <a href="{{route('admin.payment.index', [$sponsorship, $apartment])}}" class="btn btn-danger">Acquista</a>
                 </div>
             </div>
         @endforeach
     </div>
-
-     <form method="post" id="payment-form" autocomplete="off">
-                @csrf
-                @method('POST')
-
-                  {{-- SELECT SPONSORSHIP --}}
-                  <label class="sr-only">Seleziona la sponsorizzazione</label><br>
-                  <select id="sponsorship_select" name="sponsorship_select" class="form-control">
-                    <option>Seleziona la sponsorizzazione</option>
-                    @foreach ($sponsorships as $sponsorship)
-                        <option data-price="{{ $sponsorship->price }}" value="{{ $sponsorship->id }}">{{ $sponsorship->name }}</option>
-                    @endforeach
-                  </select>
-
-                  {{-- PRICE --}}
-                  <div class="text-right mt-5 sponsorship-price">
-                    <label for="amount">
-                      <span class="font-weight-bold boolbnb-red">Prezzo:</span>
-                    </label>
-                    <div class="">
-                      <input class="text-right border-0 font-weight-bold" id="amount" name="amount" type="tel" min="1" value="" readonly> <span class="font-weight-bold">€</span>
-                    </div>
-                  </div>
-
-                  {{-- CREDIT CARD --}}
-                  <div id="dropin" class="mb-4"></div>
-
-                  {{-- PAY BUTTON --}}
-                  <div class="text-right">
-                    <input id="nonce" name="payment_method_nonce" type="hidden" />
-                    <button class="btn btn-success" type="submit"><span>Paga ora</span></button>
-                  </div>
-
-                </form>
 </div>
 @endsection
 

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsorship extends Model
 {
-    protected $fillable = ['name', 'price', 'duration'];
+    //protected $fillable = ['name', 'price', 'duration'];
 
     public function apartments (){
-        return $this-> belongsToMany('App\Models\Apartment')->withPivot("start_sponsorship, end_sponsorship"); 
+        return $this-> belongsToMany('App\Models\Apartment'); 
     }
 }

@@ -55,7 +55,7 @@
                                 <button type='submit' class="btn btn-danger">Elimina</button>
                             </form>
                             <div class="col-12">
-                                <a class="btn btn-success" href="{{ route('admin.payment.index', $apartment->id) }}">Sponsorizza</a>
+                                <a class="btn btn-success" href="{{ route('admin.sponsorship.index', $apartment->id) }}">Sponsorizza</a>
                             </div>
                         </td>
                     </tr>

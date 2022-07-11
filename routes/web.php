@@ -26,9 +26,17 @@ Route::middleware('auth')
     Route::resource('apartments', 'ApartmentController');
     Route::resource('messages', 'MessageController');
     Route::resource('user', 'UserController');
-    Route::get('/payment/{apartment}', 'PaymentController@index')->name('payment.index');
-    Route::post('/payment/{apartment}/checkout', 'PaymentController@checkout')->name('payment.checkout');
-    Route::get('/payment/{apartment}/transaction', 'PaymentController@transaction')->name('payment.transaction');
+    Route::get('/sponsorship/{apartment}', 'SponsorshipController@index')->name('sponsorship.index');
+    Route::get('/payment/{sponsorship}/{apartment}', 'PaymentController@index')->name('payment.index');
+});
+
+Route::namespace('Features')
+->middleware('auth')
+->group( function() {
+    
+    Route::post('/payments/checkout/{sponsorship}/{apartment}', 'PaymentController@store')->name('payments.checkout');
+    
+    
 });
 
 Route::get('{any?}', function(){

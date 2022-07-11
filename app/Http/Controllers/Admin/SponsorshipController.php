@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api\Sponsorship;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Sponsorship;
-use App\Http\Resources\SponsorshipResource;
+use App\Models\Apartment;
 
 class SponsorshipController extends Controller
 {
-    public function index(Request $request){
+    public function index(Apartment $apartment){
         $sponsorships = Sponsorship::all();
-
-        return SponsorshipResource::collection($sponsorships);
+        return view('admin.sponsorship.index', compact('sponsorships', 'apartment'));
     }
 }
