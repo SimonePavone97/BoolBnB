@@ -50,14 +50,25 @@ export default {
                 }).catch((err) => {
                    this.isError = true;
                 });
-            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE", "position":"41.99577, 14.99053", "radius":20000}]&poiList=${this.poilist}`)
+            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"41.99577,14.99053","radius":20000}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
                     this.results = res.data;
                     console.log("RISULTATI",this.results);
                     console.log(this.searchText);
-                }).catch((err) => {
-                   this.isError = true;
-                });
+                })
+                .catch((error) => {
+                    if (error.response) {
+                    // Request made and server responded
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                    } else if (error.request) {
+                    // The request was made but no response was received
+                    console.log(error.request);
+                    } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log('Error', error.message);
+    }})
         }, 
         
     },

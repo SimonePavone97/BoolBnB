@@ -1984,12 +1984,23 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         _this2.isError = true;
       });
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\", \"position\":\"41.99577, 14.99053\", \"radius\":20000}]&poiList=".concat(this.poilist)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"41.99577,14.99053\",\"radius\":20000}]&poiList=" + JSON.stringify(this.poilist)).then(function (res) {
         _this2.results = res.data;
         console.log("RISULTATI", _this2.results);
         console.log(_this2.searchText);
-      })["catch"](function (err) {
-        _this2.isError = true;
+      })["catch"](function (error) {
+        if (error.response) {
+          // Request made and server responded
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
       });
     }
   },
