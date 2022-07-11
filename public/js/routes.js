@@ -3388,7 +3388,7 @@ var render = function () {
             expression: "searchText",
           },
         ],
-        attrs: { type: "text", placeholder: "Cerca una città coglione" },
+        attrs: { type: "text", placeholder: "Cerca una città" },
         domProps: { value: _vm.searchText },
         on: {
           keyup: function ($event) {

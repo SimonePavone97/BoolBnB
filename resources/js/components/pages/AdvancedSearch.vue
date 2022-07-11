@@ -2,7 +2,7 @@
     <div>
         ciaooooooooooooooo
         <div>
-            <input type="text" v-model="searchText" @keyup.enter="getAddress" placeholder="Cerca una città coglione">
+            <input type="text" v-model="searchText" @keyup.enter="getAddress" placeholder="Cerca una città">
                 <button @click="getAddress" type="submit"
                     class="btn btn-secondary mx-2">Cerca</button>
             
