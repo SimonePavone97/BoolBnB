@@ -2039,6 +2039,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 // import SearchComp from './partials/SearchComp'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2065,9 +2070,26 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.getApartment();
-    console.log("this.$route");
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    setTimeout(function () {
+      console.log(_this2.apartment); // Tomtom
+
+      var center = [_this2.apartment.longitude, _this2.apartment.latitude];
+      var map = tt.map({
+        key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+        container: "map",
+        center: center,
+        zoom: 15
+      });
+      map.on('load', function () {
+        var marker = new tt.Marker().setLngLat(center).addTo(map);
+      });
+    }, 500);
   }
 });
 
@@ -2315,7 +2337,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-color: red;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 50px;\n}\r\n", ""]);
+exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-color: red;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 50px;\n}\n.map[data-v-645c392c] {\r\n    height: 400px;\r\n    width: 35%;\n}\r\n", ""]);
 
 // exports
 
@@ -3586,7 +3608,7 @@ var render = function () {
         _c(
           "ul",
           _vm._l(_vm.apartment.services, function (element, index) {
-            return _c("li", { key: element.id }, [_vm._v(_vm._s(element.name))])
+            return _c("li", { key: index }, [_vm._v(_vm._s(element.name))])
           }),
           0
         ),
@@ -3600,6 +3622,8 @@ var render = function () {
       _vm._v(" "),
       _vm._m(0),
     ]),
+    _vm._v(" "),
+    _vm._m(1),
   ])
 }
 var staticRenderFns = [
@@ -3609,6 +3633,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-5" }, [
       _c("div", { staticClass: "prova_riquadro_prenota rounded mt-1" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h5", [_vm._v("Mappa")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "map mb-3", attrs: { id: "map" } }),
     ])
   },
 ]
@@ -19844,7 +19878,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\gabri\OneDrive\Desktop\esBoolean\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\franc\repo\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
