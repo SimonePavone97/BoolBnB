@@ -16,7 +16,7 @@
             </div>
         @endforeach
     </div>
-    <form method="get" id="payment-form" autocomplete="off">
+    <form method="get" id="payment-form" autocomplete="off" action="{{ route('admin.payment.checkout', $apartment) }}">
         @csrf
         @method('POST')
 
