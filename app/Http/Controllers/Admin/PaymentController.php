@@ -62,7 +62,7 @@ class PaymentController extends Controller
             $apartment_sponsorship->save();
             
             
-            return back()->with('sponsor-success-message', 'Transazione eseguita con successo.');
+            return back()->with('success-message', 'Transazione eseguita con successo.');
         } else {
             $errorString = "";
 
