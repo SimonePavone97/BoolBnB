@@ -7,12 +7,12 @@
         </div>
         
         
-            <li v-for="(element,index) in resultsapi" :key="index"> 
+            <!-- <li v-for="(element,index) in resultsapi" :key="index"> 
                 
                 {{position[0].lat}}
                 {{position[0].lon}}
-                
-            </li>
+
+            </li> -->
         
     </div>
 </template>
@@ -30,7 +30,8 @@ export default {
             address: [],
             poilist:[],
             position:[],
-            resultsapi:[]
+            resultsapi:[],
+            latlon: ""
             
         }
     },
@@ -50,23 +51,30 @@ export default {
                 .then((res) => {
                     this.address = res.data.results;
                     this.position.push(this.address[0].position)
-                    console.log("POSITION",this.position)
+                    this.latlon = this.position[0].lat + "," + this.position[0].lon
+                    console.log("POSITION",this.position,typeof(this.position))
                     console.log("LAT",this.position[0].lat);
                     console.log("LON",this.position[0].lon);
-                }).catch((err) => {
+                    console.log("Sdighidi",this.latlon);
+                })
+                .then(this.Risultato)
+                .catch((err) => {
                    this.isError = true;
                 });
-            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"41.99577,14.99053","radius":20000}]&poiList=`+ JSON.stringify(this.poilist))
+            
+                
+        }, 
+        Risultato(){
+            axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"${this.latlon}","radius":20000}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
                     this.resultsapi = res.data;
                     console.log("RISULTATI",this.resultsapi);
                     console.log(this.searchText);
+                    console.log("FINAL",this.latlon)
                 }).catch((err) => {
                    this.isError = true;
                 });
-                
-        }, 
-        
+        }
     },
     mounted() {
         this.getPoilist(); 

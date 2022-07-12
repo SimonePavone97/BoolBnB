@@ -1934,6 +1934,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
 //
 //
 //
@@ -1963,7 +1965,8 @@ __webpack_require__.r(__webpack_exports__);
       address: [],
       poilist: [],
       position: [],
-      resultsapi: []
+      resultsapi: [],
+      latlon: ""
     };
   },
   methods: {
@@ -1985,18 +1988,25 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.position.push(_this2.address[0].position);
 
-        console.log("POSITION", _this2.position);
+        _this2.latlon = _this2.position[0].lat + "," + _this2.position[0].lon;
+        console.log("POSITION", _this2.position, _typeof(_this2.position));
         console.log("LAT", _this2.position[0].lat);
         console.log("LON", _this2.position[0].lon);
-      })["catch"](function (err) {
+        console.log("Sdighidi", _this2.latlon);
+      }).then(this.Risultato)["catch"](function (err) {
         _this2.isError = true;
       });
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"41.99577,14.99053\",\"radius\":20000}]&poiList=" + JSON.stringify(this.poilist)).then(function (res) {
-        _this2.resultsapi = res.data;
-        console.log("RISULTATI", _this2.resultsapi);
-        console.log(_this2.searchText);
+    },
+    Risultato: function Risultato() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":20000}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
+        _this3.resultsapi = res.data;
+        console.log("RISULTATI", _this3.resultsapi);
+        console.log(_this3.searchText);
+        console.log("FINAL", _this3.latlon);
       })["catch"](function (err) {
-        _this2.isError = true;
+        _this3.isError = true;
       });
     }
   },
@@ -3482,65 +3492,49 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.searchText,
-              expression: "searchText",
-            },
-          ],
-          attrs: { type: "text", placeholder: "Cerca una città" },
-          domProps: { value: _vm.searchText },
-          on: {
-            keyup: function ($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
-              }
-              return _vm.getAddress.apply(null, arguments)
-            },
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.searchText = $event.target.value
-            },
-          },
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
+  return _c("div", [
+    _c("div", [
+      _c("input", {
+        directives: [
           {
-            staticClass: "btn btn-secondary mx-2",
-            attrs: { type: "submit" },
-            on: { click: _vm.getAddress },
+            name: "model",
+            rawName: "v-model",
+            value: _vm.searchText,
+            expression: "searchText",
           },
-          [_vm._v("Cerca")]
-        ),
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.resultsapi, function (element, index) {
-        return _c("li", { key: index }, [
-          _vm._v(
-            " \n            \n            " +
-              _vm._s(_vm.position[0].lat) +
-              "\n            " +
-              _vm._s(_vm.position[0].lon) +
-              "\n            \n        "
-          ),
-        ])
+        ],
+        attrs: { type: "text", placeholder: "Cerca una città" },
+        domProps: { value: _vm.searchText },
+        on: {
+          keyup: function ($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.getAddress.apply(null, arguments)
+          },
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.searchText = $event.target.value
+          },
+        },
       }),
-    ],
-    2
-  )
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary mx-2",
+          attrs: { type: "submit" },
+          on: { click: _vm.getAddress },
+        },
+        [_vm._v("Cerca")]
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
