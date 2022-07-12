@@ -1,21 +1,25 @@
 <template>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-            <div class=" col-4">
+            <div class="col-lg-4 col-sm-12" v-if="trueValue">
             
                 <img src="../../../images/logo.png" alt="logo-Airbnb" width="150px">
+                
             </div>
-            <div class="col-4">
+            <div v-if="falseValue">
+                <span></span>
+            </div>
+            <div class="col-lg-4 col-sm-12">
                 <SearchComp @searchFunction="search" />
             </div>
 
         </div>
 
 
-
+        
         <div class="row my-3">
 
-            <div class="card col-lg-3 col-md-4 col-sm-12" v-for="apartment in apartmentsArr" :key="apartment.id"
+            <div class="card col-lg-3 col-md-4 col-sm-12 marg" v-for="apartment in apartmentsArr" :key="apartment.id"
                 v-show="!searchStatus">
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
@@ -31,7 +35,7 @@
                 </router-link>
             </div>
 
-            <div class="card d-flex justify-content-center align-items-center apartment-card" 
+            <div class="card d-flex justify-content-center align-items-center apartment-card marg" 
             v-for="apartment in searchedApartmentsArr" :key="apartment.id" v-show="searchStatus">
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
@@ -70,6 +74,8 @@
                 apartmentsArr: [],
                 searchedApartmentsArr: [],
                 searchStatus: false,
+                trueValue: true,
+                falseValue: false,
             }
         },
         created() {
@@ -110,4 +116,10 @@
 
 <style>
 
+
+
+.marg{
+    margin-bottom: 0.8em;
+
+}
 </style>
