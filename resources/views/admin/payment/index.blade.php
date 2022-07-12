@@ -1,24 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (session('success-message'))
-        <div class="alert alert-success">
-            {{session('success-message')}}
-        </div>
-    @endif
-    
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-                <li>
-                    {{$amount}}
-                </li>
-            </ul>
-        </div>
-    @endif
+    <div>
+        @if (session('success-message'))
+            <div class="alert alert-success">
+                {{session('success-message')}}
+            </div>
+        @endif
+        
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                    <li>
+                        {{$amount}}
+                    </li>
+                </ul>
+            </div>
+        @endif
+    </div>
     
     <div class="container text-center">
         <form method="post" id="payment-form" action="{{ route('admin.payment.checkout', [$sponsorship, $apartment]) }}">
