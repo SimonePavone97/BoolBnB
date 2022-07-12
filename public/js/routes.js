@@ -1922,6 +1922,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -1929,10 +1936,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isError: false,
       searchText: "",
-      boh: [],
+      address: [],
       poilist: [],
       position: [],
-      results: []
+      resultsapi: []
     };
   },
   methods: {
@@ -1950,9 +1957,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        _this2.boh = res.data.results; // console.log(this.boh);
+        _this2.address = res.data.results;
 
-        _this2.position.push(_this2.boh[0].position);
+        _this2.position.push(_this2.address[0].position);
 
         console.log("POSITION", _this2.position);
         console.log("LAT", _this2.position[0].lat);
@@ -1961,22 +1968,11 @@ __webpack_require__.r(__webpack_exports__);
         _this2.isError = true;
       });
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"41.99577,14.99053\",\"radius\":20000}]&poiList=" + JSON.stringify(this.poilist)).then(function (res) {
-        _this2.results = res.data;
-        console.log("RISULTATI", _this2.results);
+        _this2.resultsapi = res.data;
+        console.log("RISULTATI", _this2.resultsapi);
         console.log(_this2.searchText);
-      })["catch"](function (error) {
-        if (error.response) {
-          // Request made and server responded
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          // The request was made but no response was received
-          console.log(error.request);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          console.log('Error', error.message);
-        }
+      })["catch"](function (err) {
+        _this2.isError = true;
       });
     }
   },
@@ -3387,50 +3383,65 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n    ciaooooooooooooooo\n    "),
-    _c("div", [
-      _c("input", {
-        directives: [
+  return _c(
+    "div",
+    [
+      _c("div", [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.searchText,
+              expression: "searchText",
+            },
+          ],
+          attrs: { type: "text", placeholder: "Cerca una città" },
+          domProps: { value: _vm.searchText },
+          on: {
+            keyup: function ($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.getAddress.apply(null, arguments)
+            },
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.searchText = $event.target.value
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
           {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.searchText,
-            expression: "searchText",
+            staticClass: "btn btn-secondary mx-2",
+            attrs: { type: "submit" },
+            on: { click: _vm.getAddress },
           },
-        ],
-        attrs: { type: "text", placeholder: "Cerca una città" },
-        domProps: { value: _vm.searchText },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.getAddress.apply(null, arguments)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.searchText = $event.target.value
-          },
-        },
-      }),
+          [_vm._v("Cerca")]
+        ),
+      ]),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary mx-2",
-          attrs: { type: "submit" },
-          on: { click: _vm.getAddress },
-        },
-        [_vm._v("Cerca")]
-      ),
-    ]),
-  ])
+      _vm._l(_vm.resultsapi, function (element, index) {
+        return _c("li", { key: index }, [
+          _vm._v(
+            " \n            \n            " +
+              _vm._s(_vm.position[0].lat) +
+              "\n            " +
+              _vm._s(_vm.position[0].lon) +
+              "\n            \n        "
+          ),
+        ])
+      }),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
