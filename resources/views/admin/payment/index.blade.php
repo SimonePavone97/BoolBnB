@@ -17,7 +17,7 @@
 
     @endif
 <div class="container text-center">
-    <form method="get" id="payment-form" action="{{ route('admin.payment.checkout', [$sponsorship, $apartment]) }}">
+    <form method="post" id="payment-form" action="{{ route('admin.payment.checkout', [$sponsorship, $apartment]) }}">
         @csrf
         @method('POST')
         <section>
