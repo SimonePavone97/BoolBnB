@@ -2057,6 +2057,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3452,69 +3469,134 @@ var render = function () {
     _c(
       "div",
       { staticClass: "row my-3" },
-      _vm._l(_vm.apartmentsArr, function (apartment) {
-        return _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.searchStatus,
-                expression: "!searchStatus",
-              },
-            ],
-            key: apartment.id,
-            staticClass: "card col-lg-3 col-md-4 col-sm-12",
-          },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "text-dark",
-                attrs: {
-                  to: {
-                    name: "apartment-detail",
-                    params: { id: apartment.id },
+      [
+        _vm._l(_vm.apartmentsArr, function (apartment) {
+          return _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.searchStatus,
+                  expression: "!searchStatus",
+                },
+              ],
+              key: apartment.id,
+              staticClass: "card col-lg-3 col-md-4 col-sm-12",
+            },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "text-dark",
+                  attrs: {
+                    to: {
+                      name: "apartment-detail",
+                      params: { id: apartment.id },
+                    },
                   },
                 },
-              },
-              [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: { src: apartment.image, alt: "Card image cap" },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v(_vm._s(apartment.title)),
-                  ]),
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: { src: apartment.image, alt: "Card image cap" },
+                  }),
                   _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(apartment.description)),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("span", { staticClass: "card-text" }, [
-                      _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(apartment.title)),
                     ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "card-text" }, [
-                      _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(apartment.description)),
                     ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "card-text" }, [
-                      _vm._v("Mq: " + _vm._s(apartment.mq)),
+                    _c("div", [
+                      _c("span", { staticClass: "card-text" }, [
+                        _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "card-text" }, [
+                        _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "card-text" }, [
+                        _vm._v("Mq: " + _vm._s(apartment.mq)),
+                      ]),
                     ]),
                   ]),
-                ]),
-              ]
-            ),
-          ],
-          1
-        )
-      }),
-      0
+                ]
+              ),
+            ],
+            1
+          )
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.searchedApartmentsArr, function (apartment) {
+          return _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.searchStatus,
+                  expression: "searchStatus",
+                },
+              ],
+              key: apartment.id,
+              staticClass:
+                "card d-flex justify-content-center align-items-center apartment-card",
+            },
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: {
+                      name: "apartment-detail",
+                      params: { id: apartment.id },
+                    },
+                  },
+                },
+                [
+                  _c("img", {
+                    staticClass: "card-img-top",
+                    attrs: { src: apartment.image, alt: "Card image cap" },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(apartment.title)),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(apartment.description)),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("span", { staticClass: "card-text" }, [
+                        _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "card-text" }, [
+                        _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "card-text" }, [
+                        _vm._v("Mq: " + _vm._s(apartment.mq)),
+                      ]),
+                    ]),
+                  ]),
+                ]
+              ),
+            ],
+            1
+          )
+        }),
+      ],
+      2
     ),
   ])
 }

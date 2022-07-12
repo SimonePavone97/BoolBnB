@@ -2,6 +2,7 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <div class=" col-4">
+            
                 <img src="../../../images/logo.png" alt="logo-Airbnb" width="150px">
             </div>
             <div class="col-4">
@@ -17,6 +18,22 @@
             <div class="card col-lg-3 col-md-4 col-sm-12" v-for="apartment in apartmentsArr" :key="apartment.id"
                 v-show="!searchStatus">
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
+                    <img class="card-img-top" :src="apartment.image" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{apartment.title}}</h5>
+                        <p class="card-text">{{apartment.description}}</p>
+                        <div>
+                            <span class="card-text">Stanze: {{apartment.rooms}}</span>
+                            <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
+                            <span class="card-text">Mq: {{apartment.mq}}</span>
+                        </div>
+                    </div>
+                </router-link>
+            </div>
+
+            <div class="card d-flex justify-content-center align-items-center apartment-card" 
+            v-for="apartment in searchedApartmentsArr" :key="apartment.id" v-show="searchStatus">
+                <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{apartment.title}}</h5>
