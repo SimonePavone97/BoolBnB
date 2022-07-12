@@ -37,7 +37,7 @@
         <button class="btn btn-success" type="submit"><span>Acquista</span></button>
     </form>
 </div>
-@endsection
+
 
 <script src="https://js.braintreegateway.com/web/dropin/1.33.2/js/dropin.js"></script>
 <script>
@@ -47,7 +47,7 @@
     braintree.dropin.create({
         authorization: client_token,
         selector: '#bt-dropin'
-    }, function (createErr, dropInstance) {
+    }, function (createErr, instance) {
         if (createErr) {
             console.log('Create Error', createErr);
             return;
@@ -68,3 +68,5 @@
         }
     });
 </script>
+
+@endsection
