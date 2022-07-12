@@ -29,7 +29,7 @@
 
                 <h3>Servizi</h3>
                 <ul>
-                    <li v-for="(element, index) in apartment.services" :key="element.id">{{ element.name }}</li>
+                    <li v-for="(element, index) in apartment.services" :key="index">{{ element.name }}</li>
                 </ul>
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque
@@ -98,8 +98,13 @@
             <div class="col-5">
                 <div class="prova_riquadro_prenota rounded mt-1"></div>
             </div>
+
         </div>
 
+        <div>
+            <h5>Mappa</h5>
+            <div id="map" class="map mb-3"></div> 
+        </div>
     </div>
 </template>
 
@@ -134,13 +139,30 @@ export default {
                 });
         },
     },
-    mounted() {
+    created() {
         this.getApartment();
-        console.log("this.$route");
+    },
+    mounted() {
+        
+        setTimeout(() => {
+            console.log(this.apartment); 
+            // Tomtom
+            let center = [ this.apartment.longitude,  this.apartment.latitude];
+            const map = tt.map({
+                key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+                container: "map",
+                center: center,
+                zoom: 15
+            })
+            map.on('load', () => {
+                var marker = new tt.Marker()
+                    .setLngLat(center)
+                    .addTo(map);
+            })
+            }, 500);
+        
     },
 }
-
-
 
 </script>
 
@@ -151,5 +173,10 @@ export default {
     background-color: red;
     position: sticky;
     top: 50px;
+}
+
+.map {
+    height: 400px;
+    width: 35%;
 }
 </style>
