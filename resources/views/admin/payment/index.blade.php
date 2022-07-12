@@ -7,11 +7,6 @@
         </div>
     @endif
     @if (count($errors) > 0)
-        {{-- @foreach ($errors->all() as $error)
-            <div class="alert alert-danger">
-                {{$error}}
-            </div>
-        @endforeach --}}
         <script>
             Swal.fire(
                 'Oops!',
@@ -39,7 +34,7 @@
         </section>
 
         <input id="nonce" name="payment_method_nonce" type="hidden" />
-        <button class="btn btn-success" type="submit"><span>Paga ora</span></button>
+        <button class="btn btn-success" type="submit"><span>Acquista</span></button>
     </form>
 </div>
 @endsection
@@ -47,10 +42,11 @@
 <script src="https://js.braintreegateway.com/web/dropin/1.33.2/js/dropin.js"></script>
 <script>
     var form = document.querySelector('#payment-form');
+    var client_token = "{{$token}}";
 
     braintree.dropin.create({
-    authorization: 'sandbox_245hxbxs_n8pdc2q57r93h69f',
-    selector: '#bt-dropin'
+        authorization: client_token,
+        selector: '#bt-dropin'
     }, function (createErr, dropInstance) {
         if (createErr) {
             console.log('Create Error', createErr);

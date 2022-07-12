@@ -21,9 +21,9 @@ class PaymentController extends Controller
             'privateKey' => config('services.braintree.privateKey')
         ]);
 
-        //$token = $gateway->clientToken()->generate();
+        $token = $gateway->ClientToken()->generate();
 
-        return view('admin.payment.index', compact('sponsorship', 'apartment', 'amount'));
+        return view('admin.payment.index', compact('token', 'sponsorship', 'apartment', 'amount'));
     }
 
     public function store(Request $request, Sponsorship $sponsorship, Apartment $apartment){
@@ -47,7 +47,6 @@ class PaymentController extends Controller
         ]);
         if ($result->success) {
             $transaction = $result->transaction;
-            // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
             $today = Carbon::now('Europe/Rome');
 
             $duration = $sponsorship->duration;
@@ -64,8 +63,6 @@ class PaymentController extends Controller
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
             }
 
-            // $_SESSION["errors"] = $errorString;
-            // header("Location: " . $baseUrl . "index.php");
             return back()->withErrors('Error occured:'. $result->message);
         }
     }
