@@ -17,21 +17,7 @@ class ApartmentSponsorshipSeeder extends Seeder
     
     public function run()
     {
-        /*
-        $sponsorship_id = Sponsorship::pluck('id')->toArray();
-        $apartment_id = Apartment::pluck('id')->toArray();
-
-        for ($i = 0; $i < 10; $i++) {
-            $apartment_sponsorship = new ApartmentSponsorship();
-
-            $apartment_sponsorship->sponsorship_id = Arr::random($sponsorship_id);
-            $apartment_sponsorship->apartment_id = Arr::random($apartment_id);
-            $apartment_sponsorship->end_sponsorship = $faker->date('Y-m-d', '2003-01-01');
-
-            $apartment_sponsorship->save();
-
-        }
-        */
+        //
     }
     
 }
