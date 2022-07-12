@@ -8,18 +8,23 @@
     @endif
     
     @if (count($errors) > 0)
-        <script>
-            Swal.fire(
-                'Qualcosa è andato storto!',
-                'Errore imprevisto'
-            )
-        </script>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+                <li>
+                    {{$amount}}
+                </li>
+            </ul>
+        </div>
     @endif
     
     <div class="container text-center">
         <form method="post" id="payment-form" action="{{ route('admin.payment.checkout', [$sponsorship, $apartment]) }}">
             @csrf
             @method('POST')
+            
             <section>
                 <label for="amount">
                     <span class="input-label" readonly>Prezzo</span>

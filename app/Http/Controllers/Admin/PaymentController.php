@@ -14,6 +14,7 @@ class PaymentController extends Controller
 
         $amount = $sponsorship->price;
 
+
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -47,6 +48,7 @@ class PaymentController extends Controller
         ]);
         if ($result->success) {
             $transaction = $result->transaction;
+            
             $today = Carbon::now('Europe/Rome');
 
             $duration = $sponsorship->duration;
@@ -55,7 +57,8 @@ class PaymentController extends Controller
             $apartment->visible = 1;
             $apartment->save();
             
-            return redirect()->route('admin.apartment.index', compact('apartment'))->with('sponsor-success-message', 'Transazione eseguita con successo. Sponsorizzazione: ' . ucfirst($sponsorship->name));
+            
+            return back()->with('sponsor-success-message', 'Transazione eseguita con successo.');
         } else {
             $errorString = "";
 
