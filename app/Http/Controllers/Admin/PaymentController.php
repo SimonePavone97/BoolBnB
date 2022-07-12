@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Sponsorship;
 use App\Models\Apartment;
+use App\Models\ApartmentSponsorship;
 
 class PaymentController extends Controller
 {
@@ -36,7 +37,7 @@ class PaymentController extends Controller
             'privateKey' => config('services.braintree.privateKey')
         ]);
 
-        $amount = $request["amount"];
+        $amount = 5.99;
         $nonce = $request["payment_method_nonce"];
 
         $result = $gateway->transaction()->sale([
@@ -48,14 +49,17 @@ class PaymentController extends Controller
         ]);
         if ($result->success) {
             $transaction = $result->transaction;
+            $duration = $sponsorship->duration;
             
             $today = Carbon::now('Europe/Rome');
 
-            $duration = $sponsorship->duration;
-            $endDate = date('Y-m-d h:i:s', strtotime($today)+60*60*$duration);
-            $apartment->sponsorships()->sync([$sponsorship->id => ['start_date' => $today, 'end_date' => $endDate]]);
-            $apartment->visible = 1;
-            $apartment->save();
+            $apartment_sponsorship = new ApartmentSponsorship();
+            $apartment_sponsorship->apartment_id = $apartment->id;
+            $apartment_sponsorship->sponsorship_id = $sponsorship->id;
+            $apartment_sponsorship->start_date = Carbon::now('Europe/Rome');
+            $apartment_sponsorship->end_date = date('Y-m-d h:i:s', strtotime($today)+60*60*$duration);
+
+            $apartment_sponsorship->save();
             
             
             return back()->with('sponsor-success-message', 'Transazione eseguita con successo.');
