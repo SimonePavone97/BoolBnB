@@ -22,6 +22,7 @@ class TomtomController extends Controller
         foreach ($apartments as $apartment) {
                 $position =
             [
+                "poi" => $apartment->id                              ,
                 
               "position" => [
                 "lat"=>$apartment->latitude,
