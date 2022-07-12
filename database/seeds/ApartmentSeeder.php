@@ -16,25 +16,29 @@ class ApartmentSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $apartments = config('apartments');
+
         $user_ids = User::pluck('id')->toArray();
 
-        for ($i = 0; $i < 10; $i++) {
-            $apartment = new Apartment();
+        foreach ($apartments as $apartment) {
+            $new_apartment = new Apartment();
             
-            $apartment->user_id = Arr::random($user_ids);
-            $apartment->title = $faker->sentence();
-            $apartment->rooms = $faker->numberBetween(1, 20);
-            $apartment->bathrooms = $faker->numberBetween(1, 6);
-            $apartment->beds = $faker->numberBetween(1, 20);
-            $apartment->mq = $faker->numberBetween(20, 5000);
-            $apartment->address = $faker->address();
-            $apartment->latitude = round($faker->latitude($min = -90, $max = 90), 5);
-            $apartment->longitude = round($faker->longitude($min = -90, $max = 90), 5);
-            $apartment->image = 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/267316381.jpg?k=86b64cf28cd12f4c6feb7b7be23c8bcce91b2cd1be7c48a7383c4297d8d695ce&o=&hp=1';
-            $apartment->visibility = $faker->boolean();
-            $apartment->description = $faker->sentence();
+            $new_apartment->fill($apartment);
 
-            $apartment->save();
+            $new_apartment->rooms = $faker->numberBetween(1, 10);
+            $new_apartment->bathrooms = $faker->numberBetween(1, 4);
+            $new_apartment->beds = $faker->numberBetween(1, 20);
+            $new_apartment->mq = $faker->numberBetween(20, 500);
+
+            // Chiamata a TOMTOM API per calcolo latitude e logitude
+            $APIrequest = 'https://api.tomtom.com/search/2/geocode/' . $new_apartment->address . '.json?key=cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9';
+            $response = Http::get($APIrequest)->json();
+            $new_apartment->longitude = $response['results'][0]['position']['lon'];
+            $new_apartment->latitude = $response['results'][0]['position']['lat'];
+
+            $new_apartment->visibility = $faker->boolean();
+
+            $new_apartment->save();
 
         }
     }

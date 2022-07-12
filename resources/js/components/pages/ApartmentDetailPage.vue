@@ -4,7 +4,7 @@
         <h2>{{ apartment.title }}</h2>
 
         <span>{{ apartment.address }}</span>
-        <img :src="(`${apartment.image}`)" alt="img-apartment" class="w-100 rounded">
+        <img :src="(`../../../images/apartments/${apartment.image}`)" alt="img-apartment" class="w-50 rounded">
 
         <div class="row justify-content-between mt-4">
             <div class="col-6">

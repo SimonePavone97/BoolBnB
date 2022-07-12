@@ -3476,8 +3476,11 @@ var render = function () {
     _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
     _vm._v(" "),
     _c("img", {
-      staticClass: "w-100 rounded",
-      attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
+      staticClass: "w-50 rounded",
+      attrs: {
+        src: "../../../images/apartments/" + _vm.apartment.image,
+        alt: "img-apartment",
+      },
     }),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-between mt-4" }, [
