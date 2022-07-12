@@ -1977,7 +1977,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":20000}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
-        _this3.resultsapi = res.data;
+        res.data.results.forEach(function (element) {
+          _this3.resultsapi.push(element.poi);
+        });
         console.log("RISULTATI", _this3.resultsapi);
         console.log(_this3.searchText);
         console.log("FINAL", _this3.latlon);

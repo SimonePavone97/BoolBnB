@@ -67,7 +67,9 @@ export default {
         Risultato(){
             axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"${this.latlon}","radius":20000}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
-                    this.resultsapi = res.data;
+                    res.data.results.forEach(element => {
+                        this.resultsapi.push(element.poi)    
+                    });
                     console.log("RISULTATI",this.resultsapi);
                     console.log(this.searchText);
                     console.log("FINAL",this.latlon)
