@@ -83,6 +83,19 @@ header .nav-item i {
     color: var(--pink);
 }
 
+/* Dashboard Sponsor */
+.sponsor {
+    padding: 10px;
+}
+
+.bg_primary {
+    background-color: var(--lightpink);
+}
+
+.text-gray {
+    color: var(--gray);
+}
+
 /* CREATE */
 
 #create-apartment input:focus {
@@ -97,3 +110,4 @@ header .nav-item i {
     height: 300px;
     width: 40%;
 }
+
