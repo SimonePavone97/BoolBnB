@@ -11,12 +11,12 @@
           <label for="radius">Raggio di ricerca</label>
           <input type="number" v-model="searchRadius" name="radius" min="1" class="form-control" id="radius" required>         
         </div>
-
+        <!-- Filtro Stanze -->
         <div>
           <label for="rooms">N° di stanze</label>
           <input type="number" v-model="rooms" name="rooms" min="1" class="form-control" id="rooms" required>         
         </div>
-
+        <!-- Filtro Bagni -->
         <div>
           <label for="beds">N° di bagni</label>
           <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
