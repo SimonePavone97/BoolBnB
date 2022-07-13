@@ -3419,7 +3419,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("img", {
-      staticClass: "w-100 rounded",
+      staticClass: "img-fluid rounded",
       attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
     }),
     _vm._v(" "),
@@ -3427,7 +3427,7 @@ var render = function () {
       _c("div", { staticClass: "col-6" }, [
         _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
         _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
+        _c("span", [_vm._v("Indirizzo: " + _vm._s(_vm.apartment.address))]),
         _vm._v(" "),
         _c("h3", [_vm._v(_vm._s(_vm.apartment.description))]),
         _vm._v(" "),
@@ -3455,7 +3455,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "ul",
-          _vm._l(_vm.apartment.services, function (element, index) {
+          _vm._l(_vm.apartment.services, function (element) {
             return _c("li", { key: element.id }, [_vm._v(_vm._s(element.name))])
           }),
           0

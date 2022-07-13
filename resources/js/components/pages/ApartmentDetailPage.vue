@@ -2,14 +2,14 @@
     <div>
         <!-- <SearchComp class="sticky-top" /> -->
 
-        <img :src="(`${apartment.image}`)" alt="img-apartment" class="w-100 rounded">
+        <img :src="(`${apartment.image}`)" alt="img-apartment" class="img-fluid rounded">
 
         <div class="row justify-content-between mt-4">
             <div class="col-6">
 
                 <h2>{{ apartment.title }}</h2>
 
-                <span>{{ apartment.address }}</span>
+                <span>Indirizzo: {{ apartment.address }}</span>
 
                 <h3>{{ apartment.description }}</h3>
 
@@ -33,7 +33,7 @@
 
                 <h3>Servizi</h3>
                 <ul>
-                    <li v-for="(element, index) in apartment.services" :key="element.id">{{ element.name }}</li>
+                    <li v-for="(element) in apartment.services" :key="element.id">{{ element.name }}</li>
                 </ul>
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque
