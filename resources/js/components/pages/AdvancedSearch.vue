@@ -22,21 +22,21 @@
           <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
         </div>
 
-            <div v-for="banana in apartmentsArr" :key="banana.id">
+            <div v-for="apartment in apartmentsArr" :key="apartment.id">
             
               <ul v-for="element in resultsapi" :key="element.index"  > 
                 
-                <li v-if="element == banana.id && banana.rooms >= rooms && banana.beds >= beds">
-
-                    <router-link :to="{name: 'apartment-detail', params: {id: banana.id}}">
-                    <img class="card-img-top" :src="banana.image" alt="Card image cap">
+                <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds">
+                <!-- Visualizzazione card apartment -->
+                <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
+                    <img class="card-img-top" :src="apartment.image" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{banana.title}}</h5>
-                        <p class="card-text">{{banana.description}}</p>
+                        <h5 class="card-title">{{apartment.title}}</h5>
+                        <p class="card-text">{{apartment.description}}</p>
                         <div>
-                            <span class="card-text">Stanze: {{banana.rooms}}</span>
-                            <span class="card-text">Bagni: {{banana.bathrooms}}</span>
-                            <span class="card-text">Mq: {{banana.mq}}</span>
+                            <span class="card-text">Stanze: {{apartment.rooms}}</span>
+                            <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
+                            <span class="card-text">Mq: {{apartment.mq}}</span>
                         </div>
                     </div>
                 </router-link>

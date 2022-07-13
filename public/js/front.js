@@ -3689,15 +3689,15 @@ var render = function () {
         }),
       ]),
       _vm._v(" "),
-      _vm._l(_vm.apartmentsArr, function (banana) {
+      _vm._l(_vm.apartmentsArr, function (apartment) {
         return _c(
           "div",
-          { key: banana.id },
+          { key: apartment.id },
           _vm._l(_vm.resultsapi, function (element) {
             return _c("ul", { key: element.index }, [
-              element == banana.id &&
-              banana.rooms >= _vm.rooms &&
-              banana.beds >= _vm.beds
+              element == apartment.id &&
+              apartment.rooms >= _vm.rooms &&
+              apartment.beds >= _vm.beds
                 ? _c(
                     "li",
                     [
@@ -3707,36 +3707,39 @@ var render = function () {
                           attrs: {
                             to: {
                               name: "apartment-detail",
-                              params: { id: banana.id },
+                              params: { id: apartment.id },
                             },
                           },
                         },
                         [
                           _c("img", {
                             staticClass: "card-img-top",
-                            attrs: { src: banana.image, alt: "Card image cap" },
+                            attrs: {
+                              src: apartment.image,
+                              alt: "Card image cap",
+                            },
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "card-body" }, [
                             _c("h5", { staticClass: "card-title" }, [
-                              _vm._v(_vm._s(banana.title)),
+                              _vm._v(_vm._s(apartment.title)),
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "card-text" }, [
-                              _vm._v(_vm._s(banana.description)),
+                              _vm._v(_vm._s(apartment.description)),
                             ]),
                             _vm._v(" "),
                             _c("div", [
                               _c("span", { staticClass: "card-text" }, [
-                                _vm._v("Stanze: " + _vm._s(banana.rooms)),
+                                _vm._v("Stanze: " + _vm._s(apartment.rooms)),
                               ]),
                               _vm._v(" "),
                               _c("span", { staticClass: "card-text" }, [
-                                _vm._v("Bagni: " + _vm._s(banana.bathrooms)),
+                                _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
                               ]),
                               _vm._v(" "),
                               _c("span", { staticClass: "card-text" }, [
-                                _vm._v("Mq: " + _vm._s(banana.mq)),
+                                _vm._v("Mq: " + _vm._s(apartment.mq)),
                               ]),
                             ]),
                           ]),
