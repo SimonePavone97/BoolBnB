@@ -2,6 +2,24 @@
 
 @section('content')
     <div class="container">
+        @if (session('success-message'))
+            <div class="alert alert-success">
+                {{session('success-message')}}
+            </div>
+        @endif
+        
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                    <li>
+                        {{$amount}}
+                    </li>
+                </ul>
+            </div>
+        @endif
 
         @if (session('message'))
         <div class="alert alert-danger">

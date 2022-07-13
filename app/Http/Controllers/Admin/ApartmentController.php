@@ -128,7 +128,7 @@ class ApartmentController extends Controller
         $apartment->fill($data);
 
         // Chiamata a TOMTOM API per calcolo latitude e logitude
-        $APIrequest = 'https://api.tomtom.com/search/2/geocode/' . $apartment->address . '.json?key=cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9';
+        $APIrequest = 'https://api.tomtom.com/search/2/geocode/' . $apartment->address . '.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3';
         $response = Http::get($APIrequest)->json();
         $apartment->longitude = $response['results'][0]['position']['lon'];
         $apartment->latitude = $response['results'][0]['position']['lat'];

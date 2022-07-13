@@ -6,6 +6,9 @@ Vue.use(VueRouter)
 import HomePage from './components/pages/HomePage.vue';
 import ApartmentDetailPage from './components/pages/ApartmentDetailPage.vue';
 import NotFound from './components/pages/NotFound.vue';
+import ShowSponsorships from './components/pages/Payment/ShowSponsorships.vue';
+import AdvancedSearch from './components/pages/AdvancedSearch.vue';
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -13,7 +16,9 @@ const router = new VueRouter({
     routes: [
         { path: '/', component: HomePage, name: 'home' },
         { path: '/apartments/:id', component: ApartmentDetailPage, name: 'apartment-detail' },
+        { path: '/advanced', component: AdvancedSearch, name: 'AdvancedSearch' },
         { path: '*', component: NotFound, name: 'notFound' },
+        { path: '/sponsorships', component: ShowSponsorships, name: 'sponsorships' }
     ]
 });
 

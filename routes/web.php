@@ -24,10 +24,11 @@ Route::middleware('auth')
 ->group( function(){
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');
-    Route::resource('sponsorship', 'SponsorshipController');
-    Route::resource('apartmentSponsorship', 'ApartmentSponsorshipController');
     Route::resource('messages', 'MessageController');
     Route::resource('user', 'UserController');
+    Route::get('/sponsorship/{apartment}', 'SponsorshipController@index')->name('sponsorship.index');
+    Route::get('/payment/{sponsorship}/{apartment}', 'PaymentController@index')->name('payment.index');
+    Route::post('/payment/checkout/{sponsorship}/{apartment}', 'PaymentController@store')->name('payment.checkout');
 });
 
 Route::get('{any?}', function(){
