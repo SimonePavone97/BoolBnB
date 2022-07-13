@@ -2113,9 +2113,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       apartmentsArr: [],
       searchedApartmentsArr: [],
-      searchStatus: false,
-      trueValue: true,
-      falseValue: false
+      searchStatus: false
     };
   },
   created: function created() {
@@ -2286,7 +2284,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.marg{\r\n    margin-bottom: 0.8em;\n}\r\n", ""]);
+exports.push([module.i, "\n.marg {\n    margin-bottom: 0.8em;\n}\n\n", ""]);
 
 // exports
 
@@ -3605,32 +3603,25 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "d-flex justify-content-between align-items-center" },
-      [
-        _vm.trueValue
-          ? _c("div", { staticClass: "col-lg-4 col-sm-12" }, [
-              _c("img", {
-                attrs: {
-                  src: __webpack_require__(/*! ../../../images/logo.png */ "./resources/images/logo.png"),
-                  alt: "logo-Airbnb",
-                  width: "150px",
-                },
-              }),
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.falseValue ? _c("div", [_c("span")]) : _vm._e(),
-        _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12" }, [
         _c(
           "div",
-          { staticClass: "col-lg-4 col-sm-12" },
-          [_c("SearchComp", { on: { searchFunction: _vm.search } })],
+          [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../images/logo.png */ "./resources/images/logo.png"),
+                alt: "Logo BoolBnB",
+                width: "180px",
+              },
+            }),
+            _vm._v(" "),
+            _c("SearchComp", { on: { searchFunction: _vm.search } }),
+          ],
           1
         ),
-      ]
-    ),
+      ]),
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -3893,60 +3884,55 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "nav",
-      { staticClass: "d-flex align-items-center mt-2 navbar-light bg-light" },
-      [
-        _c("form", { staticClass: "form-inline d-flex align-items-center" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.searchText,
-                expression: "searchText",
-              },
-            ],
-            staticClass: "text-center",
-            attrs: { type: "text", placeholder: "Cerca un appartamento" },
-            domProps: { value: _vm.searchText },
+    _c("nav", { staticClass: "navbar-light bg-light" }, [
+      _c("form", { staticClass: "form-inline d-flex justify-content-center" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.searchText,
+              expression: "searchText",
+            },
+          ],
+          attrs: { type: "text", placeholder: "Cerca un appartamento" },
+          domProps: { value: _vm.searchText },
+          on: {
+            keydown: function ($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              $event.preventDefault()
+              return _vm.$emit("searchFunction", _vm.searchText)
+            },
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.searchText = $event.target.value
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            attrs: { type: "submit" },
             on: {
-              keydown: function ($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
+              click: function ($event) {
                 $event.preventDefault()
                 return _vm.$emit("searchFunction", _vm.searchText)
               },
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.searchText = $event.target.value
-              },
             },
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger",
-              attrs: { type: "submit" },
-              on: {
-                click: function ($event) {
-                  $event.preventDefault()
-                  return _vm.$emit("searchFunction", _vm.searchText)
-                },
-              },
-            },
-            [_vm._v("Cerca")]
-          ),
-        ]),
-      ]
-    ),
+          },
+          [_vm._v("Cerca")]
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
