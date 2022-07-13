@@ -5,14 +5,32 @@
                 <button @click="getAddress" type="submit"
                     class="btn btn-secondary mx-2">Cerca</button>            
         </div>
-        
-        
-            <!-- <li v-for="(element,index) in resultsapi" :key="index"> 
+            <div v-for="banana in apartmentsArr" :key="banana.id">
+            
+              <ul v-for="element in resultsapi" :key="element.index"  > 
                 
-                {{position[0].lat}}
-                {{position[0].lon}}
+                <li v-if="element == banana.id">
 
-            </li> -->
+                    <router-link :to="{name: 'apartment-detail', params: {id: banana.id}}">
+                    <img class="card-img-top" :src="banana.image" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{banana.title}}</h5>
+                        <p class="card-text">{{banana.description}}</p>
+                        <div>
+                            <span class="card-text">Stanze: {{banana.rooms}}</span>
+                            <span class="card-text">Bagni: {{banana.bathrooms}}</span>
+                            <span class="card-text">Mq: {{banana.mq}}</span>
+                        </div>
+                    </div>
+                </router-link>
+
+                </li>
+
+              </ul>
+            
+            </div>
+                
+            
         
     </div>
 </template>
@@ -26,6 +44,7 @@ export default {
     data() {
         return {
             isError: false,
+            apartmentsArr: [],
             searchText: "",
             address: [],
             poilist:[],
@@ -37,6 +56,17 @@ export default {
     },
 
     methods: {
+        getApartments() {
+            axios.get(`http://127.0.0.1:8000/api/apartments`)
+                .then((res) => {
+                console.log(res.data);
+                this.apartmentsArr = res.data.apartments;
+                console.log('Appartamenti:', this.apartmentsArr);
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+        },
         getPoilist(){
             axios.get("http://127.0.0.1:8000/api/positions")
                 .then((res) => {
@@ -79,6 +109,7 @@ export default {
         }
     },
     mounted() {
+        this.getApartments(); 
         this.getPoilist(); 
         
    

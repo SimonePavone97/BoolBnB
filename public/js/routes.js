@@ -1931,12 +1931,31 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
   data: function data() {
     return {
       isError: false,
+      apartmentsArr: [],
       searchText: "",
       address: [],
       poilist: [],
@@ -1946,49 +1965,61 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     };
   },
   methods: {
-    getPoilist: function getPoilist() {
+    getApartments: function getApartments() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
-        _this.poilist = res.data;
-        console.log("POILIST", _this.poilist);
-      })["catch"](function (err) {
-        _this.isError = true;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (res) {
+        console.log(res.data);
+        _this.apartmentsArr = res.data.apartments;
+        console.log('Appartamenti:', _this.apartmentsArr);
+      })["catch"](function (error) {
+        console.log(error);
       });
     },
-    getAddress: function getAddress() {
+    getPoilist: function getPoilist() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        _this2.address = res.data.results;
-
-        _this2.position.push(_this2.address[0].position);
-
-        _this2.latlon = _this2.position[0].lat + "," + _this2.position[0].lon;
-        console.log("POSITION", _this2.position, _typeof(_this2.position));
-        console.log("LAT", _this2.position[0].lat);
-        console.log("LON", _this2.position[0].lon);
-        console.log("Sdighidi", _this2.latlon);
-      }).then(this.Risultato)["catch"](function (err) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
+        _this2.poilist = res.data;
+        console.log("POILIST", _this2.poilist);
+      })["catch"](function (err) {
         _this2.isError = true;
       });
     },
-    Risultato: function Risultato() {
+    getAddress: function getAddress() {
       var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
+        _this3.address = res.data.results;
+
+        _this3.position.push(_this3.address[0].position);
+
+        _this3.latlon = _this3.position[0].lat + "," + _this3.position[0].lon;
+        console.log("POSITION", _this3.position, _typeof(_this3.position));
+        console.log("LAT", _this3.position[0].lat);
+        console.log("LON", _this3.position[0].lon);
+        console.log("Sdighidi", _this3.latlon);
+      }).then(this.Risultato)["catch"](function (err) {
+        _this3.isError = true;
+      });
+    },
+    Risultato: function Risultato() {
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":20000}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
         res.data.results.forEach(function (element) {
-          _this3.resultsapi.push(element.poi);
+          _this4.resultsapi.push(element.poi);
         });
-        console.log("RISULTATI", _this3.resultsapi);
-        console.log(_this3.searchText);
-        console.log("FINAL", _this3.latlon);
+        console.log("RISULTATI", _this4.resultsapi);
+        console.log(_this4.searchText);
+        console.log("FINAL", _this4.latlon);
       })["catch"](function (err) {
-        _this3.isError = true;
+        _this4.isError = true;
       });
     }
   },
   mounted: function mounted() {
+    this.getApartments();
     this.getPoilist();
   }
 });
@@ -3395,49 +3426,114 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c("input", {
-        directives: [
+  return _c(
+    "div",
+    [
+      _c("div", [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.searchText,
+              expression: "searchText",
+            },
+          ],
+          attrs: { type: "text", placeholder: "Cerca una città" },
+          domProps: { value: _vm.searchText },
+          on: {
+            keyup: function ($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.getAddress.apply(null, arguments)
+            },
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.searchText = $event.target.value
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
           {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.searchText,
-            expression: "searchText",
+            staticClass: "btn btn-secondary mx-2",
+            attrs: { type: "submit" },
+            on: { click: _vm.getAddress },
           },
-        ],
-        attrs: { type: "text", placeholder: "Cerca una città" },
-        domProps: { value: _vm.searchText },
-        on: {
-          keyup: function ($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.getAddress.apply(null, arguments)
-          },
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.searchText = $event.target.value
-          },
-        },
-      }),
+          [_vm._v("Cerca")]
+        ),
+      ]),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary mx-2",
-          attrs: { type: "submit" },
-          on: { click: _vm.getAddress },
-        },
-        [_vm._v("Cerca")]
-      ),
-    ]),
-  ])
+      _vm._l(_vm.apartmentsArr, function (banana) {
+        return _c(
+          "div",
+          { key: banana.id },
+          _vm._l(_vm.resultsapi, function (element) {
+            return _c("ul", { key: element.index }, [
+              element == banana.id
+                ? _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "apartment-detail",
+                              params: { id: banana.id },
+                            },
+                          },
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "card-img-top",
+                            attrs: { src: banana.image, alt: "Card image cap" },
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("h5", { staticClass: "card-title" }, [
+                              _vm._v(_vm._s(banana.title)),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(banana.description)),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", [
+                              _c("span", { staticClass: "card-text" }, [
+                                _vm._v("Stanze: " + _vm._s(banana.rooms)),
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "card-text" }, [
+                                _vm._v("Bagni: " + _vm._s(banana.bathrooms)),
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "card-text" }, [
+                                _vm._v("Mq: " + _vm._s(banana.mq)),
+                              ]),
+                            ]),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
+            ])
+          }),
+          0
+        )
+      }),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

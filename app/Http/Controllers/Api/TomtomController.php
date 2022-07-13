@@ -43,7 +43,7 @@ class TomtomController extends Controller
         // {"position":
         //     {"lat":40.80076,"lon":-73.96556}}]
 
-        return response()->json( $positions );
+        return response()->json( $positions);
     }
 
     /**
