@@ -102,7 +102,7 @@
                                        ->join('apartments', 'users.id', '=', 'apartments.user_id')
                                        ->join('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
                                        ->where('users.id', Auth::id())
-                                       ->select('apartments.title', 'apartment_sponsorship.end_sponsorship')->get();
+                                       ->select('apartments.title', 'apartment_sponsorship.end_date')->get();
                     @endphp
 
                     @if (count($sponsorships) > 0)
@@ -117,7 +117,7 @@
                             @foreach ($sponsorships as $sponsorship)
                                 <tr>
                                     <td>{{$sponsorship->title}}</td>
-                                    <td>{{$sponsorship->end_sponsorship}}</td>
+                                    <td>{{$sponsorship->end_date}}</td>
                                 </tr>
                             @endforeach
                         </tbody>
