@@ -1973,6 +1973,23 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -1981,6 +1998,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       isError: false,
       apartmentsArr: [],
       searchText: "",
+      searchRadius: "",
+      rooms: "",
+      beds: "",
       address: [],
       poilist: [],
       position: [],
@@ -2030,12 +2050,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     Risultato: function Risultato() {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":20000}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
         res.data.results.forEach(function (element) {
           _this4.resultsapi.push(element.poi);
         });
         console.log("RISULTATI", _this4.resultsapi);
         console.log(_this4.searchText);
+        console.log(_this4.searchRadius, "metri di radius");
         console.log("FINAL", _this4.latlon);
       })["catch"](function (err) {
         _this4.isError = true;
@@ -3570,13 +3591,113 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
+      _c("div", [
+        _c("label", { attrs: { for: "radius" } }, [
+          _vm._v("Raggio di ricerca"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.searchRadius,
+              expression: "searchRadius",
+            },
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "number",
+            name: "radius",
+            min: "1",
+            id: "radius",
+            required: "",
+          },
+          domProps: { value: _vm.searchRadius },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.searchRadius = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("label", { attrs: { for: "rooms" } }, [_vm._v("N° di stanze")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.rooms,
+              expression: "rooms",
+            },
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "number",
+            name: "rooms",
+            min: "1",
+            id: "rooms",
+            required: "",
+          },
+          domProps: { value: _vm.rooms },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.rooms = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("label", { attrs: { for: "beds" } }, [_vm._v("N° di bagni")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.beds,
+              expression: "beds",
+            },
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "number",
+            name: "beds",
+            min: "1",
+            id: "beds",
+            required: "",
+          },
+          domProps: { value: _vm.beds },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.beds = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
       _vm._l(_vm.apartmentsArr, function (banana) {
         return _c(
           "div",
           { key: banana.id },
           _vm._l(_vm.resultsapi, function (element) {
             return _c("ul", { key: element.index }, [
-              element == banana.id
+              element == banana.id &&
+              banana.rooms >= _vm.rooms &&
+              banana.beds >= _vm.beds
                 ? _c(
                     "li",
                     [
