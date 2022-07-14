@@ -16,7 +16,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <div class="card d-flex justify-content-center align-items-center apartment-card"
-                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="'sponsored' + index"
+                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="index"
                     :apartment="apartment" v-show="!searchStatus">
                     <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
                         <img class="card-img-top" :src="apartment.image" alt="Card image cap">
@@ -29,7 +29,7 @@
                                 <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
                                 <span class="card-text">Mq: {{apartment.mq}}</span>
                             </div>
-                            <div class="text-center mt-5">
+                            <div class="text-center">
                                 <h4>Sponsorizzato</h4>
                             </div>
                         </div>
