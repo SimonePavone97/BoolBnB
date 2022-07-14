@@ -1966,6 +1966,25 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -1977,6 +1996,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       searchRadius: "",
       rooms: "",
       beds: "",
+      checkedService: [],
+      services: [],
       address: [],
       poilist: [],
       position: [],
@@ -1996,51 +2017,72 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         console.log(error);
       });
     },
-    getPoilist: function getPoilist() {
+    getServices: function getServices() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
-        _this2.poilist = res.data;
-        console.log("POILIST", _this2.poilist);
-      })["catch"](function (err) {
-        _this2.isError = true;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
+        console.log(res.data);
+        _this2.services = res.data.services;
+        console.log('SERVIZI:', _this2.services);
+      })["catch"](function (error) {
+        console.log(error);
       });
     },
-    getAddress: function getAddress() {
+    getPoilist: function getPoilist() {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        _this3.address = res.data.results;
-
-        _this3.position.push(_this3.address[0].position);
-
-        _this3.latlon = _this3.position[0].lat + "," + _this3.position[0].lon;
-        console.log("POSITION", _this3.position, _typeof(_this3.position));
-        console.log("LAT", _this3.position[0].lat);
-        console.log("LON", _this3.position[0].lon);
-        console.log("Sdighidi", _this3.latlon);
-      }).then(this.Risultato)["catch"](function (err) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
+        _this3.poilist = res.data;
+        console.log("POILIST", _this3.poilist);
+      })["catch"](function (err) {
         _this3.isError = true;
       });
     },
-    Risultato: function Risultato() {
+    getAddress: function getAddress() {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
-        res.data.results.forEach(function (element) {
-          _this4.resultsapi.push(element.poi);
-        });
-        console.log("RISULTATI", _this4.resultsapi);
-        console.log(_this4.searchText);
-        console.log(_this4.searchRadius, "metri di radius");
-        console.log("FINAL", _this4.latlon);
-      })["catch"](function (err) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
+        _this4.searchText = [];
+        console.log("Svuptato TEXT", _this4.searchText);
+        _this4.latlon = [];
+        console.log("Svuptato LatLon", _this4.latlon);
+        _this4.address = [];
+        console.log("Svuptato address", _this4.address);
+        _this4.position = [];
+        _this4.address = res.data.results;
+
+        _this4.position.push(_this4.address[0].position);
+
+        _this4.latlon = _this4.position[0].lat + "," + _this4.position[0].lon;
+        console.log("POSITION", _this4.position, _typeof(_this4.position));
+        console.log("LAT", _this4.position[0].lat);
+        console.log("LON", _this4.position[0].lon);
+        console.log("Sdighidi", _this4.latlon);
+      }).then(this.Risultato)["catch"](function (err) {
         _this4.isError = true;
+      });
+    },
+    Risultato: function Risultato() {
+      var _this5 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
+        _this5.resultsapi = [];
+        console.log("Svuptato", _this5.resultsapi);
+        res.data.results.forEach(function (element) {
+          _this5.resultsapi.push(element.poi);
+        });
+        console.log("RISULTATI", _this5.resultsapi);
+        console.log(_this5.searchText);
+        console.log(_this5.searchRadius, "metri di radius");
+        console.log("FINAL", _this5.latlon);
+      })["catch"](function (err) {
+        _this5.isError = true;
       });
     }
   },
   mounted: function mounted() {
     this.getApartments();
+    this.getServices();
     this.getPoilist();
   }
 });
@@ -3871,18 +3913,16 @@ var render = function () {
           ],
           staticClass: "form-control",
           attrs: {
-            type: "number",
+            type: "range",
             name: "radius",
             min: "1",
+            max: "20000",
             id: "radius",
             required: "",
           },
           domProps: { value: _vm.searchRadius },
           on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
+            __r: function ($event) {
               _vm.searchRadius = $event.target.value
             },
           },
