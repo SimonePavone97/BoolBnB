@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +21,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Custom style -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- Tomtom Maps -->
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
+    <script type="text/javascript" src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
 </head>
 <body>
     <header>

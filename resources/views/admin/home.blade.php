@@ -1,5 +1,6 @@
 @php
     use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\DB;
 @endphp
 
 @extends('layouts.app')
@@ -15,6 +16,7 @@
 
     <div class="container">
         <div class="dashboard-content">
+            {{-- Action & Info --}}
             <div class="row">
                 {{-- Action --}}
                 <div class="col-4">
@@ -54,7 +56,7 @@
                     {{-- Annunci --}}
                     <div class="infobox">
                         <div class="infobox-text">
-                            <h2>0</h2>
+                            <h2>{{ DB::table('apartments')->where('user_id', Auth::id())->count() }}</h2>
                             <p>Annunci</p>
                         </div>
                         <div class="infobox-icon">
@@ -64,7 +66,13 @@
                     {{-- Messaggi --}}
                     <div class="infobox">
                         <div class="infobox-text">
-                            <h2>0</h2>
+                            <h2>{{ DB::table('users')
+                                       ->join('apartments', 'users.id', '=', 'apartments.user_id')
+                                       ->join('messages', 'apartments.id', '=', 'messages.apartment_id')
+                                       ->where('users.id', Auth::id())
+                                       ->count()
+                                }}
+                            </h2>
                             <p>Messaggi</p>
                         </div>
                         <div class="infobox-icon">
@@ -75,14 +83,51 @@
                     <div class="infobox">
                         <div class="infobox-text">
                             <h2>0</h2>
-                            <p>Annunci</p>
+                            <p>Visualizzazioni</p>
                         </div>
                         <div class="infobox-icon">
                             <i class="fa-regular fa-eye"></i>
                         </div>
                     </div>
                 </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 offset-md-4">
+                    <h4 class="mb-3">Sponsorizzazioni attive</h4>
+
+                    @php
+                        $sponsorships = DB::table('users')
+                                       ->join('apartments', 'users.id', '=', 'apartments.user_id')
+                                       ->join('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+                                       ->where('users.id', Auth::id())
+                                       ->select('apartments.title', 'apartment_sponsorship.end_date')->get();
+                    @endphp
+
+                    @if (count($sponsorships) > 0)
+                    <table class="table">
+                        <thead>
+                            <tr class="bg_primary">
+                                <th scope="col" class="col-8">Appartamento</th>
+                                <th scope="col" class="col-4">Fine Sponsorizzazione</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($sponsorships as $sponsorship)
+                                <tr>
+                                    <td>{{$sponsorship->title}}</td>
+                                    <td>{{$sponsorship->end_date}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>     
+                    @else
+                        <h5 class="text-gray">Non ci sono sponsorizzazioni attive</h5>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
+    
 @endsection

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ApartmentSponsorship;
+use App\Models\Apartment;
 
-class ApartmentSponsorshipController extends Controller
+class TomtomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,35 @@ class ApartmentSponsorshipController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::all();
+
+        $positions = [];
+
+        foreach ($apartments as $apartment) {
+                $position =
+            [
+                "poi" => $apartment->id                              ,
+                
+              "position" => [
+                "lat"=>$apartment->latitude,
+                "lon"=>$apartment->longitude
+              ],
+        
+            ];
+
+          array_push($positions, $position);
+        }
+
+         json_encode($positions);
+         json_decode(json_encode($positions));
+
+        // var_dump($positions);
+        // [{"position":
+        //     {"lat":40.80558,"lon":-73.96548}},
+        // {"position":
+        //     {"lat":40.80076,"lon":-73.96556}}]
+
+        return response()->json( $positions);
     }
 
     /**
@@ -36,17 +64,7 @@ class ApartmentSponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->All();
-
-        $apartment_sponsorship = new ApartmentSponsorship();
-
-        $apartment_sponsorship->fill($data);
-        $apartment_sponsorship->apartment_id = $apartment->id;
-        $apartment_sponsorship->sponsorship_id = $sponsorhip->id;
-        $apartment_sponsorship->end_sponsorship;
-        $apartment_sponsorship->save();
-
-        return redirect()->route('admin.sponsorship.index')->with('message', "Pagamento avvenuto con successo");
+        //
     }
 
     /**

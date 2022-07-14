@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use Carbon\Carbon;
+use App\Models\Sponsorship;
+
 
 class ApartmentController extends Controller
 {
@@ -91,5 +94,18 @@ class ApartmentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function sponsored(){
+        $today = Carbon::now('Europe/Rome');
+
+        $sponsorships = Sponsorship::with('apartments')->get();
+
+        $sponsorized = [];
+
+        foreach($sponsorships as $sponsorship){
+            $sponsorized[]=$sponsorship->apartments()->wherePivot('end_date', '>', $today)->get();
+        }
+        return response()->json($sponsorized);
     }
 }

@@ -2,7 +2,12 @@
     <div class="container">
         <!-- <SearchComp class="sticky-top" /> -->
 
+<<<<<<< HEAD
         <img :src="(`${apartment.image}`)" alt="img-apartment" class="img-fluid rounded">
+=======
+        <span>{{ apartment.address }}</span>
+        <img :src="(`../../../images/apartments/${apartment.image}`)" alt="img-apartment" class="w-50 rounded">
+>>>>>>> cebbd33a4927e279b2c814ab9870c783eb109951
 
         <div class="row justify-content-between mt-4">
             <div class="col-6 text-center">
@@ -33,7 +38,11 @@
 
                 <h3>Servizi</h3>
                 <ul>
+<<<<<<< HEAD
                     <li v-for="(element) in apartment.services" :key="element.id">{{ element.name }}</li>
+=======
+                    <li v-for="(element, index) in apartment.services" :key="index">{{ element.name }}</li>
+>>>>>>> cebbd33a4927e279b2c814ab9870c783eb109951
                 </ul>
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque
@@ -53,8 +62,13 @@
             <div class="col-5">
                 <div class="prova_riquadro_prenota rounded mt-1"></div>
             </div>
+
         </div>
 
+        <div>
+            <h5>Mappa</h5>
+            <div id="map" class="map mb-3"></div> 
+        </div>
     </div>
 </template>
 
@@ -68,6 +82,7 @@
         components: {
             // SearchComp
         },
+<<<<<<< HEAD
 
         data() {
             return {
@@ -106,4 +121,47 @@
         top: 50px;
     }
 
+=======
+    },
+    created() {
+        this.getApartment();
+    },
+    mounted() {
+        
+        setTimeout(() => {
+            console.log(this.apartment); 
+            // Tomtom
+            let center = [ this.apartment.longitude,  this.apartment.latitude];
+            const map = tt.map({
+                key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+                container: "map",
+                center: center,
+                zoom: 15
+            })
+            map.on('load', () => {
+                var marker = new tt.Marker()
+                    .setLngLat(center)
+                    .addTo(map);
+            })
+            }, 500);
+        
+    },
+}
+
+</script>
+
+<style scoped>
+.prova_riquadro_prenota {
+    height: 500px;
+    width: 100%;
+    background-color: red;
+    position: sticky;
+    top: 50px;
+}
+
+.map {
+    height: 400px;
+    width: 35%;
+}
+>>>>>>> cebbd33a4927e279b2c814ab9870c783eb109951
 </style>
