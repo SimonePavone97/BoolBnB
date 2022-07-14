@@ -2042,8 +2042,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        _this4.searchText = [];
-        console.log("Svuptato TEXT", _this4.searchText);
         _this4.latlon = [];
         console.log("Svuptato LatLon", _this4.latlon);
         _this4.address = [];

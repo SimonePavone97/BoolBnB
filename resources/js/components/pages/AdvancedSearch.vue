@@ -131,8 +131,6 @@ export default {
         getAddress(){
             axios.get(`https://api.tomtom.com/search/2/geocode/${this.searchText}.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3`)
                 .then((res) => {
-                    this.searchText= [];
-                    console.log("Svuptato TEXT",this.searchText);
                     this.latlon= [];
                     console.log("Svuptato LatLon",this.latlon);
                     this.address= [];
