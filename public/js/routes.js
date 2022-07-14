@@ -2266,7 +2266,7 @@ var render = function render() {
       staticClass: "card-text"
     }, [_vm._v(_vm._s(apartment.description))]), _vm._v(" "), _c("div", [_c("span", {
       staticClass: "card-text"
-    }, [_vm._v("Stanze: " + _vm._s(apartment.rooms))]), _vm._v("\n                            ciao\n                            "), _c("span", {
+    }, [_vm._v("Stanze: " + _vm._s(apartment.rooms))]), _vm._v(" "), _c("span", {
       staticClass: "card-text"
     }, [_vm._v("Bagni: " + _vm._s(apartment.bathrooms))]), _vm._v(" "), _c("span", {
       staticClass: "card-text"

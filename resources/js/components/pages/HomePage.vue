@@ -25,7 +25,6 @@
                             <p class="card-text">{{apartment.description}}</p>
                             <div>
                                 <span class="card-text">Stanze: {{apartment.rooms}}</span>
-                                ciao
                                 <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
                                 <span class="card-text">Mq: {{apartment.mq}}</span>
                             </div>
