@@ -1983,6 +1983,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -2020,7 +2022,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
         console.log(res.data);
-        _this2.services = res.data;
+        _this2.services = res.data.services;
         console.log('SERVIZI:', _this2.services);
       })["catch"](function (error) {
         console.log(error);
@@ -2040,6 +2042,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
+        _this4.searchText = [];
+        console.log("Svuptato TEXT", _this4.searchText);
+        _this4.latlon = [];
+        console.log("Svuptato LatLon", _this4.latlon);
+        _this4.address = [];
+        console.log("Svuptato address", _this4.address);
+        _this4.position = [];
         _this4.address = res.data.results;
 
         _this4.position.push(_this4.address[0].position);
@@ -2057,6 +2066,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
+        _this5.resultsapi = [];
+        console.log("Svuptato", _this5.resultsapi);
         res.data.results.forEach(function (element) {
           _this5.resultsapi.push(element.poi);
         });
@@ -2071,6 +2082,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   },
   mounted: function mounted() {
     this.getApartments();
+    this.getServices();
     this.getPoilist();
   }
 });
@@ -3905,18 +3917,16 @@ var render = function () {
           ],
           staticClass: "form-control",
           attrs: {
-            type: "number",
+            type: "range",
             name: "radius",
             min: "1",
+            max: "20000",
             id: "radius",
             required: "",
           },
           domProps: { value: _vm.searchRadius },
           on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
+            __r: function ($event) {
               _vm.searchRadius = $event.target.value
             },
           },
@@ -3986,77 +3996,6 @@ var render = function () {
           },
         }),
       ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "col-12", attrs: { for: "services" } }, [
-        _vm._v("Servizi:"),
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.apartmentsArr, function (service) {
-        return _c(
-          "div",
-          { key: service.id, staticClass: "form-group d-flex flex-wrap pl-3" },
-          [
-            _c(
-              "div",
-              { staticClass: "form-check-form-check-inline col-6 col-md-4" },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.checkedService,
-                      expression: "checkedService",
-                    },
-                  ],
-                  staticClass: "form-check-input",
-                  attrs: {
-                    type: "checkbox",
-                    id: "service-" + service.id,
-                    name: "services[]",
-                  },
-                  domProps: {
-                    value: service.id,
-                    checked: Array.isArray(_vm.checkedService)
-                      ? _vm._i(_vm.checkedService, service.id) > -1
-                      : _vm.checkedService,
-                  },
-                  on: {
-                    change: function ($event) {
-                      var $$a = _vm.checkedService,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = service.id,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.checkedService = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.checkedService = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.checkedService = $$c
-                      }
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "form-check-label",
-                    attrs: { for: "service-" + _vm.$service.id },
-                  },
-                  [_vm._v(_vm._s(service.name))]
-                ),
-              ]
-            ),
-          ]
-        )
-      }),
       _vm._v(" "),
       _vm._l(_vm.apartmentsArr, function (apartment) {
         return _c(
