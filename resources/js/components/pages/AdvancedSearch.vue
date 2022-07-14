@@ -22,22 +22,34 @@
           <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
         </div>
         <!-- Filtro Servizi -->
-         <!-- <div class="form-check" v-for="service in services" :key="service.id">
+          <!-- <div class="form-check" v-for="service in services" :key="service.id">
             <input class="form-check-input" type="checkbox" :value="service.id"
                 :id="'service-'+service.id" v-model="checkedService">
              <label class="form-check-label" :for="'service-'+service.id">
-                {{service.name}}
+                {{service.name}} 
             </label>
-        </div>  -->
+        </div>  if apartment.id -> services (contain) -> [checked]
+
+
+                for i<= apartment.id.lenght {
+
+                    foreach (banana as apaservice)
+
+                    if aparment_i = aparmtent_id push(service.id)
+                }
+
+            [] -->
+                
+                Apartment_12 = [services]  [checked]
 
         
-        <!-- <label for="services" class="col-12">Servizi:</label>
-        <div class="form-group d-flex flex-wrap pl-3"  v-for="service in apartmentsArr" :key="service.id">
+         <!-- <label for="services" class="col-12">Servizi:</label>
+        <div class="form-group d-flex flex-wrap pl-3"  v-for="service in services" :key="service.id">
             <div class="form-check-form-check-inline col-6 col-md-4">
               <input v-model="checkedService" class="form-check-input" type="checkbox" :value="service.id" :id="'service-' + service.id" name="services[]">
               <label :for="'service-' + service.id" class="form-check-label">{{ service.name }}</label>
             </div>
-        </div> -->
+        </div>  -->
    
                                 
 
@@ -87,6 +99,7 @@ export default {
             beds: "",
             checkedService: [],
             services: [],
+            apaservices: [],
             address: [],
             poilist:[],
             position:[],
@@ -100,7 +113,6 @@ export default {
         getApartments() {
             axios.get(`http://127.0.0.1:8000/api/apartments`)
                 .then((res) => {
-                console.log(res.data);
                 this.apartmentsArr = res.data.apartments;
                 console.log('Appartamenti:', this.apartmentsArr);
                 })
@@ -111,9 +123,18 @@ export default {
         getServices() {
             axios.get(`http://127.0.0.1:8000/api/services`)
                 .then((res) => {
-                console.log(res.data);
                 this.services = res.data.services;
                 console.log('SERVIZI:', this.services);
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+        },
+        getApaservices() {
+            axios.get(`http://127.0.0.1:8000/api/apaservice`)
+                .then((res) => {
+                this.apaservices = res.data.apaserviceid;
+                console.log('APASERVIZI:', this.apaservices);
                 })
                 .catch((error) => {
                     console.log(error)
@@ -131,8 +152,6 @@ export default {
         getAddress(){
             axios.get(`https://api.tomtom.com/search/2/geocode/${this.searchText}.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3`)
                 .then((res) => {
-                    this.searchText= [];
-                    console.log("Svuptato TEXT",this.searchText);
                     this.latlon= [];
                     console.log("Svuptato LatLon",this.latlon);
                     this.address= [];
@@ -173,6 +192,7 @@ export default {
     mounted() {
         this.getApartments(); 
         this.getServices(); 
+        this.getApaservices(); 
         this.getPoilist(); 
         
    

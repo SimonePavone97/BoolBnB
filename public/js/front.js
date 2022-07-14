@@ -2009,6 +2009,18 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -2022,6 +2034,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       beds: "",
       checkedService: [],
       services: [],
+      apaservices: [],
       address: [],
       poilist: [],
       position: [],
@@ -2034,7 +2047,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments").then(function (res) {
-        console.log(res.data);
         _this.apartmentsArr = res.data.apartments;
         console.log('Appartamenti:', _this.apartmentsArr);
       })["catch"](function (error) {
@@ -2045,68 +2057,76 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
-        console.log(res.data);
         _this2.services = res.data.services;
         console.log('SERVIZI:', _this2.services);
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    getPoilist: function getPoilist() {
+    getApaservices: function getApaservices() {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
-        _this3.poilist = res.data;
-        console.log("POILIST", _this3.poilist);
-      })["catch"](function (err) {
-        _this3.isError = true;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apaservice").then(function (res) {
+        _this3.apaservices = res.data.apaserviceid;
+        console.log('APASERVIZI:', _this3.apaservices);
+      })["catch"](function (error) {
+        console.log(error);
       });
     },
-    getAddress: function getAddress() {
+    getPoilist: function getPoilist() {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        _this4.searchText = [];
-        console.log("Svuptato TEXT", _this4.searchText);
-        _this4.latlon = [];
-        console.log("Svuptato LatLon", _this4.latlon);
-        _this4.address = [];
-        console.log("Svuptato address", _this4.address);
-        _this4.position = [];
-        _this4.address = res.data.results;
-
-        _this4.position.push(_this4.address[0].position);
-
-        _this4.latlon = _this4.position[0].lat + "," + _this4.position[0].lon;
-        console.log("POSITION", _this4.position, _typeof(_this4.position));
-        console.log("LAT", _this4.position[0].lat);
-        console.log("LON", _this4.position[0].lon);
-        console.log("Sdighidi", _this4.latlon);
-      }).then(this.Risultato)["catch"](function (err) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
+        _this4.poilist = res.data;
+        console.log("POILIST", _this4.poilist);
+      })["catch"](function (err) {
         _this4.isError = true;
       });
     },
-    Risultato: function Risultato() {
+    getAddress: function getAddress() {
       var _this5 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
-        _this5.resultsapi = [];
-        console.log("Svuptato", _this5.resultsapi);
-        res.data.results.forEach(function (element) {
-          _this5.resultsapi.push(element.poi);
-        });
-        console.log("RISULTATI", _this5.resultsapi);
-        console.log(_this5.searchText);
-        console.log(_this5.searchRadius, "metri di radius");
-        console.log("FINAL", _this5.latlon);
-      })["catch"](function (err) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
+        _this5.latlon = [];
+        console.log("Svuptato LatLon", _this5.latlon);
+        _this5.address = [];
+        console.log("Svuptato address", _this5.address);
+        _this5.position = [];
+        _this5.address = res.data.results;
+
+        _this5.position.push(_this5.address[0].position);
+
+        _this5.latlon = _this5.position[0].lat + "," + _this5.position[0].lon;
+        console.log("POSITION", _this5.position, _typeof(_this5.position));
+        console.log("LAT", _this5.position[0].lat);
+        console.log("LON", _this5.position[0].lon);
+        console.log("Sdighidi", _this5.latlon);
+      }).then(this.Risultato)["catch"](function (err) {
         _this5.isError = true;
+      });
+    },
+    Risultato: function Risultato() {
+      var _this6 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
+        _this6.resultsapi = [];
+        console.log("Svuptato", _this6.resultsapi);
+        res.data.results.forEach(function (element) {
+          _this6.resultsapi.push(element.poi);
+        });
+        console.log("RISULTATI", _this6.resultsapi);
+        console.log(_this6.searchText);
+        console.log(_this6.searchRadius, "metri di radius");
+        console.log("FINAL", _this6.latlon);
+      })["catch"](function (err) {
+        _this6.isError = true;
       });
     }
   },
   mounted: function mounted() {
     this.getApartments();
     this.getServices();
+    this.getApaservices();
     this.getPoilist();
   }
 });
@@ -4095,6 +4115,10 @@ var render = function () {
           },
         }),
       ]),
+      _vm._v(" "),
+      _vm._v(
+        "\n            \n            Apartment_12 = [services]  [checked]\n\n    \n     "
+      ),
       _vm._v(" "),
       _vm._l(_vm.apartmentsArr, function (apartment) {
         return _c(

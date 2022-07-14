@@ -24,4 +24,5 @@ Route::namespace('Api')->group( function(){
     Route::get('/positions', 'TomtomController@index');
     Route::get('/services', 'ServiceController@index');
     Route::get('/banana', 'TomtomController@banana');
+    Route::get('/apaservice', 'ServiceController@apaservice');
 });
