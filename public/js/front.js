@@ -3517,14 +3517,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "container" }, [
     _c("img", {
       staticClass: "img-fluid rounded",
       attrs: { src: "" + _vm.apartment.image, alt: "img-apartment" },
     }),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-between mt-4" }, [
-      _c("div", { staticClass: "col-6" }, [
+      _c("div", { staticClass: "col-6 text-center" }, [
         _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
         _vm._v(" "),
         _c("span", [_vm._v("Indirizzo: " + _vm._s(_vm.apartment.address))]),

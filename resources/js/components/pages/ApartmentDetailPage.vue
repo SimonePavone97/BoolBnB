@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="container">
         <!-- <SearchComp class="sticky-top" /> -->
 
         <img :src="(`${apartment.image}`)" alt="img-apartment" class="img-fluid rounded">
 
         <div class="row justify-content-between mt-4">
-            <div class="col-6">
+            <div class="col-6 text-center">
 
                 <h2>{{ apartment.title }}</h2>
 
