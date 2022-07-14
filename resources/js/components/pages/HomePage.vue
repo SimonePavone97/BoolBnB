@@ -1,5 +1,5 @@
 <template>
-    <div id="container-apartments">banana
+    <div id="container-apartments">
         <div class="d-flex align-content-center">
             <div class="mx-3 col-4">
                 <img src="../../../images/logo.png" alt="logo-Airbnb" width="150px">
@@ -16,9 +16,9 @@
             </div>
             <div class="d-flex justify-content-center">
                 <div class="card d-flex justify-content-center align-items-center apartment-card"
-                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="index"
-                    :apartment="apartment" v-show="!searchStatus">
-                    <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
+                    v-for="(apartment, index) in sponsoredApartmentsArr" :key="index" :apartment="apartment"
+                    v-show="!searchStatus">
+                    <router-link :to="{ name: 'apartment-detail', params: { id: apartment.id } }" class="text-dark">
                         <img class="card-img-top" :src="apartment.image" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ apartment.title }}</h5>
@@ -62,9 +62,9 @@
                         <h5 class="card-title">{{ apartment.title }}</h5>
                         <p class="card-text">{{ apartment.description }}</p>
                         <div>
-                            <span class="card-text">Stanze: {{apartment.rooms}}</span>
-                            <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
-                            <span class="card-text">Mq: {{apartment.mq}}</span>
+                            <span class="card-text">Stanze: {{ apartment.rooms }}</span>
+                            <span class="card-text">Bagni: {{ apartment.bathrooms }}</span>
+                            <span class="card-text">Mq: {{ apartment.mq }}</span>
                         </div>
                     </div>
                 </router-link>
@@ -113,13 +113,13 @@ export default {
                     console.log(error)
                 });
         },
-        search( searchedText ){
+        search(searchedText) {
             this.searchText = searchedText;
             console.log(this.searchText);
             this.searchStatus = true;
             this.getApartments(this.searchText);
         },
-        sponsoredApartments(){
+        sponsoredApartments() {
             axios.get('http://127.0.0.1:8000/api/sponsored/apartments')
                 .then((res) => {
                     for (let i = res.data.length - 1; i >= 0; i--) {
@@ -138,12 +138,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#container-apartments{
+#container-apartments {
     width: 100%;
-    .apartment-card{
+
+    .apartment-card {
         width: calc(100%/10 * 2 - 1em);
         margin: 0.5em 0.5em;
-        .card-body{
+
+        .card-body {
             height: 25vh;
         }
     }
