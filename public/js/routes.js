@@ -2078,6 +2078,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3503,11 +3506,12 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12" }, [
+  return _c("div", [
+    _c("div", { staticClass: "row bg-dark" }, [
+      _c("div", { staticClass: "col-12 " }, [
         _c(
           "div",
+          { staticClass: "d-flex justify-content-around align-items-center" },
           [
             _c("img", {
               attrs: {
@@ -3524,138 +3528,140 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row my-3" },
-      [
-        _vm._l(_vm.apartmentsArr, function (apartment) {
-          return _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: !_vm.searchStatus,
-                  expression: "!searchStatus",
-                },
-              ],
-              key: apartment.id,
-              staticClass: "card col-lg-3 col-md-4 col-sm-12 marg",
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "text-dark",
-                  attrs: {
-                    to: {
-                      name: "apartment-detail",
-                      params: { id: apartment.id },
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "row my-3" },
+        [
+          _vm._l(_vm.apartmentsArr, function (apartment) {
+            return _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.searchStatus,
+                    expression: "!searchStatus",
+                  },
+                ],
+                key: apartment.id,
+                staticClass: "card col-lg-3 col-md-4 col-sm-12 marg",
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-dark",
+                    attrs: {
+                      to: {
+                        name: "apartment-detail",
+                        params: { id: apartment.id },
+                      },
                     },
                   },
-                },
-                [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: apartment.image, alt: "Card image cap" },
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(apartment.title)),
-                    ]),
+                  [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: { src: apartment.image, alt: "Card image cap" },
+                    }),
                     _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(apartment.description)),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(apartment.title)),
                       ]),
                       _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(apartment.description)),
                       ]),
                       _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Mq: " + _vm._s(apartment.mq)),
+                      _c("div", [
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Mq: " + _vm._s(apartment.mq)),
+                        ]),
                       ]),
                     ]),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          )
-        }),
-        _vm._v(" "),
-        _vm._l(_vm.searchedApartmentsArr, function (apartment) {
-          return _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.searchStatus,
-                  expression: "searchStatus",
-                },
+                  ]
+                ),
               ],
-              key: apartment.id,
-              staticClass:
-                "card d-flex justify-content-center align-items-center apartment-card marg",
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: {
-                      name: "apartment-detail",
-                      params: { id: apartment.id },
+              1
+            )
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.searchedApartmentsArr, function (apartment) {
+            return _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.searchStatus,
+                    expression: "searchStatus",
+                  },
+                ],
+                key: apartment.id,
+                staticClass:
+                  "card d-flex justify-content-center align-items-center apartment-card marg",
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "apartment-detail",
+                        params: { id: apartment.id },
+                      },
                     },
                   },
-                },
-                [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: apartment.image, alt: "Card image cap" },
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(apartment.title)),
-                    ]),
+                  [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: { src: apartment.image, alt: "Card image cap" },
+                    }),
                     _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(apartment.description)),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(apartment.title)),
                       ]),
                       _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(apartment.description)),
                       ]),
                       _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Mq: " + _vm._s(apartment.mq)),
+                      _c("div", [
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Mq: " + _vm._s(apartment.mq)),
+                        ]),
                       ]),
                     ]),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          )
-        }),
-      ],
-      2
-    ),
+                  ]
+                ),
+              ],
+              1
+            )
+          }),
+        ],
+        2
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -3785,7 +3791,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("nav", { staticClass: "navbar-light bg-light" }, [
+    _c("nav", { staticClass: "navbar-light bg-dark" }, [
       _c("form", { staticClass: "form-inline d-flex justify-content-center" }, [
         _c("input", {
           directives: [

@@ -1,10 +1,10 @@
 <template>
-    <div class="container">
+    <div>
 
 
-        <div class="row">
-            <div class="col-12">
-                <div>
+        <div class="row bg-dark">
+            <div class="col-12 ">
+                <div class="d-flex justify-content-around align-items-center">
                     <img src="../../../images/logo.png" alt="Logo BoolBnB" width="180px">
 
                     <SearchComp @searchFunction="search" />
@@ -17,40 +17,43 @@
 
 
 
-        <div class="row my-3">
+        <div class="container">
+            <div class="row my-3">
 
-            <div class="card col-lg-3 col-md-4 col-sm-12 marg" v-for="apartment in apartmentsArr" :key="apartment.id"
-                v-show="!searchStatus">
-                <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
-                    <img class="card-img-top" :src="apartment.image" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{apartment.title}}</h5>
-                        <p class="card-text">{{apartment.description}}</p>
-                        <div>
-                            <span class="card-text">Stanze: {{apartment.rooms}}</span>
-                            <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
-                            <span class="card-text">Mq: {{apartment.mq}}</span>
+                <div class="card col-lg-3 col-md-4 col-sm-12 marg" v-for="apartment in apartmentsArr"
+                    :key="apartment.id" v-show="!searchStatus">
+                    <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
+                        <img class="card-img-top" :src="apartment.image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{apartment.title}}</h5>
+                            <p class="card-text">{{apartment.description}}</p>
+                            <div>
+                                <span class="card-text">Stanze: {{apartment.rooms}}</span>
+                                <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
+                                <span class="card-text">Mq: {{apartment.mq}}</span>
+                            </div>
                         </div>
-                    </div>
-                </router-link>
-            </div>
+                    </router-link>
+                </div>
 
-            <div class="card d-flex justify-content-center align-items-center apartment-card marg"
-                v-for="apartment in searchedApartmentsArr" :key="apartment.id" v-show="searchStatus">
-                <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
-                    <img class="card-img-top" :src="apartment.image" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{apartment.title}}</h5>
-                        <p class="card-text">{{apartment.description}}</p>
-                        <div>
-                            <span class="card-text">Stanze: {{apartment.rooms}}</span>
-                            <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
-                            <span class="card-text">Mq: {{apartment.mq}}</span>
+                <div class="card d-flex justify-content-center align-items-center apartment-card marg"
+                    v-for="apartment in searchedApartmentsArr" :key="apartment.id" v-show="searchStatus">
+                    <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
+                        <img class="card-img-top" :src="apartment.image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{apartment.title}}</h5>
+                            <p class="card-text">{{apartment.description}}</p>
+                            <div>
+                                <span class="card-text">Stanze: {{apartment.rooms}}</span>
+                                <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
+                                <span class="card-text">Mq: {{apartment.mq}}</span>
+                            </div>
                         </div>
-                    </div>
-                </router-link>
-            </div>
+                    </router-link>
+                </div>
 
+
+            </div>
 
         </div>
 
