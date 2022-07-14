@@ -21,6 +21,23 @@
           <label for="beds">N° di bagni</label>
           <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
         </div>
+        <!-- Filtro Servizi -->
+        <!-- <div class="form-check" v-for="banana in apartmentsArr" :key="banana.id">
+            <input class="form-check-input" type="checkbox" :value="service.id"
+                :id="'service-'+banana.id" v-model="checkedService">
+             <label class="form-check-label" :for="'service-'+banana.id">
+                {{banana.name}}
+            </label>
+        </div> -->
+        <label for="services" class="col-12">Servizi:</label>
+        <div class="form-group d-flex flex-wrap pl-3"  v-for="service in apartmentsArr" :key="service.id">
+            <div class="form-check-form-check-inline col-6 col-md-4">
+              <input v-model="checkedService" class="form-check-input" type="checkbox" :value="service.id" :id="'service-' + service.id" name="services[]">
+              <label :for="'service-' + $service.id" class="form-check-label">{{ service.name }}</label>
+            </div>
+        </div>
+   
+                                
 
             <div v-for="apartment in apartmentsArr" :key="apartment.id">
             
@@ -66,6 +83,8 @@ export default {
             searchRadius: "",
             rooms: "",
             beds: "",
+            checkedService: [],
+            services: [],
             address: [],
             poilist:[],
             position:[],
@@ -82,6 +101,17 @@ export default {
                 console.log(res.data);
                 this.apartmentsArr = res.data.apartments;
                 console.log('Appartamenti:', this.apartmentsArr);
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+        },
+        getServices() {
+            axios.get(`http://127.0.0.1:8000/api/services`)
+                .then((res) => {
+                console.log(res.data);
+                this.services = res.data;
+                console.log('SERVIZI:', this.services);
                 })
                 .catch((error) => {
                     console.log(error)

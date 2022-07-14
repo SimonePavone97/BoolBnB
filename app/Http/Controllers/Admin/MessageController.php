@@ -56,6 +56,12 @@ class MessageController extends Controller
         $message->save();
 
         return redirect()->route('admin.apartments.index');
+
+            // $id = Auth::id();
+            // $user = DB::table('users')->find($id);
+            // $apartments = Apartment::with('message')->where('user_id', '=', $id)->get();
+            
+            // return view('admin.apartments.message', compact('user', 'apartments'));
     }
 
     /**
