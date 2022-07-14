@@ -23,5 +23,6 @@ Route::namespace('Api')->group( function(){
     Route::get('/apartments/{id}', 'ApartmentController@show');
     Route::get('/positions', 'TomtomController@index');
     Route::get('/sponsored/apartments', 'ApartmentController@sponsored');
+    Route::get('/messages','MessaggesController@store');
 
 });

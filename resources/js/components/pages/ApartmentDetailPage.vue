@@ -105,7 +105,35 @@
             <h5>Mappa</h5>
             <div id="map" class="map mb-3"></div>
         </div>
+        <h3>Invia un messaggio alla struttura</h3>
+        <form @submit.prevent="sendMessage">
+            <div class="d-flex flex-column justify-content-start">
+                <div class="d-flex col-12 px-0 my-2">
+                    <h6 class="col-3 mr-1">Mittente</h6>
+                    <input class=" col-9" type="text" id="name" v-model="sender" placeholder="Nome e cognome">
+                </div>
+                <div class="d-flex px-0 col-12 my-2">
+                    <h6 class="col-3">E-mail</h6>
+                    <input type="email" id="email" class="ms_email col-9" v-model="email" placeholder="E-mail">
+                </div>
+            </div>
+            <div class=" col-12 my-3">
+                <h6>Messaggio</h6>
+                <textarea name="content" id="content" class="col-12 form-control mt-3" v-model="content"
+                    placeholder="Inserisci il testo del tuo messaggio"></textarea>
+            </div>
+            <div v-if="formErrors.content">
+                <ul>
+                    <li v-for="(error,index) in formErrors.content" :key="index">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+            <button class="mt-2 ml-2" type="submit">Invia</button>
+        </form>
     </div>
+
+
 </template>
 
 <script>
@@ -120,6 +148,11 @@ export default {
         return {
             apartment: [],
             isError: false,
+            sender: "",
+            email: "",
+            content: "",
+            apartment_id: "",
+            formErrors: {},
         }
     },
     methods: {
@@ -134,6 +167,16 @@ export default {
                     this.isError = true;
                 });
         },
+        sendMessage(){
+            console.log(this.formData);
+            axios.post("api/messages", {
+                sender: this.sender,
+                email: this.email,
+                content: this.content,
+                apartment_id: this.apartment.id,
+            })
+                
+        }
     },
     created() {
         this.getApartment();
