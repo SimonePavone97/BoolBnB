@@ -2312,7 +2312,9 @@ var render = function render() {
       staticClass: "card-text"
     }, [_vm._v("Bagni: " + _vm._s(apartment.bathrooms))]), _vm._v(" "), _c("span", {
       staticClass: "card-text"
-    }, [_vm._v("Mq: " + _vm._s(apartment.mq))])])])])], 1);
+    }, [_vm._v("Mq: " + _vm._s(apartment.mq))])]), _vm._v(" "), _c("div", {
+      staticClass: "text-center mt-5"
+    }, [_c("h4", [_vm._v("Sponsorizzato")])])])])], 1);
   }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "row my-3"
   }, [_vm._l(_vm.apartmentsArr, function (apartment) {

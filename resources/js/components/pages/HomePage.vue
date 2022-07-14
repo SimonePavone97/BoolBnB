@@ -29,6 +29,9 @@
                                 <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
                                 <span class="card-text">Mq: {{apartment.mq}}</span>
                             </div>
+                            <div class="text-center mt-5">
+                                <h4>Sponsorizzato</h4>
+                            </div>
                         </div>
                     </router-link>
                 </div>
