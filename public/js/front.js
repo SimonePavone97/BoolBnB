@@ -2021,6 +2021,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -2043,6 +2045,22 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     };
   },
   methods: {
+    getBanana: function getBanana(array) {
+      console.log("banana", array); // console.log("banana2",this.apartmentsArr)
+      // for (let i = 0; i < apartmentsArr[i].lenght; i++) {
+      //       let jabroni = [];
+      //     apaservices.forEach(gerardo => {
+      //             if (apartmentsArr[i] == apaservice.id) { 
+      //                 this.jabroni[i].push(service.id)  
+      //             }
+      //         });
+      //     console.log(jabroni)
+    },
+    //     for i<= results.lenght {
+    //     results[i] = [],
+    //     foreach (banana as apaservice)
+    //     if aparment_$results[i] = aparmtent_id push(service.id)
+    // }
     getApartments: function getApartments() {
       var _this = this;
 
@@ -4116,9 +4134,62 @@ var render = function () {
         }),
       ]),
       _vm._v(" "),
-      _vm._v(
-        "\n            \n            Apartment_12 = [services]  [checked]\n\n    \n     "
-      ),
+      _vm._l(_vm.services, function (service) {
+        return _c(
+          "div",
+          { key: "service-" + service.id, staticClass: "form-check" },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checkedService,
+                  expression: "checkedService",
+                },
+              ],
+              staticClass: "form-check-input",
+              attrs: { type: "checkbox", id: "service-" + service.id },
+              domProps: {
+                value: service.id,
+                checked: Array.isArray(_vm.checkedService)
+                  ? _vm._i(_vm.checkedService, service.id) > -1
+                  : _vm.checkedService,
+              },
+              on: {
+                change: function ($event) {
+                  var $$a = _vm.checkedService,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = service.id,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.checkedService = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.checkedService = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.checkedService = $$c
+                  }
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "form-check-label",
+                attrs: { for: "service-" + service.id },
+              },
+              [_vm._v("\n            " + _vm._s(service.name) + " \n        ")]
+            ),
+          ]
+        )
+      }),
       _vm._v(" "),
       _vm._l(_vm.apartmentsArr, function (apartment) {
         return _c(
@@ -4128,7 +4199,8 @@ var render = function () {
             return _c("ul", { key: element.index }, [
               element == apartment.id &&
               apartment.rooms >= _vm.rooms &&
-              apartment.beds >= _vm.beds
+              apartment.beds >= _vm.beds &&
+              _vm.getBanana(apartment.services)
                 ? _c(
                     "li",
                     [

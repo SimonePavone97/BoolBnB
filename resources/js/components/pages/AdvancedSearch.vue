@@ -22,25 +22,27 @@
           <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
         </div>
         <!-- Filtro Servizi -->
-          <!-- <div class="form-check" v-for="service in services" :key="service.id">
+           <div class="form-check" v-for="service in services" :key="'service-'+service.id">
             <input class="form-check-input" type="checkbox" :value="service.id"
                 :id="'service-'+service.id" v-model="checkedService">
              <label class="form-check-label" :for="'service-'+service.id">
                 {{service.name}} 
             </label>
-        </div>  if apartment.id -> services (contain) -> [checked]
+        </div>  
+        <!-- if apartment.id -> services (contain) -> [checked]
 
 
-                for i<= apartment.id.lenght {
+                for i<= results.lenght {
+
+                    results[i] = [],
 
                     foreach (banana as apaservice)
 
-                    if aparment_i = aparmtent_id push(service.id)
+                    if aparment_$results[i] = aparmtent_id push(service.id)
                 }
 
-            [] -->
-                
-                Apartment_12 = [services]  [checked]
+            []                
+                Apartment_12 = [services]  [checked] -->
 
         
          <!-- <label for="services" class="col-12">Servizi:</label>
@@ -57,7 +59,7 @@
             
               <ul v-for="element in resultsapi" :key="element.index"  > 
                 
-                <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds ">
+                <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services) ">
                 <!-- Visualizzazione card apartment -->
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
@@ -110,6 +112,33 @@ export default {
     },
 
     methods: {
+        getBanana(array){
+            console.log("banana",array);
+
+            // console.log("banana2",this.apartmentsArr)
+            // for (let i = 0; i < apartmentsArr[i].lenght; i++) {
+                
+            //       let jabroni = [];
+
+            //     apaservices.forEach(gerardo => {
+
+            //             if (apartmentsArr[i] == apaservice.id) { 
+
+            //                 this.jabroni[i].push(service.id)  
+            //             }
+                        
+            //         });
+            //     console.log(jabroni)
+                
+            },
+                //     for i<= results.lenght {
+
+                //     results[i] = [],
+
+                //     foreach (banana as apaservice)
+
+                //     if aparment_$results[i] = aparmtent_id push(service.id)
+                // }
         getApartments() {
             axios.get(`http://127.0.0.1:8000/api/apartments`)
                 .then((res) => {
@@ -184,6 +213,7 @@ export default {
                     console.log(this.searchText);
                     console.log(this.searchRadius,"metri di radius");
                     console.log("FINAL",this.latlon)
+
                 }).catch((err) => {
                    this.isError = true;
                 });
