@@ -5,14 +5,41 @@
                 <img src="../../../images/logo.png" alt="logo-Airbnb" width="150px">
             </div>
             <div class="col-4">
-                <SearchComp @searchFunction="search"/>
+                <SearchComp @searchFunction="search" />
             </div>
             <div class="col-4"></div>
         </div>
 
+        <div v-if="sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ''">
+            <div class="text-center">
+                <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="card d-flex justify-content-center align-items-center apartment-card"
+                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="index"
+                    :apartment="apartment" v-show="!searchStatus">
+                    <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
+                        <img class="card-img-top" :src="apartment.image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{apartment.title}}</h5>
+                            <p class="card-text">{{apartment.description}}</p>
+                            <div>
+                                <span class="card-text">Stanze: {{apartment.rooms}}</span>
+                                <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
+                                <span class="card-text">Mq: {{apartment.mq}}</span>
+                            </div>
+                            <div class="text-center">
+                                <h4>Sponsorizzato</h4>
+                            </div>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
+        </div>
+        
         <div class="row my-3">
-
-            <div class="card d-flex justify-content-center align-items-center apartment-card" v-for="apartment in apartmentsArr" :key="apartment.id" v-show="!searchStatus">
+            <div class="card d-flex justify-content-center align-items-center apartment-card"
+                v-for="apartment in apartmentsArr" :key="apartment.id" v-show="!searchStatus">
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
                     <div class="card-body">
@@ -26,8 +53,9 @@
                     </div>
                 </router-link>
             </div>
-    
-            <div class="card d-flex justify-content-center align-items-center apartment-card" v-for="apartment in searchedApartmentsArr" :key="apartment.id" v-show="searchStatus">
+
+            <div class="card d-flex justify-content-center align-items-center apartment-card"
+                v-for="apartment in searchedApartmentsArr" :key="apartment.id" v-show="searchStatus">
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
                     <div class="card-body">
@@ -42,7 +70,6 @@
                 </router-link>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -60,10 +87,12 @@ export default {
             apartmentsArr: [],
             searchedApartmentsArr: [],
             searchStatus : false,
+            sponsoredApartmentsArr:[],
         }
     },
     created(){
         this.getApartments('a');
+        this.sponsoredApartments();
     },
     methods: {
         getApartments(searchedText) {
@@ -92,6 +121,20 @@ export default {
             this.searchStatus = true;
             this.getApartments(this.searchText);
         },
+        sponsoredApartments(){
+            axios.get('http://127.0.0.1:8000/api/sponsored/apartments')
+                .then((res)=>{
+                    for(let i = res.data.length-1; i>=0; i--){
+                        res.data[i].forEach(element =>{
+                            this.sponsoredApartmentsArr.push(element);
+                            console.log(this.sponsoredApartmentsArr);
+                        });
+                    }
+                    
+                }).catch((error)=>{
+                    console.warn(error);
+                })
+        }
     },
 
 }

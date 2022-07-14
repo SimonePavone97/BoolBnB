@@ -2094,11 +2094,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       apartmentsArr: [],
       searchedApartmentsArr: [],
-      searchStatus: false
+      searchStatus: false,
+      sponsoredApartmentsArr: []
     };
   },
   created: function created() {
     this.getApartments('a');
+    this.sponsoredApartments();
   },
   methods: {
     getApartments: function getApartments(searchedText) {
@@ -2123,6 +2125,21 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.searchText);
       this.searchStatus = true;
       this.getApartments(this.searchText);
+    },
+    sponsoredApartments: function sponsoredApartments() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/sponsored/apartments').then(function (res) {
+        for (var i = res.data.length - 1; i >= 0; i--) {
+          res.data[i].forEach(function (element) {
+            _this2.sponsoredApartmentsArr.push(element);
+
+            console.log(_this2.sponsoredApartmentsArr);
+          });
+        }
+      })["catch"](function (error) {
+        console.warn(error);
+      });
     }
   }
 });
@@ -2519,7 +2536,55 @@ var render = function render() {
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "col-4"
-  })]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm.sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == "" ? _c("div", [_c("div", {
+    staticClass: "text-center"
+  }, [_vm.sponsoredApartmentsArr != "" ? _c("h2", [_vm._v("In evidenza")]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, _vm._l(_vm.sponsoredApartmentsArr, function (apartment, index) {
+    return _c("div", {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: !_vm.searchStatus,
+        expression: "!searchStatus"
+      }],
+      key: index,
+      staticClass: "card d-flex justify-content-center align-items-center apartment-card",
+      attrs: {
+        apartment: apartment
+      }
+    }, [_c("router-link", {
+      staticClass: "text-dark",
+      attrs: {
+        to: {
+          name: "apartment-detail",
+          params: {
+            id: apartment.id
+          }
+        }
+      }
+    }, [_c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: apartment.image,
+        alt: "Card image cap"
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_vm._v(_vm._s(apartment.title))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(apartment.description))]), _vm._v(" "), _c("div", [_c("span", {
+      staticClass: "card-text"
+    }, [_vm._v("Stanze: " + _vm._s(apartment.rooms))]), _vm._v(" "), _c("span", {
+      staticClass: "card-text"
+    }, [_vm._v("Bagni: " + _vm._s(apartment.bathrooms))]), _vm._v(" "), _c("span", {
+      staticClass: "card-text"
+    }, [_vm._v("Mq: " + _vm._s(apartment.mq))])]), _vm._v(" "), _c("div", {
+      staticClass: "text-center"
+    }, [_c("h4", [_vm._v("Sponsorizzato")])])])])], 1);
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "row my-3"
   }, [_vm._l(_vm.apartmentsArr, function (apartment) {
     return _c("div", {
