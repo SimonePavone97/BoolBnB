@@ -14,14 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
-<<<<<<< HEAD
-
-
-=======
         <!-- Tomtom Maps -->
         <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
         <script type="text/javascript" src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
->>>>>>> cebbd33a4927e279b2c814ab9870c783eb109951
+
 
 
     <!-- Styles -->
