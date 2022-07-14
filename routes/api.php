@@ -23,4 +23,5 @@ Route::namespace('Api')->group( function(){
     Route::get('/apartments/{id}', 'ApartmentController@show');
     Route::get('/positions', 'TomtomController@index');
     Route::get('/services', 'ServiceController@index');
+    Route::get('/banana', 'TomtomController@banana');
 });

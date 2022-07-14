@@ -13,7 +13,7 @@
             <div class="form-group col-12 col-md-6">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="email" name="email" required>
-                <!-- value="{{ old('email', $user->email) }}" -->
+                
             </div>
 
             <div class="form-group col-12">
