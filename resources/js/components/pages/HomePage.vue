@@ -10,12 +10,11 @@
             <div class="col-4"></div>
         </div>
 
-        <div class="row my-3">
-
-            <div v-if="sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ''">
-                <div>
-                    <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
-                </div>
+        <div v-if="sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ''">
+            <div class="text-center">
+                <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
+            </div>
+            <div class="d-flex justify-content-center">
                 <div class="card d-flex justify-content-center align-items-center apartment-card"
                     v-for="(apartment,index) in sponsoredApartmentsArr" :key="'sponsored' + index"
                     :apartment="apartment" v-show="!searchStatus">
@@ -34,7 +33,9 @@
                     </router-link>
                 </div>
             </div>
-
+        </div>
+        
+        <div class="row my-3">
             <div class="card d-flex justify-content-center align-items-center apartment-card"
                 v-for="apartment in apartmentsArr" :key="apartment.id" v-show="!searchStatus">
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark">
@@ -67,7 +68,6 @@
                 </router-link>
             </div>
         </div>
-
     </div>
 </template>
 

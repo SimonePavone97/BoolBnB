@@ -2225,9 +2225,11 @@ var render = function render() {
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "col-4"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "row my-3"
-  }, [_vm.sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == "" ? _c("div", [_c("div", [_vm.sponsoredApartmentsArr != "" ? _c("h2", [_vm._v("In evidenza")]) : _vm._e()]), _vm._v(" "), _vm._l(_vm.sponsoredApartmentsArr, function (apartment, index) {
+  })]), _vm._v(" "), _vm.sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == "" ? _c("div", [_c("div", {
+    staticClass: "text-center"
+  }, [_vm.sponsoredApartmentsArr != "" ? _c("h2", [_vm._v("In evidenza")]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, _vm._l(_vm.sponsoredApartmentsArr, function (apartment, index) {
     return _c("div", {
       directives: [{
         name: "show",
@@ -2269,7 +2271,9 @@ var render = function render() {
     }, [_vm._v("Bagni: " + _vm._s(apartment.bathrooms))]), _vm._v(" "), _c("span", {
       staticClass: "card-text"
     }, [_vm._v("Mq: " + _vm._s(apartment.mq))])])])])], 1);
-  })], 2) : _vm._e(), _vm._v(" "), _vm._l(_vm.apartmentsArr, function (apartment) {
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
+    staticClass: "row my-3"
+  }, [_vm._l(_vm.apartmentsArr, function (apartment) {
     return _c("div", {
       directives: [{
         name: "show",
