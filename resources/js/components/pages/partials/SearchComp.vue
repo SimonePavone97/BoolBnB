@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar-light bg-dark">
+        <nav class="navbar-dark bg-dark">
             <form class="form-inline d-flex justify-content-center" >
                 <input class="" type="text" v-model="searchText" @keydown.enter.prevent="$emit('searchFunction', searchText)" placeholder="Cerca un appartamento">
                 <button @click.prevent="$emit('searchFunction', searchText)" type="submit"

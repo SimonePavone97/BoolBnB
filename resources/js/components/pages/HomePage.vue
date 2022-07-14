@@ -2,7 +2,7 @@
     <div>
 
 
-        <div class="row bg-dark">
+        <div class="row bg-dark mb-4">
             <div class="col-12 ">
                 <div class="d-flex justify-content-around align-items-center">
                     <img src="../../../images/logo.png" alt="Logo BoolBnB" width="180px">

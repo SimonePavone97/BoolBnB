@@ -3507,7 +3507,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row bg-dark" }, [
+    _c("div", { staticClass: "row bg-dark mb-4" }, [
       _c("div", { staticClass: "col-12 " }, [
         _c(
           "div",
@@ -3791,7 +3791,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("nav", { staticClass: "navbar-light bg-dark" }, [
+    _c("nav", { staticClass: "navbar-dark bg-dark" }, [
       _c("form", { staticClass: "form-inline d-flex justify-content-center" }, [
         _c("input", {
           directives: [

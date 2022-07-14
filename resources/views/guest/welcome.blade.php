@@ -31,15 +31,15 @@
 
             .full-height {
                 height: 100vh;
-            }
+            } */
 
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
-            }
+            } 
 
-            .position-ref {
+            /*.position-ref {
                 position: relative;
             }
 
@@ -49,17 +49,18 @@
                 top: 18px;
             }
 
-            .content {
+            /*.content {
                 text-align: center;
             }
 
             .title {
                 font-size: 84px;
-            }
+            } */
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
+                font-family: 'Nunito', sans-serif;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
@@ -69,14 +70,14 @@
 
             .m-b-md {
                 margin-bottom: 30px;
-            } */
+            }
 
     </style>
 
 </head>
 
 <body>
-    <div class="">
+    <div class="flex-center bg-dark">
         @if (Route::has('login'))
         <div class="top-right links">
             @auth
