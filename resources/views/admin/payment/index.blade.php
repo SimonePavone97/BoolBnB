@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div>
         @if (session('success-message'))
             <div class="alert alert-success">
@@ -25,27 +26,22 @@
     <div class="container text-center">
         <form method="post" id="payment-form" action="{{ route('admin.payment.checkout', [$sponsorship, $apartment]) }}">
             @csrf
-            @method('POST')
-            
-            <section>
+            @method('POST')           
+            <section class="mt-4">
                 <label for="amount">
-                    <span class="input-label" readonly>Prezzo</span>
-                    <div class="input-wrapper amount-wrapper">
-                        <input readonly id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="{{$amount}}€">
+                    <div class="text-center d-flex flex-column align-items-center">
+                        <img class="img-fluid w-25 d-none d-md-block" src="https://play-lh.googleusercontent.com/1zfN_BL13q20v0wvBzMWiZ_sL_t4KcCJBeAMRpOZeT3p34quM-4-pO-VcLj8PJNXPA0" alt="">
+                        <h5 class="mt-5">Stai acquistando il pacchetto {{$sponsorship->name}} al prezzo di {{$sponsorship->price}}€ e durerà per {{$sponsorship->duration}} ore</h5>
                     </div>
-
                     <div class="bt-drop-in-wrapper text-start">
                         <div id="bt-dropin"></div>
                     </div>
                 </label>
             </section>
-
             <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button class="btn btn-success" type="submit"><span>Acquista</span></button>
+            <button class="btn btn-danger" type="submit"><span>Acquista</span></button>
         </form>
-
     </div>
-
 
     <script src="https://js.braintreegateway.com/web/dropin/1.33.2/js/dropin.js"></script>
     <script>
