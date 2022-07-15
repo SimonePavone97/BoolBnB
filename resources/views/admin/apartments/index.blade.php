@@ -51,7 +51,7 @@
     
                 @forelse ($apartments as $apartment)
                     <tr>
-                        <td>{{ $apartment->title }}</td>
+                        <td class="text-center">{{ $apartment->title }}</td>
                         <td class="table-img text-center"><img src="{{ $apartment->image }}" alt="Apartment Image"></td>
                         <!-- <td>{{ $apartment->rooms }}</td>
                         <td>{{ $apartment->bathrooms }}</td>
