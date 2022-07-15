@@ -59,7 +59,7 @@
             
               <ul v-for="element in resultsapi" :key="element.index"  > 
                 
-                <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services) ">
+                <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
                 <!-- Visualizzazione card apartment -->
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
@@ -112,8 +112,19 @@ export default {
     },
 
     methods: {
-        getBanana(array){
-            console.log("banana",array);
+        getBanana(gnigni){
+            console.log("banana",gnigni);
+            console.log("CHECK", this.checkedService);
+
+            gnigni.forEach(element => {
+                    let checkedExist = this.checkedService.every(value =>{
+                    return gnigni.includes(value) 
+                        });
+                    // let checkedExist = this.checkedService.every(value => {
+                    // return gnigni.indexOf(value) !== -1;
+                    // });
+            console.log("DAJE",checkedExist)
+            });
 
             // console.log("banana2",this.apartmentsArr)
             // for (let i = 0; i < apartmentsArr[i].lenght; i++) {
