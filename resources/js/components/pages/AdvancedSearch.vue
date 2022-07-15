@@ -48,7 +48,7 @@
                 <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds ">
                 <!-- Visualizzazione card apartment -->
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
-                    <img class="card-img-top" :src="apartment.image" alt="Card image cap">
+                    <img class="card-img-top" :src="(`../../../images/apartments/${apartment.image}`)" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{apartment.title}}</h5>
                         <p class="card-text">{{apartment.description}}</p>

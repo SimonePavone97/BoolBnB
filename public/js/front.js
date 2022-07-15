@@ -2185,53 +2185,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // import SearchComp from './partials/SearchComp'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2295,6 +2248,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _partials_SearchComp_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/SearchComp.vue */ "./resources/js/components/pages/partials/SearchComp.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2611,7 +2573,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nli {\n  list-style-type: none;\n}\na {\n  text-decoration: none;\n}\n.container-bnb {\n  width: 85%;\n  margin: 0 auto;\n}", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nli {\n  list-style-type: none;\n}\na {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -2630,7 +2592,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#container-apartments[data-v-317790a4] {\n  width: 100%;\n}\n#container-apartments .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 0.5em 0.5em;\n}\n#container-apartments .apartment-card .card-body[data-v-317790a4] {\n  height: 25vh;\n}", ""]);
+exports.push([module.i, ".marg[data-v-317790a4] {\n  margin-bottom: 0.8em;\n}", ""]);
 
 // exports
 
@@ -2687,7 +2649,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\r\n    height: 500px;\r\n    width: 100%;\r\n    background-color: red;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 50px;\n}\n.map[data-v-645c392c] {\r\n    height: 400px;\r\n    width: 35%;\n}\r\n", ""]);
+exports.push([module.i, "\n.prova_riquadro_prenota[data-v-645c392c] {\n    height: 500px;\n    width: 100%;\n    background-color: red;\n    position: -webkit-sticky;\n    position: sticky;\n    top: 50px;\n}\n.map[data-v-645c392c] {\n    height: 400px;\n    width: 35%;\n}\n\n", ""]);
 
 // exports
 
@@ -3923,9 +3885,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "container-bnb" }, [_c("router-view")], 1),
-  ])
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4116,7 +4076,8 @@ var render = function () {
                           _c("img", {
                             staticClass: "card-img-top",
                             attrs: {
-                              src: apartment.image,
+                              src:
+                                "../../../images/apartments/" + apartment.image,
                               alt: "Card image cap",
                             },
                           }),
@@ -4182,10 +4143,6 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-    _vm._v(" "),
-    _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
-    _vm._v(" "),
     _c("img", {
       staticClass: "w-50 rounded",
       attrs: {
@@ -4195,7 +4152,11 @@ var render = function () {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-between mt-4" }, [
-      _c("div", { staticClass: "col-6" }, [
+      _c("div", { staticClass: "col-6 text-center" }, [
+        _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
+        _vm._v(" "),
         _c("h3", [_vm._v(_vm._s(_vm.apartment.description))]),
         _vm._v(" "),
         _c("div", [
@@ -4230,7 +4191,7 @@ var render = function () {
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n            "
+            "\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repellat eum sint earum aut itaque\n                ratione pariatur harum temporibus delectus, cumque rem commodi nemo numquam omnis doloribus minus\n                dolore expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi distinctio\n                voluptates doloremque illum, consectetur nobis inventore, nostrum porro nisi laudantium unde\n                eligendi explicabo voluptas sint debitis provident nemo ea ipsam?Lorem ipsum dolor sit amet\n                consectetur, adipisicing elit. Iusto cupiditate vitae ad in officiis, hic optio fugiat molestiae,\n                unde esse velit quam vero ipsum, nesciunt deleniti? Consectetur voluptas commodi molestiae!log Lorem\n                ipsum dolor sit amet consectetur adipisicing elit. Ullam recusandae, dolore hic quo voluptas, sit\n                quod totam maxime animi provident vero rem porro libero consectetur cumque dolores consequatur\n                quidem facilis.\n            "
           ),
         ]),
       ]),
@@ -4282,256 +4243,247 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "container-apartments" } }, [
-    _vm._v("banana\n    "),
-    _c("div", { staticClass: "d-flex align-content-center" }, [
-      _vm._m(0),
+  return _c("div", [
+    _c("div", { staticClass: "row bg-dark mb-4" }, [
+      _c("div", { staticClass: "col-12 " }, [
+        _c(
+          "div",
+          { staticClass: "d-flex justify-content-around align-items-center" },
+          [
+            _c("img", {
+              attrs: {
+                src: __webpack_require__(/*! ../../../images/logo.png */ "./resources/images/logo.png"),
+                alt: "Logo BoolBnB",
+                width: "180px",
+              },
+            }),
+            _vm._v(" "),
+            _c("SearchComp", { on: { searchFunction: _vm.search } }),
+          ],
+          1
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _vm.sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ""
+        ? _c("div", [
+            _c("div", { staticClass: "text-center" }, [
+              _vm.sponsoredApartmentsArr != ""
+                ? _c("h2", [_vm._v("In evidenza")])
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "d-flex justify-content-center" },
+              _vm._l(_vm.sponsoredApartmentsArr, function (apartment, index) {
+                return _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.searchStatus,
+                        expression: "!searchStatus",
+                      },
+                    ],
+                    key: index,
+                    staticClass:
+                      "card d-flex justify-content-center align-items-center apartment-card",
+                    attrs: { apartment: apartment },
+                  },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "text-dark",
+                        attrs: {
+                          to: {
+                            name: "apartment-detail",
+                            params: { id: apartment.id },
+                          },
+                        },
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "card-img-top",
+                          attrs: {
+                            src:
+                              "../../../images/apartments/" + apartment.image,
+                            alt: "Card image cap",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "card-body text-center" }, [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(_vm._s(apartment.title)),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c("span", { staticClass: "card-text" }, [
+                              _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "card-text" }, [
+                              _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "card-text" }, [
+                              _vm._v("Mq: " + _vm._s(apartment.mq)),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "text-center" }, [
+                            _c("h4", [_vm._v("Sponsorizzato")]),
+                          ]),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                )
+              }),
+              0
+            ),
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-4" },
-        [_c("SearchComp", { on: { searchFunction: _vm.search } })],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4" }),
-    ]),
-    _vm._v(" "),
-    _vm.sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ""
-      ? _c("div", [
-          _c("div", { staticClass: "text-center" }, [
-            _vm.sponsoredApartmentsArr != ""
-              ? _c("h2", [_vm._v("In evidenza")])
-              : _vm._e(),
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "d-flex justify-content-center" },
-            _vm._l(_vm.sponsoredApartmentsArr, function (apartment, index) {
-              return _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: !_vm.searchStatus,
-                      expression: "!searchStatus",
-                    },
-                  ],
-                  key: index,
-                  staticClass:
-                    "card d-flex justify-content-center align-items-center apartment-card",
-                  attrs: { apartment: apartment },
-                },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "text-dark",
-                      attrs: {
-                        to: {
-                          name: "apartment-detail",
-                          params: { id: apartment.id },
-                        },
+        { staticClass: "row my-3" },
+        [
+          _vm._l(_vm.apartmentsArr, function (apartment) {
+            return _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.searchStatus,
+                    expression: "!searchStatus",
+                  },
+                ],
+                key: apartment.id,
+                staticClass: "card col-lg-3 col-md-4 col-sm-12 marg",
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-dark",
+                    attrs: {
+                      to: {
+                        name: "apartment-detail",
+                        params: { id: apartment.id },
                       },
                     },
-                    [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: { src: apartment.image, alt: "Card image cap" },
-                      }),
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "card-img-top img-fluid",
+                      attrs: {
+                        src: "../../../images/apartments/" + apartment.image,
+                        alt: "Card image cap",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(apartment.title)),
+                      ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v(_vm._s(apartment.title)),
+                      _c("div", [
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Stanze: " + _vm._s(apartment.rooms)),
                         ]),
                         _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(_vm._s(apartment.description)),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
                         ]),
                         _vm._v(" "),
-                        _c("div", [
-                          _c("span", { staticClass: "card-text" }, [
-                            _vm._v("Stanze: " + _vm._s(apartment.rooms)),
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "card-text" }, [
-                            _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
-                          ]),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "card-text" }, [
-                            _vm._v("Mq: " + _vm._s(apartment.mq)),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-center" }, [
-                          _c("h4", [_vm._v("Sponsorizzato")]),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Mq: " + _vm._s(apartment.mq)),
                         ]),
                       ]),
-                    ]
-                  ),
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            )
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.searchedApartmentsArr, function (apartment) {
+            return _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.searchStatus,
+                    expression: "searchStatus",
+                  },
                 ],
-                1
-              )
-            }),
-            0
-          ),
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row my-3" },
-      [
-        _vm._l(_vm.apartmentsArr, function (apartment) {
-          return _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: !_vm.searchStatus,
-                  expression: "!searchStatus",
-                },
-              ],
-              key: apartment.id,
-              staticClass:
-                "card d-flex justify-content-center align-items-center apartment-card",
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "text-dark",
-                  attrs: {
-                    to: {
-                      name: "apartment-detail",
-                      params: { id: apartment.id },
+                key: apartment.id,
+                staticClass:
+                  "card d-flex justify-content-center align-items-center apartment-card",
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "apartment-detail",
+                        params: { id: apartment.id },
+                      },
                     },
                   },
-                },
-                [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: apartment.image, alt: "Card image cap" },
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(apartment.title)),
-                    ]),
+                  [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: {
+                        src: "../../../images/apartments/" + apartment.image,
+                        alt: "Card image cap",
+                      },
+                    }),
                     _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(apartment.description)),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                    _c("div", { staticClass: "card-body text-center" }, [
+                      _c("h5", { staticClass: "card-title " }, [
+                        _vm._v(_vm._s(apartment.title)),
                       ]),
                       _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Mq: " + _vm._s(apartment.mq)),
+                      _c("div", [
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Stanze: " + _vm._s(apartment.rooms)),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Mq: " + _vm._s(apartment.mq)),
+                        ]),
                       ]),
                     ]),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          )
-        }),
-        _vm._v(" "),
-        _vm._l(_vm.searchedApartmentsArr, function (apartment) {
-          return _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.searchStatus,
-                  expression: "searchStatus",
-                },
+                  ]
+                ),
               ],
-              key: apartment.id,
-              staticClass:
-                "card d-flex justify-content-center align-items-center apartment-card",
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: {
-                      name: "apartment-detail",
-                      params: { id: apartment.id },
-                    },
-                  },
-                },
-                [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: { src: apartment.image, alt: "Card image cap" },
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(apartment.title)),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(apartment.description)),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Stanze: " + _vm._s(apartment.rooms)),
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "card-text" }, [
-                        _vm._v("Mq: " + _vm._s(apartment.mq)),
-                      ]),
-                    ]),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          )
-        }),
-      ],
-      2
-    ),
+              1
+            )
+          }),
+        ],
+        2
+      ),
+    ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mx-3 col-4" }, [
-      _c("img", {
-        attrs: {
-          src: __webpack_require__(/*! ../../../images/logo.png */ "./resources/images/logo.png"),
-          alt: "logo-Airbnb",
-          width: "150px",
-        },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -4754,59 +4706,55 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "nav",
-      { staticClass: "d-flex align-items-center mt-2 navbar-light bg-light" },
-      [
-        _c("form", { staticClass: "form-inline d-flex align-items-center" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.searchText,
-                expression: "searchText",
-              },
-            ],
-            attrs: { type: "text", placeholder: "Cerca un appartamento" },
-            domProps: { value: _vm.searchText },
+    _c("nav", { staticClass: "navbar-dark bg-dark" }, [
+      _c("form", { staticClass: "form-inline d-flex justify-content-center" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.searchText,
+              expression: "searchText",
+            },
+          ],
+          attrs: { type: "text", placeholder: "Cerca un appartamento" },
+          domProps: { value: _vm.searchText },
+          on: {
+            keydown: function ($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              $event.preventDefault()
+              return _vm.$emit("searchFunction", _vm.searchText)
+            },
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.searchText = $event.target.value
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            attrs: { type: "submit" },
             on: {
-              keydown: function ($event) {
-                if (
-                  !$event.type.indexOf("key") &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
+              click: function ($event) {
                 $event.preventDefault()
                 return _vm.$emit("searchFunction", _vm.searchText)
               },
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.searchText = $event.target.value
-              },
             },
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger mx-3",
-              attrs: { type: "submit" },
-              on: {
-                click: function ($event) {
-                  $event.preventDefault()
-                  return _vm.$emit("searchFunction", _vm.searchText)
-                },
-              },
-            },
-            [_vm._v("Cerca")]
-          ),
-        ]),
-      ]
-    ),
+          },
+          [_vm._v("Cerca")]
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -20911,7 +20859,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\simon\Desktop\esame finale\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
