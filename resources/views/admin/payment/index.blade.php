@@ -43,6 +43,7 @@
             <input id="nonce" name="payment_method_nonce" type="hidden" />
             <button class="btn btn-success" type="submit"><span>Acquista</span></button>
         </form>
+
     </div>
 
 
