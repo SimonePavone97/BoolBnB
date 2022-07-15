@@ -29,11 +29,11 @@
 
         <h1 class="text-center m-3">Appartamenti</h1>
 
-        <a href=" {{route('admin.apartments.create')}} " class="btn btn-success mb-2">Create apartment</a>
+        <a href=" {{route('admin.apartments.create')}} " class="btn btn-success mb-2">Aggiungi appartamento</a>
         
-        <div class="container">
+        <div class="container p-0">
             <table class="table">
-                <thead class="text-white" style="background-color:#ff385c">
+                <thead class="text-white text-center" style="background-color:#ff385c">
                     <tr>
                         <th scope="col">Titolo</th>
                         <th scope="col" class="table-img">Immagine</th>
@@ -52,27 +52,27 @@
                 @forelse ($apartments as $apartment)
                     <tr>
                         <td>{{ $apartment->title }}</td>
-                        <td class="table-img"><img src="{{ $apartment->image }}" alt="Apartment Image" width="100"></td>
+                        <td class="table-img text-center"><img src="{{ $apartment->image }}" alt="Apartment Image"></td>
                         <!-- <td>{{ $apartment->rooms }}</td>
                         <td>{{ $apartment->bathrooms }}</td>
                         <td>{{ $apartment->beds }}</td>
                         <td>{{ $apartment->mq }}</td> -->
-                        <td>{{ $apartment->address }}</td>
-                        <td>{{ $apartment->description }}</td>
-                        <td>{{ $apartment->visibility }}</td>
-                        <td class="d-flex flex-wrap">
-                            <div class="col-12 col-md-6">
+                        <td class="text-center">{{ $apartment->address }}</td>
+                        <td class="text-center">{{ $apartment->description }}</td>
+                        <td class="text-center">{{ $apartment->visibility }}</td>
+                        <td class="row m-0">
+                            <div class="col-lg-4 col-sm-12 py-sm-1 text-center">
                                 <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Dettagli</a>
                             </div>
                             <!-- <div>
                                 <a class="btn btn-warning" href="{{ route('admin.apartments.edit', $apartment->id) }}">Modifica</a>
                             </div> -->
-                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="post" class="delete-form col-12 col-md-6" data-title="{{ $apartment->title }}">
+                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="post" class="delete-form col-lg-4 col-sm-12 py-sm-1 text-center" data-title="{{ $apartment->title }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type='submit' class="btn btn-danger">Elimina</button>
                             </form>
-                            <div class="col-12">
+                            <div class="col-lg-4 col-sm-12 py-sm-1 text-center">
                                 <a class="btn btn-success" href="{{ route('admin.sponsorship.index', $apartment->id) }}">Sponsorizza</a>
                             </div>
                         </td>
