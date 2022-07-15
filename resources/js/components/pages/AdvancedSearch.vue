@@ -100,13 +100,13 @@ export default {
                             cobra = true;
                         }
                         
-                        return cobra;
                         // let checkedExist = this.checkedService.every(value =>{
-                        // return this.gnigni.includes(value) 
+                            // return this.gnigni.includes(value) 
                         //   });
    
                       });
                         console.log("adadad",cobra)      
+                            return cobra;
             //  console.log("DAJE",checkedExist)
             },
         getApartments() {

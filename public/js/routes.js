@@ -2006,13 +2006,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       gnigni.forEach(function (element) {
         if (_this.checkedService.includes(element.id)) {
           cobra = true;
-        }
-
-        return cobra; // let checkedExist = this.checkedService.every(value =>{
+        } // let checkedExist = this.checkedService.every(value =>{
         // return this.gnigni.includes(value) 
         //   });
+
       });
-      console.log("adadad", cobra); //  console.log("DAJE",checkedExist)
+      console.log("adadad", cobra);
+      return cobra; //  console.log("DAJE",checkedExist)
     },
     getApartments: function getApartments() {
       var _this2 = this;
