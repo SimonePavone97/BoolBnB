@@ -1,5 +1,5 @@
 <template>
-    <div id="container-apartments">banana
+    <div id="container-apartments">
         <div class="d-flex align-content-center">
             <div class="mx-3 col-4">
                 <img src="../../../images/logo.png" alt="logo-Airbnb" width="150px">
