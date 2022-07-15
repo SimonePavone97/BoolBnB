@@ -33,4 +33,5 @@ class UserSeeder extends Seeder
             $user->save();
         }
     }
+
 }

@@ -22,30 +22,20 @@
           <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
         </div>
         <!-- Filtro Servizi -->
-         <!-- <div class="form-check" v-for="service in services" :key="service.id">
+           <div class="form-check" v-for="service in services" :key="'service-'+service.id">
             <input class="form-check-input" type="checkbox" :value="service.id"
                 :id="'service-'+service.id" v-model="checkedService">
              <label class="form-check-label" :for="'service-'+service.id">
-                {{service.name}}
+                {{service.name}} 
             </label>
-        </div>  -->
-
-        
-        <!-- <label for="services" class="col-12">Servizi:</label>
-        <div class="form-group d-flex flex-wrap pl-3"  v-for="service in apartmentsArr" :key="service.id">
-            <div class="form-check-form-check-inline col-6 col-md-4">
-              <input v-model="checkedService" class="form-check-input" type="checkbox" :value="service.id" :id="'service-' + service.id" name="services[]">
-              <label :for="'service-' + service.id" class="form-check-label">{{ service.name }}</label>
-            </div>
-        </div> -->
-   
+        </div>  
                                 
-
             <div v-for="apartment in apartmentsArr" :key="apartment.id">
             
               <ul v-for="element in resultsapi" :key="element.index"  > 
                 
-                <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds ">
+                <li v-show="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
+
                 <!-- Visualizzazione card apartment -->
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                     <img class="card-img-top" :src="(`../../../images/apartments/${apartment.image}`)" alt="Card image cap">
@@ -87,20 +77,42 @@ export default {
             beds: "",
             checkedService: [],
             services: [],
+            apaservices: [],
             address: [],
             poilist:[],
             position:[],
             resultsapi:[],
-            latlon: ""
+            latlon: "",
+            jabroni: [],
+            
             
         }
     },
 
     methods: {
+        getBanana(gnigni){
+            console.log("GNIGNI",gnigni);
+            console.log("CHECK", this.checkedService);
+            let cobra = false;
+                      gnigni.forEach(element => {
+                            
+                        if (this.checkedService.includes(element.id)) {
+            
+                            cobra = true;
+                        }
+                        
+                        // let checkedExist = this.checkedService.every(value =>{
+                            // return this.gnigni.includes(value) 
+                        //   });
+   
+                      });
+                        console.log("adadad",cobra)      
+                            return cobra;
+            //  console.log("DAJE",checkedExist)
+            },
         getApartments() {
             axios.get(`http://127.0.0.1:8000/api/apartments`)
                 .then((res) => {
-                console.log(res.data);
                 this.apartmentsArr = res.data.apartments;
                 console.log('Appartamenti:', this.apartmentsArr);
                 })
@@ -114,6 +126,16 @@ export default {
                 console.log(res.data);
                 this.services = res.data.services;
                 console.log('SERVIZI:', this.services);
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+        },
+        getApaservices() {
+            axios.get(`http://127.0.0.1:8000/api/apaservice`)
+                .then((res) => {
+                this.apaservices = res.data.apaserviceid;
+                console.log('APASERVIZI:', this.apaservices);
                 })
                 .catch((error) => {
                     console.log(error)
@@ -163,6 +185,7 @@ export default {
                     console.log(this.searchText);
                     console.log(this.searchRadius,"metri di radius");
                     console.log("FINAL",this.latlon)
+
                 }).catch((err) => {
                    this.isError = true;
                 });
@@ -171,13 +194,10 @@ export default {
     mounted() {
         this.getApartments(); 
         this.getServices(); 
-        this.getPoilist(); 
-        
-   
+        this.getApaservices(); 
+        this.getPoilist();  
     },
 }
-
-
 
 </script>
 
