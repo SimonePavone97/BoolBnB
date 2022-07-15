@@ -19,7 +19,7 @@
             {{-- Action & Info --}}
             <div class="row">
                 {{-- Action --}}
-                <div class="col-4">
+                <div class="col-md-4 col-12">
                     <div class="dashboard-action">
                         <ul>
                             <li>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <div class="col-8 d-flex">
+                <div class="col-md-8 d-flex">
                     {{-- Annunci --}}
                     <div class="infobox">
                         <div class="infobox-text">

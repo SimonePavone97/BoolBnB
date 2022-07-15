@@ -4184,7 +4184,6 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "container-apartments" } }, [
-    _vm._v("banana\n    "),
     _c("div", { staticClass: "d-flex align-content-center" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -20698,7 +20697,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
+module.exports = __webpack_require__(/*! C:\Users\franc\repo\BoolBnB-1\resources\js\routes.js */"./resources/js/routes.js");
 
 
 /***/ })

@@ -83,6 +83,14 @@ header .nav-item i {
     color: var(--pink);
 }
 
+/* Media query */
+@media screen and (max-width: 768px) {
+    .infobox {
+        display: none;
+    }
+    
+  }
+
 /* Dashboard Sponsor */
 .sponsor {
     padding: 10px;
