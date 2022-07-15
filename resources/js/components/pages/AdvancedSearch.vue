@@ -29,37 +29,12 @@
                 {{service.name}} 
             </label>
         </div>  
-        <!-- if apartment.id -> services (contain) -> [checked]
-
-
-                for i<= results.lenght {
-
-                    results[i] = [],
-
-                    foreach (banana as apaservice)
-
-                    if aparment_$results[i] = aparmtent_id push(service.id)
-                }
-
-            []                
-                Apartment_12 = [services]  [checked] -->
-
-        
-         <!-- <label for="services" class="col-12">Servizi:</label>
-        <div class="form-group d-flex flex-wrap pl-3"  v-for="service in services" :key="service.id">
-            <div class="form-check-form-check-inline col-6 col-md-4">
-              <input v-model="checkedService" class="form-check-input" type="checkbox" :value="service.id" :id="'service-' + service.id" name="services[]">
-              <label :for="'service-' + service.id" class="form-check-label">{{ service.name }}</label>
-            </div>
-        </div>  -->
-   
                                 
-
             <div v-for="apartment in apartmentsArr" :key="apartment.id">
             
               <ul v-for="element in resultsapi" :key="element.index"  > 
                 
-                <li v-if="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
+                <li v-show="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
                 <!-- Visualizzazione card apartment -->
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                     <img class="card-img-top" :src="apartment.image" alt="Card image cap">
@@ -106,50 +81,34 @@ export default {
             poilist:[],
             position:[],
             resultsapi:[],
-            latlon: ""
+            latlon: "",
+            jabroni: [],
+            
             
         }
     },
 
     methods: {
         getBanana(gnigni){
-            console.log("banana",gnigni);
+            console.log("GNIGNI",gnigni);
             console.log("CHECK", this.checkedService);
-
-            gnigni.forEach(element => {
-                    let checkedExist = this.checkedService.every(value =>{
-                    return gnigni.includes(value) 
-                        });
-                    // let checkedExist = this.checkedService.every(value => {
-                    // return gnigni.indexOf(value) !== -1;
-                    // });
-            console.log("DAJE",checkedExist)
-            });
-
-            // console.log("banana2",this.apartmentsArr)
-            // for (let i = 0; i < apartmentsArr[i].lenght; i++) {
-                
-            //       let jabroni = [];
-
-            //     apaservices.forEach(gerardo => {
-
-            //             if (apartmentsArr[i] == apaservice.id) { 
-
-            //                 this.jabroni[i].push(service.id)  
-            //             }
+            let cobra = false;
+                      gnigni.forEach(element => {
+                            
+                        if (this.checkedService.includes(element.id)) {
+            
+                            cobra = true;
+                        }
                         
-            //         });
-            //     console.log(jabroni)
-                
+                        return cobra;
+                        // let checkedExist = this.checkedService.every(value =>{
+                        // return this.gnigni.includes(value) 
+                        //   });
+   
+                      });
+                        console.log("adadad",cobra)      
+            //  console.log("DAJE",checkedExist)
             },
-                //     for i<= results.lenght {
-
-                //     results[i] = [],
-
-                //     foreach (banana as apaservice)
-
-                //     if aparment_$results[i] = aparmtent_id push(service.id)
-                // }
         getApartments() {
             axios.get(`http://127.0.0.1:8000/api/apartments`)
                 .then((res) => {
