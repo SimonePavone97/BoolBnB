@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\User;
 
 class TomtomController extends Controller
 {
@@ -44,6 +47,25 @@ class TomtomController extends Controller
         //     {"lat":40.80076,"lon":-73.96556}}]
 
         return response()->json( $positions);
+    }
+
+        public function banana(User $user) {
+
+        
+
+        if ($user->id == Auth::id()) {
+            var_dump($user);
+
+            return response()->json( $user);
+        } 
+
+    //     if (Auth::check()) {
+
+    //         return response()->json( $email);
+
+    // }
+
+
     }
 
     /**
