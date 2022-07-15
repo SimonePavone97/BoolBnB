@@ -29,16 +29,15 @@
                 {{service.name}} 
             </label>
         </div>  
-                                
-            <div v-for="apartment in apartmentsArr" :key="apartment.id">
-            
-              <ul v-for="element in resultsapi" :key="element.index"  > 
-                
-                <li v-show="element == apartment.id && apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
 
+              <ul> 
+                
+                <li v-for="apartment in dioporco" :key="apartment.index" >
+
+                    <div v-show="apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
                 <!-- Visualizzazione card apartment -->
                 <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
-                    <img class="card-img-top" :src="(`../../../images/apartments/${apartment.image}`)" alt="Card image cap">
+                    <img class="card-img-top" :src="apartment.image" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{apartment.title}}</h5>
                         <p class="card-text">{{apartment.description}}</p>
@@ -50,14 +49,11 @@
                     </div>
                 </router-link>
 
+                </div>
+
                 </li>
 
-              </ul>
-            
-            </div>
-                
-            
-        
+              </ul>         
     </div>
 </template>
 
@@ -84,6 +80,8 @@ export default {
             resultsapi:[],
             latlon: "",
             jabroni: [],
+            dioporco: []
+            
             
             
         }
@@ -92,32 +90,37 @@ export default {
     methods: {
         getBanana(gnigni){
             console.log("GNIGNI",gnigni);
+            console.log(typeof(gnigni));
             console.log("CHECK", this.checkedService);
-            let cobra = false;
-                      gnigni.forEach(element => {
-                            
-                        if (this.checkedService.includes(element.id)) {
-            
-                            cobra = true;
-                        }
-                        
-                        // let checkedExist = this.checkedService.every(value =>{
-                            // return this.gnigni.includes(value) 
-                        //   });
-   
-                      });
-                        console.log("adadad",cobra)      
-                            return cobra;
-            //  console.log("DAJE",checkedExist)
+
+            let madonna = [];
+                     gnigni.forEach(element => {
+                        madonna.push(element.id)
+                        console.log("BIGNI", element.id)
+                        });
+
+                        let checkedExist = this.checkedService.every(value =>{
+                              return madonna.includes(value) 
+                        });
+
+                    console.log("existdio", checkedExist)
+                    
+                    console.log("Puattanala", madonna)
+                    
+                    return checkedExist
+                    // if (checkedExist == true) {
+                    //     return true;
+                    // }
+                    
             },
         getApartments() {
-            axios.get(`http://127.0.0.1:8000/api/apartments`)
+            axios.get("http://127.0.0.1:8000/api/apartments")
                 .then((res) => {
                 this.apartmentsArr = res.data.apartments;
                 console.log('Appartamenti:', this.apartmentsArr);
                 })
                 .catch((error) => {
-                    console.log(error)
+                console.log(error)
                 });
         },
         getServices() {
@@ -154,9 +157,9 @@ export default {
             axios.get(`https://api.tomtom.com/search/2/geocode/${this.searchText}.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3`)
                 .then((res) => {
                     this.latlon= [];
-                    console.log("Svuptato LatLon",this.latlon);
+                    // console.log("Svuptato LatLon",this.latlon);
                     this.address= [];
-                    console.log("Svuptato address",this.address);
+                    // console.log("Svuptato address",this.address);
                     this.position= [];
                     this.address = res.data.results;
                     this.position.push(this.address[0].position)
@@ -177,7 +180,7 @@ export default {
             axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"${this.latlon}","radius":${this.searchRadius}}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
                     this.resultsapi= [];
-                    console.log("Svuptato",this.resultsapi);
+                    // console.log("Svuptato",this.resultsapi);
                     res.data.results.forEach(element => {
                         this.resultsapi.push(element.poi)    
                     });
@@ -185,6 +188,11 @@ export default {
                     console.log(this.searchText);
                     console.log(this.searchRadius,"metri di radius");
                     console.log("FINAL",this.latlon)
+                    this.apartmentsArr.forEach(cristo =>{
+                        if (this.resultsapi.includes(cristo.id)) {
+                            this.dioporco.push(cristo)
+                        }
+                    })
 
                 }).catch((err) => {
                    this.isError = true;
