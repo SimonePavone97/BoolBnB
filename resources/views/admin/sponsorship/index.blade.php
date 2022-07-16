@@ -3,7 +3,7 @@
 @section('content')
 <div class="container text-center">
     <div class=" container text-center w-75">
-        <h2 class="mt-3">Boolbnb Sponsorship</h2>
+        <h1 class="mt-3 airbnb-sponsorship">Boolbnb Sponsorship</h1>
         <h4 class="d-none d-md-block d-lg-block title" style="--duration: 2s">
             <span style="--delay: .1s" class="p-3 reveal">Sponsorizza il tuo contenuto per raggiungere più utenti*</span> 
         </h4>
