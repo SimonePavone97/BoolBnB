@@ -217,25 +217,3 @@
     }
 
 </style>
-
-
-// getApartments(searchedText) {
-//     axios.get(`http://127.0.0.1:8000/api/apartments`)
-//         .then((res) => {
-//             console.log(res.data);
-//             this.apartmentsArr = res.data.apartments;
-//             console.log('Appartamenti:', this.apartmentsArr);
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         });
-
-//     axios.get(`http://127.0.0.1:8000/api/apartments?title=${searchedText}`)
-//         .then((res) => {
-//             this.searchApartmentsArr = res.data.apartments;
-//             console.log('Appartamenti cercati:', this.searchedApartmentsArr);
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         });
-// },
