@@ -3,16 +3,20 @@
         <!-- <SearchComp class="sticky-top" /> -->
         <div class="details-container d-flex flex-wrap my-4">
 
-            <div class="col-12 text-center">
-                <h2>{{ apartment.title }}</h2>
-                <span><u>{{ apartment.address }}</u></span>
+            <div class="col-12 text-center row justify-content-center align-items-center">
+                <div>
+                    <h2>{{ apartment.title }}</h2>
+                    <div>
+                        <span><u>{{ apartment.address }}</u></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-12 my-3 text-center">
+            <div class="col-12 my-3 text-center ">
                 <img :src="(`../../../images/apartments/${apartment.image}`)" alt="img-apartment" class="w-50 rounded"> 
             </div>
 
-            <div class="col-8">
+            <div class="col-12">
                 <div class="my-3">
                     <h4 class="my-2"><strong>Descrizione</strong></h4>
                     <p>{{ apartment.description }}</p>
@@ -42,20 +46,23 @@
                             <span>{{ apartment.mq }} mq</span>
                         </strong>
                     </div>
-
-                </div>
-    
-                <div class="my-3">
-                    <h4><strong>Servizi inclusi</strong></h4>
-                    <ul>
-                        <li v-for="(element, index) in apartment.services" :key="index">- {{ element.name }}</li>
-                    </ul>
                 </div>
             </div>
 
-            <div class="col-4 text-center">
+            <hr class="col-12">
+
+            <div class="col-12 my-3">
+                <h4><strong>Servizi inclusi</strong></h4>
+                <ul class="row">
+                    <li v-for="(element, index) in apartment.services" :key="index" class="col-6">- {{ element.name }}</li>
+                </ul>
+            </div>
+
+            <!-- <div class="col-4 text-center">
                 <div class="prova_riquadro_prenota rounded mt-1"></div>
-            </div>
+            </div> -->
+
+            <hr class="col-12">
 
             <div>
                 <h4><strong>Dove ti troverai</strong></h4>

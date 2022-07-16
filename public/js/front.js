@@ -2215,6 +2215,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ApartmentDetailPage',
@@ -4279,13 +4286,24 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "details-container d-flex flex-wrap my-4" }, [
-      _c("div", { staticClass: "col-12 text-center" }, [
-        _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
-        _vm._v(" "),
-        _c("span", [_c("u", [_vm._v(_vm._s(_vm.apartment.address))])]),
-      ]),
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-12 text-center row justify-content-center align-items-center",
+        },
+        [
+          _c("div", [
+            _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", [_c("u", [_vm._v(_vm._s(_vm.apartment.address))])]),
+            ]),
+          ]),
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 my-3 text-center" }, [
+      _c("div", { staticClass: "col-12 my-3 text-center " }, [
         _c("img", {
           staticClass: "w-50 rounded",
           attrs: {
@@ -4295,7 +4313,7 @@ var render = function () {
         }),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-8" }, [
+      _c("div", { staticClass: "col-12" }, [
         _c("div", { staticClass: "my-3" }, [
           _vm._m(0),
           _vm._v(" "),
@@ -4335,25 +4353,28 @@ var render = function () {
             ]),
           ]),
         ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "my-3" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "ul",
-            _vm._l(_vm.apartment.services, function (element, index) {
-              return _c("li", { key: index }, [
-                _vm._v("- " + _vm._s(element.name)),
-              ])
-            }),
-            0
-          ),
-        ]),
       ]),
       _vm._v(" "),
-      _vm._m(2),
+      _c("hr", { staticClass: "col-12" }),
       _vm._v(" "),
-      _vm._m(3),
+      _c("div", { staticClass: "col-12 my-3" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "row" },
+          _vm._l(_vm.apartment.services, function (element, index) {
+            return _c("li", { key: index, staticClass: "col-6" }, [
+              _vm._v("- " + _vm._s(element.name)),
+            ])
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "col-12" }),
+      _vm._v(" "),
+      _vm._m(2),
     ]),
   ])
 }
@@ -4371,14 +4392,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h4", [_c("strong", [_vm._v("Servizi inclusi")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4 text-center" }, [
-      _c("div", { staticClass: "prova_riquadro_prenota rounded mt-1" }),
-    ])
   },
   function () {
     var _vm = this
