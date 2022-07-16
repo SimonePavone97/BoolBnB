@@ -180,6 +180,7 @@ export default {
             axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"${this.latlon}","radius":${this.searchRadius}}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
                     this.resultsapi= [];
+                    this.dioporco= [];
                     // console.log("Svuptato",this.resultsapi);
                     res.data.results.forEach(element => {
                         this.resultsapi.push(element.poi)    

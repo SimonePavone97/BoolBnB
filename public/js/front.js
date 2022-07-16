@@ -2104,7 +2104,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var _this6 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
-        _this6.resultsapi = []; // console.log("Svuptato",this.resultsapi);
+        _this6.resultsapi = [];
+        _this6.dioporco = []; // console.log("Svuptato",this.resultsapi);
 
         res.data.results.forEach(function (element) {
           _this6.resultsapi.push(element.poi);
@@ -21368,7 +21369,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
