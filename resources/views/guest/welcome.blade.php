@@ -59,9 +59,7 @@
                 text-align: center;
             }*/
 
-        .title {
-            font-size: 84px;
-        }
+        
 
         .links>a {
             color: white;
@@ -71,6 +69,12 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+        }
+
+        .red{
+            color: red;
+            font-width: 900;
+            
         }
 
         /*.m-b-md {
@@ -86,12 +90,12 @@
         @if (Route::has('login'))
         <div class="top-right links">
             @auth
-            <a href="{{ url('/home') }}">Home</a>
+            <a href="{{ url('/home') }}"> <i class=" red fa-solid fa-house-user mr-2"></i>Home</a>
             @else
-            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('login') }}"> <i class=" red fa-solid fa-arrow-right-to-bracket mr-2"></i>Login</a>
 
             @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
+            <a href="{{ route('register') }}"> <i class=" red fa-solid fa-registered mr-2"></i>Register</a>
             @endif
             @endauth
         </div>
@@ -103,7 +107,7 @@
         <div id="root"></div>
 
     </div>
-    </div>
+    
     <script src="{{ asset('js/front.js') }}"></script>
 
 </body>
