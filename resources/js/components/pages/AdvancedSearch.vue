@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <!-- Ricerca città/indirizzo -->
         <div>
             <input type="text" v-model="searchText" @keyup.enter="getAddress" placeholder="Cerca una città">
@@ -22,13 +22,18 @@
           <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
         </div>
         <!-- Filtro Servizi -->
-           <div class="form-check" v-for="service in services" :key="'service-'+service.id">
+        <div class="form-check-form-check-inline col-6 col-md-4" v-for="service in services" :key="'service-'+service.id">
             <input class="form-check-input" type="checkbox" :value="service.id"
                 :id="'service-'+service.id" v-model="checkedService">
              <label class="form-check-label" :for="'service-'+service.id">
                 {{service.name}} 
             </label>
         </div>  
+
+        <div>
+            <h5>Mappa</h5>
+            <div id="map" class="map mb-3"></div>
+        </div>
 
               <ul> 
                 
@@ -80,23 +85,20 @@ export default {
             resultsapi:[],
             latlon: "",
             jabroni: [],
-            dioporco: []
-            
-            
-            
+            dioporco: []            
         }
     },
 
     methods: {
         getBanana(gnigni){
-            console.log("GNIGNI",gnigni);
+            // console.log("GNIGNI",gnigni);
             console.log(typeof(gnigni));
             console.log("CHECK", this.checkedService);
 
             let madonna = [];
                      gnigni.forEach(element => {
                         madonna.push(element.id)
-                        console.log("BIGNI", element.id)
+                        // console.log("BIGNI", element.id)
                         });
 
                         let checkedExist = this.checkedService.every(value =>{
@@ -108,9 +110,6 @@ export default {
                     console.log("Puattanala", madonna)
                     
                     return checkedExist
-                    // if (checkedExist == true) {
-                    //     return true;
-                    // }
                     
             },
         getApartments() {
@@ -172,15 +171,28 @@ export default {
                 .then(this.Risultato)
                 .catch((err) => {
                    this.isError = true;
-                });
-            
-                
+                });          
         }, 
+        getLatmap(){
+                    let latmap = [];
+                     this.dioporco.forEach(element => {
+                        latmap.push(element.latitude)
+                        console.log("latmap", element.latitude)
+                        });
+                    console.log("cristina",latmap);
+                },
+        getLongmap(){
+                    let longmap = [];
+                     this.dioporco.forEach(element => {
+                        longmap.push(element.longitude)
+                        console.log("longmap", element.longitude)
+                        });
+                    console.log("d'avena",longmap);
+                },
         Risultato(){
             axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"${this.latlon}","radius":${this.searchRadius}}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
                     this.resultsapi= [];
-                    this.dioporco= [];
                     // console.log("Svuptato",this.resultsapi);
                     res.data.results.forEach(element => {
                         this.resultsapi.push(element.poi)    
@@ -193,12 +205,39 @@ export default {
                         if (this.resultsapi.includes(cristo.id)) {
                             this.dioporco.push(cristo)
                         }
-                    })
-
-                }).catch((err) => {
+                    })   
+                    console.log("AAAAAA",this.dioporco)                 
+                })
+                .then(this.getLatmap)
+                .then(this.getLongmap)
+                .then(this.getMap)
+                .catch((err) => {
                    this.isError = true;
                 });
-        }
+        },
+        getMap() {
+                let center = [this.latlon];
+                const map = tt.map({
+                    key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+                    container: "map",
+                    center: center,
+                    zoom: 15
+                })
+                map.on('load', () => {
+          var marker = new tt.Marker()
+              .setLngLat(center)
+              .addTo(map);
+      })
+            //      for (let i = 0; i < this.dioporco.length; i++) {
+            //      new tt.Marker()
+                 
+            //          .setLngLat([
+            //              longmap[i],
+            //              latmap[i],
+            //          ])
+            //          .addTo(map);
+            //  }
+            },
     },
     mounted() {
         this.getApartments(); 
@@ -211,4 +250,9 @@ export default {
 </script>
 
 <style scoped>
+    .map {
+        height: 400px;
+        width: 35%;
+    }
+
 </style>
