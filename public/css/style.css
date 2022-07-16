@@ -78,6 +78,10 @@ header .nav-item i {
     height: 70%;
 }
 
+.infobox-text, .infobox-text:hover {
+    color: var(--text-darker);
+}
+
 .infobox-icon {
     font-size: 30px;
     color: var(--pink);
@@ -85,12 +89,20 @@ header .nav-item i {
 
 @media screen and (max-width: 768px) {
 
+    .dashboard-action {
+        padding-left: 25%;
+    }
+
     .infobox-text p {
         display: none;
     }
 
     .infobox-icon {
         font-size: 25px;
+    }
+
+    h2 {
+        margin: 0;
     }
 
 }

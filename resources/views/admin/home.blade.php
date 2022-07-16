@@ -61,7 +61,7 @@
 
                 <div class="col-md-8 col-12 d-flex justify-content-center">
                     {{-- Annunci --}}
-                    <div class="infobox">
+                    <a class="infobox" href="{{ route('admin.apartments.index') }}">
                         <div class="infobox-text">
                             <h2>{{ $numero_annunci }}</h2>
                             <p>Annunci</p>
@@ -69,7 +69,7 @@
                         <div class="infobox-icon">
                             <i class="fa-solid fa-house"></i>
                         </div>
-                    </div>
+                    </a>
                     {{-- Messaggi --}}
                     <div class="infobox">
                         <div class="infobox-text">
