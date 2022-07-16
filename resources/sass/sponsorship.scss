@@ -1,0 +1,65 @@
+.btn-danger{
+    color: white;
+    background-color: var(--pink);
+}
+
+.text-color-pink{
+    color: var(--pink);
+}
+
+.card-sponsorship {
+    transition: transform .2s;
+}
+
+.card-sponsorship:hover{
+    transform: scale(1.1);
+}
+
+.title span{
+    --total: calc(var(--duration)
+    + var(--delay));
+    position: relative;
+    display: block;
+    color: transparent;
+    overflow: hidden;
+    animation: revealText 1.5s var(--delay) forwards;
+}
+
+.title span::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: var(--pink);
+    animation: rollIn var(--duration) forwards,
+    rollOut var(--duration) forwards;
+}
+
+@keyframes revealText{
+    to {
+        color: black;   
+    }  
+}
+
+@keyframes rollIn{
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes rollOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(105%);
+    }
+}

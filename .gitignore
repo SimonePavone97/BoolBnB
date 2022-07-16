@@ -13,3 +13,5 @@ yarn-error.log
 app.js
 front.js
 routes.js
+public/js/front.js
+public/js/routes.js
