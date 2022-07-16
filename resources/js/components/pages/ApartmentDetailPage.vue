@@ -137,7 +137,8 @@ export default {
 
     .map {
         height: 400px;
-        width: 35%;
+        width: 90vw;
+        margin: 0 auto;
     }
 }
 
