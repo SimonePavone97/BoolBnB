@@ -78,9 +78,33 @@ header .nav-item i {
     height: 70%;
 }
 
+.infobox-text, .infobox-text:hover {
+    color: var(--text-darker);
+}
+
 .infobox-icon {
     font-size: 30px;
     color: var(--pink);
+}
+
+@media screen and (max-width: 768px) {
+
+    .dashboard-action {
+        padding-left: 25%;
+    }
+
+    .infobox-text p {
+        display: none;
+    }
+
+    .infobox-icon {
+        font-size: 25px;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
 }
 
 /* Dashboard Sponsor */
@@ -104,10 +128,64 @@ header .nav-item i {
     box-shadow: 0 0 10px var(--pink);
 }
 
+/* Buttons */
+.btn-pink {
+    color: white;
+    background-color: var(--pink);
+}
+
+/* INDEX */
+
+#apartment-index td a,
+#apartment-index td button {
+    font-size: 14px;
+    padding: 3px 5px;
+    margin: 5px;
+}
+
+#apartment-index tr:nth-child(even) {
+    background-color: var(--bg-lightgray);
+}
+
 /* SHOW */
 .map {
     display: block;
     height: 300px;
-    width: 40%;
+}
+
+.apartment-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
+
+.apartment-info ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.apartment-info li {
+    margin: 10px 0;
+}
+
+.apartment-info i {
+    font-size: 22px;
+    color: var(--pink);
+}
+
+.apartment-info .info-label {
+    margin: 0 10px;
+}
+
+.apartment-info .info-data {
+    text-align: right;
+    font-weight: bold;
+}
+
+.services ul {
+    list-style-type: none;
 }
 
