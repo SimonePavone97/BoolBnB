@@ -18731,3 +18731,12 @@ a.text-dark:focus {
   }
 }
 
+.btn-danger {
+  color: white;
+  background-color: var(--pink);
+}
+
+.text-color-pink {
+  color: var(--pink);
+}
+

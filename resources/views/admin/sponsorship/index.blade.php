@@ -3,7 +3,7 @@
 @section('content')
 <div class="container text-center">
     <h2 class="mt-3">Boolbnb Sponsorship</h2>
-    <h5 class="d-none d-md-block d-lg-block">Sponsorizza il tuo contenuto per raggiungere più utenti</h5>
+    <h5 class="d-none d-md-block d-lg-block">Sponsorizza il tuo contenuto per raggiungere più utenti*</h5>
     <div class="mt-3 container">
         <div class="d-flex flex-column align-items-center flex-lg-row justify-content-lg-center">
             @foreach ($sponsorships as $sponsorship)
@@ -15,9 +15,11 @@
                     <a href="{{route('admin.payment.index', [$sponsorship, $apartment])}}" class="btn btn-danger">Acquista</a>
                 </div>
             </div>
-        @endforeach
+        @endforeach      
         </div>
-        
+        <div>
+            <p>*Le sponsorizzazioni sono cumulabili</p>
+        </div>      
     </div>
 </div>
 @endsection

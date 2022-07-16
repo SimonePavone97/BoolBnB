@@ -31,7 +31,7 @@
                 <label for="amount">
                     <div class="text-center d-flex flex-column align-items-center">
                         <img class="img-fluid w-25 d-none d-md-block" src="https://play-lh.googleusercontent.com/1zfN_BL13q20v0wvBzMWiZ_sL_t4KcCJBeAMRpOZeT3p34quM-4-pO-VcLj8PJNXPA0" alt="">
-                        <h5 class="mt-5">Stai acquistando il pacchetto {{$sponsorship->name}} al prezzo di {{$sponsorship->price}}€ ed il tuo appartamento sarà più visibile agli utenti per {{$sponsorship->duration}} ore</h5>
+                        <h5 class="mt-5">Stai acquistando il pacchetto <span class="text-color-pink">{{$sponsorship->name}}</span> al prezzo di <span class="text-color-pink">{{$sponsorship->price}}€</span> ed il tuo appartamento sarà più visibile agli utenti per <span class="text-color-pink">{{$sponsorship->duration}} ore</span></h5>
                     </div>
                     <div class="bt-drop-in-wrapper text-start">
                         <div id="bt-dropin"></div>
