@@ -2205,9 +2205,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 // import SearchComp from './partials/SearchComp'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4274,17 +4271,17 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("img", {
-      staticClass: "w-50 rounded",
-      attrs: {
-        src: "../../../images/apartments/" + _vm.apartment.image,
-        alt: "img-apartment",
-      },
-    }),
-    _vm._v(" "),
     _c("div", { staticClass: "row justify-content-between mt-4" }, [
-      _c("div", { staticClass: "col-6 text-center" }, [
+      _c("div", { staticClass: "text-center" }, [
         _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "w-50 rounded",
+          attrs: {
+            src: "../../../images/apartments/" + _vm.apartment.image,
+            alt: "img-apartment",
+          },
+        }),
         _vm._v(" "),
         _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
         _vm._v(" "),
@@ -21149,7 +21146,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

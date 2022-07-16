@@ -1,13 +1,10 @@
 <template>
     <div>
         <!-- <SearchComp class="sticky-top" /> -->
-
-        <img :src="(`../../../images/apartments/${apartment.image}`)" alt="img-apartment" class="w-50 rounded">
-
         <div class="row justify-content-between mt-4">
-            <div class="col-6 text-center">
-
+            <div class="text-center">
                 <h2>{{ apartment.title }}</h2>
+                <img :src="(`../../../images/apartments/${apartment.image}`)" alt="img-apartment" class="w-50 rounded">
 
                 <span>{{ apartment.address }}</span>
                 <h3>{{ apartment.description }}</h3>
