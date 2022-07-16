@@ -3,10 +3,6 @@
     background-color: var(--pink);
 }
 
-.text-color-pink{
-    color: var(--pink);
-}
-
 .card-sponsorship {
     transition: transform .2s;
 }
@@ -15,17 +11,17 @@
     transform: scale(1.1);
 }
 
-.title span{
+.title .reveal{
     --total: calc(var(--duration)
     + var(--delay));
     position: relative;
-    display: block;
+    display: inline-block;
     color: transparent;
     overflow: hidden;
     animation: revealText 1.5s var(--delay) forwards;
 }
 
-.title span::after{
+.title .reveal::after{
     content: '';
     position: absolute;
     top: 0;
@@ -62,4 +58,8 @@
     to {
         transform: translateX(105%);
     }
+}
+
+.text-color-pink {
+    color: var(--pink);
 }
