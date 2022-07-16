@@ -1,43 +1,93 @@
 <template>
     <div class="container">
         <!-- Ricerca città/indirizzo -->
-        <div>
-            <input type="text" v-model="searchText" @keyup.enter="getAddress" placeholder="Cerca una città">
+        <div class="py-3 text-center">
+            <input class="text-center" type="text" v-model="searchText" @keyup.enter="getAddress" placeholder="Cerca una città">
                 <button @click="getAddress" type="submit"
-                    class="btn btn-secondary mx-2">Cerca</button>            
+                    class="btn cerca_color mx-2">Cerca</button>            
         </div>
-        <!-- Filtro Radius km -->
-        <div>
-          <label for="radius">Raggio di ricerca</label>
-          <input type="range" v-model="searchRadius" name="radius" min="1" max="20000" class="form-control" id="radius" required>         
-        </div>
-        <!-- Filtro Stanze -->
-        <div>
-          <label for="rooms">N° di stanze</label>
-          <input type="number" v-model="rooms" name="rooms" min="1" class="form-control" id="rooms" required>         
-        </div>
-        <!-- Filtro Bagni -->
-        <div>
-          <label for="beds">N° di bagni</label>
-          <input type="number" v-model="beds" name="beds" min="1" class="form-control" id="beds" required>         
-        </div>
-        <!-- Filtro Servizi -->
-        <div class="form-check-form-check-inline col-6 col-md-4" v-for="service in services" :key="'service-'+service.id">
-            <input class="form-check-input" type="checkbox" :value="service.id"
-                :id="'service-'+service.id" v-model="checkedService">
-             <label class="form-check-label" :for="'service-'+service.id">
-                {{service.name}} 
-            </label>
-        </div>  
 
+        <div class="d-flex justify-content-around">
+            <!-- Filtro Stanze -->
+            <div>
+                <label for="rooms">N° di stanze</label>
+                <input type="number" v-model="rooms" name="rooms" min="1" class="text-center form-control " id="rooms" required>         
+            </div>
+            <!-- Filtro Bagni -->
+            <div>
+                <label for="beds">N° di bagni</label>
+                <input type="number" v-model="beds" name="beds" min="1" class="text-center form-control " id="beds" required>         
+            </div>
+            <!-- Filtro Radius km -->
+            <div>
+                <label for="radius">Raggio di ricerca</label>
+                <input type="range" v-model="searchRadius" name="radius" min="1000" max="50000" class="form-control " id="radius" required>         
+            </div>
+            <!-- Buttone Filtro Servizi -->  
+            <button class="btn cerca_color my-4" type="button" data-toggle="collapse" data-target="#banana" aria-expanded="false" aria-controls="banana">
+                Mostra filtro Servizi
+            </button>
+        </div>
+
+        <!-- Filtro Servizi -->
+        <div class="collapse py-3 " id="banana">
+            <div class="d-flex flex-wrap">
+                <div class="form-check col-6 col-md-4" v-for="service in services" :key="'service-'+service.id">
+                    <input class="form-check-input" type="checkbox" :value="service.id"
+                        :id="'service-'+service.id" v-model="checkedService">
+                    <label class="form-check-label" :for="'service-'+service.id">
+                        {{service.name}} 
+                    </label>
+                </div>  
+            </div>      
+        </div>
+        
         <div>
-            <h5>Mappa</h5>
+            <h5>Mappa da aggiustare</h5>
             <div id="map" class="map mb-3"></div>
         </div>
 
-              <ul> 
+        <div id="contanier-home">
+
+            <div v-if="sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ''">
+            <div class="text-center">
+                <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center align-items-center apartment-card"
+                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment"
+                    v-show="!searchStatus">
+                    <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
+                        <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
+                        <div class="apartment-details">
+                            <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
+                            <!--<p class="apartment-text">{{apartment.description}}</p>-->
+                            <div>
+                                <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
+                                <span class="apartment-text" v-else>{{ apartment.rooms }} camere - </span>
+        
+                                <span class="apartment-text" v-if="`${apartment.beds}` == 1">{{ apartment.beds }} letto - </span>
+                                <span class="apartment-text" v-else>{{ apartment.beds }} letti - </span>
+        
+                                <span class="apartment-text" v-if="`${apartment.bathrooms}` == 1">{{ apartment.bathrooms }} bagno - </span>
+                                <span class="apartment-text" v-else>{{ apartment.bathrooms }} bagni - </span>
+        
+                                <span>{{ apartment.mq }} mq</span>
+                            </div>
+                            <div class="text-center">
+                                <h4>Sponsorizzato</h4>
+                            </div>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+              <ul class="row my-3"> 
                 
-                <li v-for="apartment in dioporco" :key="apartment.index" >
+                <li class="d-flex justify-content-center align-items-center apartment-card" v-for="apartment in dioporco" :key="apartment.index" >
 
                     <div v-show="apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
                 <!-- Visualizzazione card apartment -->
@@ -73,7 +123,7 @@ export default {
             isError: false,
             apartmentsArr: [],
             searchText: "",
-            searchRadius: "",
+            searchRadius: 20000,
             rooms: "",
             beds: "",
             checkedService: [],
@@ -224,7 +274,7 @@ export default {
                     zoom: 15
                 })
                 map.on('load', () => {
-          var marker = new tt.Marker()
+                 new tt.Marker()
               .setLngLat(center)
               .addTo(map);
       })
@@ -249,10 +299,138 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+    #container-home{
+    width: 80%;
+    margin: 0 auto;
+    .apartment-card{
+        width: calc(100%/10 * 2 - 1em);
+        margin: 1em 0.5em;
+        .apartment-img{
+            height: 25vh;
+            width: 25vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 15px;
+        }
+        .apartment-details{
+            height: 8vh;
+            margin-top: 0.8em;
+            .apartment-title{
+                font-size: 1.1em;
+            }
+            .apartment-text{
+                font-size: 0.9em;
+            }
+        }
+    }
+}
+
+// xs
+@media screen and (max-width: 575.90px) {
+    
+    #container-home{
+        width: 95%;
+        .apartment-card{
+            width: calc(100%/12 * 12 - 1em);
+            .apartment-img{
+                height: 40vh;
+                width: 40vh;
+            }
+            .apartment-details{
+                height: 7vh;
+            .apartment-title{
+                text-align: center;
+                font-size: 1.2em;
+            }
+            .apartment-text{
+                font-size: 1em;
+            }
+        }
+        }
+    }
+
+}
+
+// sm
+@media screen and (min-width: 576px) and (max-width: 768.90px) {
+    
+    #container-home{
+        .apartment-card{
+            width: calc(100%/12 * 6 - 1em);
+        }
+    }
+
+}
+
+// md
+@media screen and (min-width: 768px) and (max-width: 991.90px) {
+    
+    #container-home{
+        .apartment-card{
+            width: calc(100%/12 * 4 - 1em);
+            .apartment-details{
+                height: 10vh;
+            }
+        }
+    }
+
+}
+
+// lg
+@media screen and (min-width: 992px) and (max-width: 1999.90px) {
+    
+    #container-home{
+        .apartment-card{
+            width: calc(100%/12 * 3 - 1em);
+            .apartment-details{
+                height: 10vh;
+            }
+        }
+    }
+
+}
+
+// xl
+@media screen and (min-width: 1200px) and (max-width: 1399.90px) {
+    
+    #container-home{
+        .apartment-card{
+            .apartment-details{
+                height: 10vh;
+            }
+        }
+    }
+}
+
+// xxl
+@media screen and (min-width: 1400px){
+    
+    #container-home{
+        .apartment-card{
+            width: calc(100%/10 * 2 - 1em);
+            .apartment-details{
+                height: 8vh;
+            }
+        }
+    }
+}
     .map {
         height: 400px;
-        width: 35%;
+        width: 90vw;
+        margin: 0 auto;
     }
+
+    .cerca_color{
+        background-color: #ff385c;
+        color: white;
+    }
+    .widht_10{
+        width: 15%;
+    }
+
+    
 
 </style>
