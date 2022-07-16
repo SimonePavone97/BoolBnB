@@ -1,6 +1,13 @@
 @php
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\DB;
+
+    $numero_annunci = DB::table('apartments')->where('user_id', Auth::id())->count();
+    $numero_messaggi = DB::table('users')
+                            ->join('apartments', 'users.id', '=', 'apartments.user_id')
+                            ->join('messages', 'apartments.id', '=', 'messages.apartment_id')
+                            ->where('users.id', Auth::id())
+                            ->count();
 @endphp
 
 @extends('layouts.app')
@@ -19,7 +26,7 @@
             {{-- Action & Info --}}
             <div class="row">
                 {{-- Action --}}
-                <div class="col-4">
+                <div class="col-md-4 col-12 mb-3">
                     <div class="dashboard-action">
                         <ul>
                             <li>
@@ -52,26 +59,21 @@
                     </div>
                 </div>
 
-                <div class="col-8 d-flex">
+                <div class="col-md-8 col-12 d-flex justify-content-center">
                     {{-- Annunci --}}
-                    <div class="infobox">
+                    <a class="infobox" href="{{ route('admin.apartments.index') }}">
                         <div class="infobox-text">
-                            <h2>{{ DB::table('apartments')->where('user_id', Auth::id())->count() }}</h2>
+                            <h2>{{ $numero_annunci }}</h2>
                             <p>Annunci</p>
                         </div>
                         <div class="infobox-icon">
                             <i class="fa-solid fa-house"></i>
                         </div>
-                    </div>
+                    </a>
                     {{-- Messaggi --}}
                     <div class="infobox">
                         <div class="infobox-text">
-                            <h2>{{ DB::table('users')
-                                       ->join('apartments', 'users.id', '=', 'apartments.user_id')
-                                       ->join('messages', 'apartments.id', '=', 'messages.apartment_id')
-                                       ->where('users.id', Auth::id())
-                                       ->count()
-                                }}
+                            <h2>{{ $numero_messaggi }}
                             </h2>
                             <p>Messaggi</p>
                         </div>
