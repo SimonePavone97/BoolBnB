@@ -83,6 +83,18 @@ header .nav-item i {
     color: var(--pink);
 }
 
+@media screen and (max-width: 768px) {
+
+    .infobox-text p {
+        display: none;
+    }
+
+    .infobox-icon {
+        font-size: 25px;
+    }
+
+}
+
 /* Dashboard Sponsor */
 .sponsor {
     padding: 10px;
@@ -109,6 +121,8 @@ header .nav-item i {
     color: white;
     background-color: var(--pink);
 }
+
+/* INDEX */
 
 #apartment-index td a,
 #apartment-index td button {
