@@ -18740,3 +18740,88 @@ a.text-dark:focus {
   color: var(--pink);
 }
 
+.card-sponsorship {
+  transition: transform 0.2s;
+}
+
+.card-sponsorship:hover {
+  transform: scale(1.1);
+}
+
+.title span {
+  --total: calc(var(--duration)
+  + var(--delay));
+  position: relative;
+  display: block;
+  color: transparent;
+  overflow: hidden;
+  -webkit-animation: revealText 1.5s var(--delay) forwards;
+          animation: revealText 1.5s var(--delay) forwards;
+}
+
+.title span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--pink);
+  -webkit-animation: rollIn var(--duration) forwards, rollOut var(--duration) forwards;
+          animation: rollIn var(--duration) forwards, rollOut var(--duration) forwards;
+}
+
+@-webkit-keyframes revealText {
+  to {
+    color: black;
+  }
+}
+
+@keyframes revealText {
+  to {
+    color: black;
+  }
+}
+
+@-webkit-keyframes rollIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rollIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@-webkit-keyframes rollOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(105%);
+  }
+}
+
+@keyframes rollOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(105%);
+  }
+}
+
