@@ -185,6 +185,7 @@
                 this.searchStatus = true;
                 this.getAddress();
                 this.Risultato();
+                this.risultati = [];
             },
             sponsoredApartments() {
                 axios.get('http://127.0.0.1:8000/api/sponsored/apartments')

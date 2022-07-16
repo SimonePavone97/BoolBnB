@@ -2454,6 +2454,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.searchStatus = true;
       this.getAddress();
       this.Risultato();
+      this.risultati = [];
     },
     sponsoredApartments: function sponsoredApartments() {
       var _this5 = this;
