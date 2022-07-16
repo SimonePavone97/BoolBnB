@@ -25,6 +25,14 @@ header .nav-item i {
     color: var(--pink);
 }
 
+header .navbar-link {
+    font-size: 16px;
+    margin-bottom: 0;
+    margin: 0 20px;
+    font-weight: bold;
+    color: var(--pink);
+}
+
 /* DASHBOARD */
 .heading {
     display: flex;
@@ -80,6 +88,10 @@ header .nav-item i {
 
 .infobox-text, .infobox-text:hover {
     color: var(--text-darker);
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .infobox-icon {
