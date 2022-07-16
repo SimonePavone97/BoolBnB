@@ -22,7 +22,7 @@
             </div>
         @endforeach      
         </div>
-        <div class="container text-center w-50">
+        <div class="container text-center w-50 mt-4">
             <p>*Le sponsorizzazioni sono cumulabili</p>
         </div>      
     </div>
