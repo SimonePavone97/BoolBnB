@@ -59,7 +59,7 @@
                 </div>
             </li>
 
-            <li v-for="apartment in dioporco" :key="apartment.index" v-show="searchStatus" class="card col-lg-3 col-md-4 col-sm-12 marg">
+            <li v-for="apartment in risultati" :key="apartment.index" v-show="searchStatus" class="card col-lg-3 col-md-4 col-sm-12 marg">
                 <div>
                     <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
                         <img class="card-img-top img-fluid" :src="(`../../../images/apartments/${apartment.image}`)"
@@ -109,7 +109,7 @@
                 position:[],
                 resultsapi:[],
                 latlon: "",
-                dioporco: []
+                risultati: []
             }
         },
         created() {
@@ -169,9 +169,9 @@
                         console.log("RISULTATI",this.resultsapi);
                         console.log(this.searchText);
                         console.log("FINAL",this.latlon)
-                        this.apartmentsArr.forEach(cristo =>{
-                            if (this.resultsapi.includes(cristo.id)) {
-                                this.dioporco.push(cristo)
+                        this.apartmentsArr.forEach(elm =>{
+                            if (this.resultsapi.includes(elm.id)) {
+                                this.risultati.push(elm)
                             }
                         })
 
@@ -204,7 +204,7 @@
         mounted(){
             this.getApartments(); 
             this.getPoilist();
-            console.log(this.dioporco)
+            console.log(this.risultati)
         }
     }
 

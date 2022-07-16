@@ -2354,7 +2354,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       searchStatus: false,
       sponsoredApartmentsArr: [],
       isError: false
-    }, _defineProperty(_ref, "apartmentsArr", []), _defineProperty(_ref, "searchText", ""), _defineProperty(_ref, "address", []), _defineProperty(_ref, "poilist", []), _defineProperty(_ref, "position", []), _defineProperty(_ref, "resultsapi", []), _defineProperty(_ref, "latlon", ""), _defineProperty(_ref, "dioporco", []), _ref;
+    }, _defineProperty(_ref, "apartmentsArr", []), _defineProperty(_ref, "searchText", ""), _defineProperty(_ref, "address", []), _defineProperty(_ref, "poilist", []), _defineProperty(_ref, "position", []), _defineProperty(_ref, "resultsapi", []), _defineProperty(_ref, "latlon", ""), _defineProperty(_ref, "risultati", []), _ref;
   },
   created: function created() {
     this.sponsoredApartments();
@@ -2415,9 +2415,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         console.log(_this4.searchText);
         console.log("FINAL", _this4.latlon);
 
-        _this4.apartmentsArr.forEach(function (cristo) {
-          if (_this4.resultsapi.includes(cristo.id)) {
-            _this4.dioporco.push(cristo);
+        _this4.apartmentsArr.forEach(function (elm) {
+          if (_this4.resultsapi.includes(elm.id)) {
+            _this4.risultati.push(elm);
           }
         });
       })["catch"](function (err) {
@@ -2450,7 +2450,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.getApartments();
     this.getPoilist();
-    console.log(this.dioporco);
+    console.log(this.risultati);
   }
 });
 
@@ -4518,7 +4518,7 @@ var render = function () {
             )
           }),
           _vm._v(" "),
-          _vm._l(_vm.dioporco, function (apartment) {
+          _vm._l(_vm.risultati, function (apartment) {
             return _c(
               "li",
               {
