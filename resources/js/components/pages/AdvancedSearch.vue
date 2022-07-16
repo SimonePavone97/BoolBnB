@@ -49,14 +49,13 @@
 
         <div id="contanier-home">
 
-            <div v-if="sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ''">
+            <div v-if="sponsoredApartmentsArr.length != 0">
             <div class="text-center">
                 <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="d-flex justify-content-center align-items-center apartment-card"
-                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment"
-                    v-show="!searchStatus">
+                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment">
                     <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
                         <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
                         <div class="apartment-details">
@@ -91,22 +90,27 @@
 
                     <div v-show="apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
                 <!-- Visualizzazione card apartment -->
-                <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}">
-                    <img class="card-img-top" :src="apartment.image" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{apartment.title}}</h5>
-                        <p class="card-text">{{apartment.description}}</p>
-                        <div>
-                            <span class="card-text">Stanze: {{apartment.rooms}}</span>
-                            <span class="card-text">Bagni: {{apartment.bathrooms}}</span>
-                            <span class="card-text">Mq: {{apartment.mq}}</span>
+                <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
+                        <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
+                        <div class="apartment-details">
+                            <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
+                            <!--<p class="apartment-text">{{apartment.description}}</p>-->
+                            <div>
+                                <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
+                                <span class="apartment-text" v-else>{{ apartment.rooms }} camere - </span>
+        
+                                <span class="apartment-text" v-if="`${apartment.beds}` == 1">{{ apartment.beds }} letto - </span>
+                                <span class="apartment-text" v-else>{{ apartment.beds }} letti - </span>
+        
+                                <span class="apartment-text" v-if="`${apartment.bathrooms}` == 1">{{ apartment.bathrooms }} bagno - </span>
+                                <span class="apartment-text" v-else>{{ apartment.bathrooms }} bagni - </span>
+        
+                                <span>{{ apartment.mq }} mq</span>
+                            </div>
                         </div>
-                    </div>
-                </router-link>
-
+                    </router-link>
                 </div>
-
-                </li>
+            </li>
 
               </ul>         
     </div>
@@ -122,6 +126,7 @@ export default {
         return {
             isError: false,
             apartmentsArr: [],
+            sponsoredApartmentsArr: [],
             searchText: "",
             searchRadius: 20000,
             rooms: "",
@@ -135,7 +140,7 @@ export default {
             resultsapi:[],
             latlon: "",
             jabroni: [],
-            dioporco: []            
+            dioporco: []         
         }
     },
 
@@ -172,6 +177,20 @@ export default {
                 console.log(error)
                 });
         },
+        sponsoredApartments() {
+                axios.get('http://127.0.0.1:8000/api/sponsored/apartments')
+                    .then((res) => {
+                        for (let i = res.data.length - 1; i >= 0; i--) {
+                            res.data[i].forEach(element => {
+                                this.sponsoredApartmentsArr.push(element);
+                                console.log(this.sponsoredApartmentsArr);
+                            });
+                        }
+
+                    }).catch((error) => {
+                        console.warn(error);
+                    })
+            },
         getServices() {
             axios.get(`http://127.0.0.1:8000/api/services`)
                 .then((res) => {
@@ -243,6 +262,7 @@ export default {
             axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"${this.latlon}","radius":${this.searchRadius}}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
                     this.resultsapi= [];
+                    this.dioporco= [];
                     // console.log("Svuptato",this.resultsapi);
                     res.data.results.forEach(element => {
                         this.resultsapi.push(element.poi)    
@@ -258,9 +278,10 @@ export default {
                     })   
                     console.log("AAAAAA",this.dioporco)                 
                 })
+                .then(this.sponsoredApartments)
                 .then(this.getLatmap)
                 .then(this.getLongmap)
-                .then(this.getMap)
+                // .then(this.getMap)
                 .catch((err) => {
                    this.isError = true;
                 });

@@ -2026,6 +2026,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -2033,6 +2037,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return {
       isError: false,
       apartmentsArr: [],
+      sponsoredApartmentsArr: [],
       searchText: "",
       searchRadius: 20000,
       rooms: "",
@@ -2075,57 +2080,72 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         console.log(error);
       });
     },
-    getServices: function getServices() {
+    sponsoredApartments: function sponsoredApartments() {
       var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/sponsored/apartments').then(function (res) {
+        for (var i = res.data.length - 1; i >= 0; i--) {
+          res.data[i].forEach(function (element) {
+            _this2.sponsoredApartmentsArr.push(element);
+
+            console.log(_this2.sponsoredApartmentsArr);
+          });
+        }
+      })["catch"](function (error) {
+        console.warn(error);
+      });
+    },
+    getServices: function getServices() {
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
         console.log(res.data);
-        _this2.services = res.data.services;
-        console.log('SERVIZI:', _this2.services);
+        _this3.services = res.data.services;
+        console.log('SERVIZI:', _this3.services);
       })["catch"](function (error) {
         console.log(error);
       });
     },
     getApaservices: function getApaservices() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apaservice").then(function (res) {
-        _this3.apaservices = res.data.apaserviceid;
-        console.log('APASERVIZI:', _this3.apaservices);
+        _this4.apaservices = res.data.apaserviceid;
+        console.log('APASERVIZI:', _this4.apaservices);
       })["catch"](function (error) {
         console.log(error);
       });
     },
     getPoilist: function getPoilist() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
-        _this4.poilist = res.data;
-        console.log("POILIST", _this4.poilist);
+        _this5.poilist = res.data;
+        console.log("POILIST", _this5.poilist);
       })["catch"](function (err) {
-        _this4.isError = true;
+        _this5.isError = true;
       });
     },
     getAddress: function getAddress() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        _this5.latlon = []; // console.log("Svuptato LatLon",this.latlon);
+        _this6.latlon = []; // console.log("Svuptato LatLon",this.latlon);
 
-        _this5.address = []; // console.log("Svuptato address",this.address);
+        _this6.address = []; // console.log("Svuptato address",this.address);
 
-        _this5.position = [];
-        _this5.address = res.data.results;
+        _this6.position = [];
+        _this6.address = res.data.results;
 
-        _this5.position.push(_this5.address[0].position);
+        _this6.position.push(_this6.address[0].position);
 
-        _this5.latlon = _this5.position[0].lat + "," + _this5.position[0].lon;
-        console.log("POSITION", _this5.position, _typeof(_this5.position));
-        console.log("LAT", _this5.position[0].lat);
-        console.log("LON", _this5.position[0].lon);
-        console.log("Sdighidi", _this5.latlon);
+        _this6.latlon = _this6.position[0].lat + "," + _this6.position[0].lon;
+        console.log("POSITION", _this6.position, _typeof(_this6.position));
+        console.log("LAT", _this6.position[0].lat);
+        console.log("LON", _this6.position[0].lon);
+        console.log("Sdighidi", _this6.latlon);
       }).then(this.Risultato)["catch"](function (err) {
-        _this5.isError = true;
+        _this6.isError = true;
       });
     },
     getLatmap: function getLatmap() {
@@ -2145,28 +2165,30 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       console.log("d'avena", longmap);
     },
     Risultato: function Risultato() {
-      var _this6 = this;
+      var _this7 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
-        _this6.resultsapi = []; // console.log("Svuptato",this.resultsapi);
+        _this7.resultsapi = [];
+        _this7.dioporco = []; // console.log("Svuptato",this.resultsapi);
 
         res.data.results.forEach(function (element) {
-          _this6.resultsapi.push(element.poi);
+          _this7.resultsapi.push(element.poi);
         });
-        console.log("RISULTATI", _this6.resultsapi);
-        console.log(_this6.searchText);
-        console.log(_this6.searchRadius, "metri di radius");
-        console.log("FINAL", _this6.latlon);
+        console.log("RISULTATI", _this7.resultsapi);
+        console.log(_this7.searchText);
+        console.log(_this7.searchRadius, "metri di radius");
+        console.log("FINAL", _this7.latlon);
 
-        _this6.apartmentsArr.forEach(function (cristo) {
-          if (_this6.resultsapi.includes(cristo.id)) {
-            _this6.dioporco.push(cristo);
+        _this7.apartmentsArr.forEach(function (cristo) {
+          if (_this7.resultsapi.includes(cristo.id)) {
+            _this7.dioporco.push(cristo);
           }
         });
 
-        console.log("AAAAAA", _this6.dioporco);
-      }).then(this.getLatmap).then(this.getLongmap).then(this.getMap)["catch"](function (err) {
-        _this6.isError = true;
+        console.log("AAAAAA", _this7.dioporco);
+      }).then(this.sponsoredApartments).then(this.getLatmap).then(this.getLongmap) // .then(this.getMap)
+      ["catch"](function (err) {
+        _this7.isError = true;
       });
     },
     getMap: function getMap() {
@@ -4347,7 +4369,7 @@ var render = function () {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { attrs: { id: "contanier-home" } }, [
-      _vm.sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ""
+      _vm.sponsoredApartmentsArr.length != 0
         ? _c("div", [
             _c("div", { staticClass: "text-center" }, [
               _vm.sponsoredApartmentsArr != ""
@@ -4362,14 +4384,6 @@ var render = function () {
                 return _c(
                   "div",
                   {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: !_vm.searchStatus,
-                        expression: "!searchStatus",
-                      },
-                    ],
                     key: index,
                     staticClass:
                       "d-flex justify-content-center align-items-center apartment-card",
@@ -4488,6 +4502,7 @@ var render = function () {
                 _c(
                   "router-link",
                   {
+                    staticClass: "text-dark row justify-content-center w-100",
                     attrs: {
                       to: {
                         name: "apartment-detail",
@@ -4496,32 +4511,47 @@ var render = function () {
                     },
                   },
                   [
-                    _c("img", {
-                      staticClass: "card-img-top",
-                      attrs: { src: apartment.image, alt: "Card image cap" },
+                    _c("div", {
+                      staticClass: "apartment-img",
+                      style: {
+                        backgroundImage:
+                          "url(../../../images/apartments/" +
+                          apartment.image +
+                          ")",
+                      },
                     }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(apartment.title)),
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(apartment.description)),
+                    _c("div", { staticClass: "apartment-details" }, [
+                      _c("h5", { staticClass: "apartment-title" }, [
+                        _c("strong", [_vm._v(_vm._s(apartment.title))]),
                       ]),
                       _vm._v(" "),
                       _c("div", [
-                        _c("span", { staticClass: "card-text" }, [
-                          _vm._v("Stanze: " + _vm._s(apartment.rooms)),
-                        ]),
+                        "" + apartment.rooms == 1
+                          ? _c("span", { staticClass: "apartment-text" }, [
+                              _vm._v(_vm._s(apartment.rooms) + " camera - "),
+                            ])
+                          : _c("span", { staticClass: "apartment-text" }, [
+                              _vm._v(_vm._s(apartment.rooms) + " camere - "),
+                            ]),
                         _vm._v(" "),
-                        _c("span", { staticClass: "card-text" }, [
-                          _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
-                        ]),
+                        "" + apartment.beds == 1
+                          ? _c("span", { staticClass: "apartment-text" }, [
+                              _vm._v(_vm._s(apartment.beds) + " letto - "),
+                            ])
+                          : _c("span", { staticClass: "apartment-text" }, [
+                              _vm._v(_vm._s(apartment.beds) + " letti - "),
+                            ]),
                         _vm._v(" "),
-                        _c("span", { staticClass: "card-text" }, [
-                          _vm._v("Mq: " + _vm._s(apartment.mq)),
-                        ]),
+                        "" + apartment.bathrooms == 1
+                          ? _c("span", { staticClass: "apartment-text" }, [
+                              _vm._v(_vm._s(apartment.bathrooms) + " bagno - "),
+                            ])
+                          : _c("span", { staticClass: "apartment-text" }, [
+                              _vm._v(_vm._s(apartment.bathrooms) + " bagni - "),
+                            ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(apartment.mq) + " mq")]),
                       ]),
                     ]),
                   ]
