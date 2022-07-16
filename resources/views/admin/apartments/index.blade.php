@@ -43,7 +43,6 @@
                         <th scope="col">Mq</th> -->
                         <th scope="col">Indirizzo</th>
                         <th scope="col">Descrizione</th>
-                        <th scope="col">Visibilità</th>
                         <th scope="col">Azione</th>
                     </tr>
                 </thead>
@@ -52,14 +51,13 @@
                 @forelse ($apartments as $apartment)
                     <tr>
                         <td class="text-center">{{ $apartment->title }}</td>
-                        <td class="table-img text-center"><img src="{{ $apartment->image }}" alt="Apartment Image"></td>
+                        <td class="table-img text-center"><img src="{{ asset('images/apartments') }}/{{ $apartment->image }}" alt="Apartment Image" width="100px"></td>
                         <!-- <td>{{ $apartment->rooms }}</td>
                         <td>{{ $apartment->bathrooms }}</td>
                         <td>{{ $apartment->beds }}</td>
                         <td>{{ $apartment->mq }}</td> -->
                         <td class="text-center">{{ $apartment->address }}</td>
                         <td class="text-center">{{ $apartment->description }}</td>
-                        <td class="text-center">{{ $apartment->visibility }}</td>
                         <td class="row m-0">
                             <div class="col-lg-4 col-sm-12 py-sm-1 text-center">
                                 <a class="btn btn-primary" href="{{ route('admin.apartments.show', $apartment->id) }}">Dettagli</a>
