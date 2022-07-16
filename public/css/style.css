@@ -104,6 +104,23 @@ header .nav-item i {
     box-shadow: 0 0 10px var(--pink);
 }
 
+/* Buttons */
+.btn-pink {
+    color: white;
+    background-color: var(--pink);
+}
+
+#apartment-index td a,
+#apartment-index td button {
+    font-size: 14px;
+    padding: 3px 5px;
+    margin: 5px;
+}
+
+#apartment-index tr:nth-child(even) {
+    background-color: var(--bg-lightgray);
+}
+
 /* SHOW */
 .map {
     display: block;
