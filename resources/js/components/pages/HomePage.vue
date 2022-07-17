@@ -21,9 +21,9 @@
                     v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment"
                     v-show="!searchStatus">
                     <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
-                        <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
+                        <div class="apartment-img border_sponsor" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
                         <div class="apartment-details">
-                            <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
+                            <h5 class="apartment-title text-center"><strong>{{apartment.title}}</strong></h5>
                             <!--<p class="apartment-text">{{apartment.description}}</p>-->
                             <div>
                                 <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
@@ -36,9 +36,6 @@
                                 <span class="apartment-text" v-else>{{ apartment.bathrooms }} bagni - </span>
         
                                 <span>{{ apartment.mq }} mq</span>
-                            </div>
-                            <div class="text-center">
-                                <h4>Sponsorizzato</h4>
                             </div>
                         </div>
                     </router-link>
@@ -53,7 +50,7 @@
                     <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
                         <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
                         <div class="apartment-details">
-                            <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
+                            <h5 class="apartment-title text-center"><strong>{{apartment.title}}</strong></h5>
                             <!--<p class="apartment-text">{{apartment.description}}</p>-->
                             <div>
                                 <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
@@ -77,7 +74,7 @@
                     <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row w-100 justify-content-center">
                         <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
                         <div class="apartment-details">
-                            <h5 class="apartment-title "><strong>{{apartment.title}}</strong></h5>
+                            <h5 class="apartment-title text-center"><strong>{{apartment.title}}</strong></h5>
                             <!--<p class="apartment-text">{{apartment.description}}</p>-->
                             <div>
                                 <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
@@ -230,6 +227,10 @@
 </script>
 
 <style lang="scss" scoped>
+
+.border_sponsor{
+    border: 3px solid #ff385c;
+}
 
 #container-home{
     width: 80%;

@@ -2460,9 +2460,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2828,7 +2825,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".details-container[data-v-645c392c] {\n  width: 85%;\n  margin: 0 auto;\n}\n.details-container .prova_riquadro_prenota[data-v-645c392c] {\n  height: 500px;\n  width: 100%;\n  background-color: red;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 50px;\n}\n.details-container .map[data-v-645c392c] {\n  height: 400px;\n  width: 90vw;\n  margin: 0 auto;\n}", ""]);
+exports.push([module.i, ".details-container[data-v-645c392c] {\n  width: 85%;\n  margin: 0 auto;\n}\n.details-container .prova_riquadro_prenota[data-v-645c392c] {\n  height: 500px;\n  width: 100%;\n  background-color: red;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 50px;\n}\n.details-container .map[data-v-645c392c] {\n  height: 400px;\n  width: 85vw;\n  margin: 0 auto;\n}", ""]);
 
 // exports
 
@@ -2847,7 +2844,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#container-home[data-v-317790a4] {\n  width: 80%;\n  margin: 0 auto;\n}\n#container-home .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home[data-v-317790a4] {\n    width: 95%;\n}\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n    font-size: 1em;\n}\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1999.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 8vh;\n}\n}", ""]);
+exports.push([module.i, ".border_sponsor[data-v-317790a4] {\n  border: 3px solid #ff385c;\n}\n#container-home[data-v-317790a4] {\n  width: 80%;\n  margin: 0 auto;\n}\n#container-home .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home[data-v-317790a4] {\n    width: 95%;\n}\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n    font-size: 1em;\n}\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1999.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 8vh;\n}\n}", ""]);
 
 // exports
 
@@ -4714,7 +4711,7 @@ var render = function () {
                       },
                       [
                         _c("div", {
-                          staticClass: "apartment-img",
+                          staticClass: "apartment-img border_sponsor",
                           style: {
                             backgroundImage:
                               "url(../../../images/apartments/" +
@@ -4724,9 +4721,11 @@ var render = function () {
                         }),
                         _vm._v(" "),
                         _c("div", { staticClass: "apartment-details" }, [
-                          _c("h5", { staticClass: "apartment-title" }, [
-                            _c("strong", [_vm._v(_vm._s(apartment.title))]),
-                          ]),
+                          _c(
+                            "h5",
+                            { staticClass: "apartment-title text-center" },
+                            [_c("strong", [_vm._v(_vm._s(apartment.title))])]
+                          ),
                           _vm._v(" "),
                           _c("div", [
                             "" + apartment.rooms == 1
@@ -4762,10 +4761,6 @@ var render = function () {
                                 ]),
                             _vm._v(" "),
                             _c("span", [_vm._v(_vm._s(apartment.mq) + " mq")]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "text-center" }, [
-                            _c("h4", [_vm._v("Sponsorizzato")]),
                           ]),
                         ]),
                       ]
@@ -4827,9 +4822,11 @@ var render = function () {
                         }),
                         _vm._v(" "),
                         _c("div", { staticClass: "apartment-details" }, [
-                          _c("h5", { staticClass: "apartment-title" }, [
-                            _c("strong", [_vm._v(_vm._s(apartment.title))]),
-                          ]),
+                          _c(
+                            "h5",
+                            { staticClass: "apartment-title text-center" },
+                            [_c("strong", [_vm._v(_vm._s(apartment.title))])]
+                          ),
                           _vm._v(" "),
                           _c("div", [
                             "" + apartment.rooms == 1
@@ -4920,9 +4917,11 @@ var render = function () {
                         }),
                         _vm._v(" "),
                         _c("div", { staticClass: "apartment-details" }, [
-                          _c("h5", { staticClass: "apartment-title " }, [
-                            _c("strong", [_vm._v(_vm._s(apartment.title))]),
-                          ]),
+                          _c(
+                            "h5",
+                            { staticClass: "apartment-title text-center" },
+                            [_c("strong", [_vm._v(_vm._s(apartment.title))])]
+                          ),
                           _vm._v(" "),
                           _c("div", [
                             "" + apartment.rooms == 1
