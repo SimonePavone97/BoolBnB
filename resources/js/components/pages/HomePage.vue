@@ -309,6 +309,10 @@
     #container-home{
         .apartment-card{
             width: calc(100%/12 * 3 - 1em);
+            .apartment-img{
+                height: 20vh;
+                width: 20vh;
+            }
             .apartment-details{
                 height: 10vh;
             }
