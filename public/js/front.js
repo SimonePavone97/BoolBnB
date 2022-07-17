@@ -2021,6 +2021,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -2042,7 +2043,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       resultsapi: [],
       latlon: "",
       jabroni: [],
-      dioporco: []
+      resultsapartment: []
     };
   },
   methods: {
@@ -2050,15 +2051,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       // console.log("GNIGNI",gnigni);
       console.log(_typeof(gnigni));
       console.log("CHECK", this.checkedService);
-      var madonna = [];
+      var apartmentArrserv = [];
       gnigni.forEach(function (element) {
-        madonna.push(element.id); // console.log("BIGNI", element.id)
+        apartmentArrserv.push(element.id); // console.log("BIGNI", element.id)
       });
       var checkedExist = this.checkedService.every(function (value) {
-        return madonna.includes(value);
+        return apartmentArrserv.includes(value);
       });
-      console.log("existdio", checkedExist);
-      console.log("Puattanala", madonna);
+      console.log("CheckedExist", checkedExist);
+      console.log("AppArrServ", apartmentArrserv);
       return checkedExist;
     },
     getApartments: function getApartments() {
@@ -2141,26 +2142,26 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     },
     getLatmap: function getLatmap() {
       var latmap = [];
-      this.dioporco.forEach(function (element) {
+      this.resultsapartment.forEach(function (element) {
         latmap.push(element.latitude);
         console.log("latmap", element.latitude);
       });
-      console.log("cristina", latmap);
+      console.log("latmap", latmap);
     },
     getLongmap: function getLongmap() {
       var longmap = [];
-      this.dioporco.forEach(function (element) {
+      this.resultsapartment.forEach(function (element) {
         longmap.push(element.longitude);
         console.log("longmap", element.longitude);
       });
-      console.log("d'avena", longmap);
+      console.log("longmap", longmap);
     },
     Risultato: function Risultato() {
       var _this7 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
         _this7.resultsapi = [];
-        _this7.dioporco = []; // console.log("Svuptato",this.resultsapi);
+        _this7.resultsapartment = []; // console.log("Svuptato",this.resultsapi);
 
         res.data.results.forEach(function (element) {
           _this7.resultsapi.push(element.poi);
@@ -2172,11 +2173,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
         _this7.apartmentsArr.forEach(function (cristo) {
           if (_this7.resultsapi.includes(cristo.id)) {
-            _this7.dioporco.push(cristo);
+            _this7.resultsapartment.push(cristo);
           }
         });
 
-        console.log("AAAAAA", _this7.dioporco);
+        console.log("resultsapartment", _this7.resultsapartment);
       }).then(this.sponsoredApartments).then(this.getLatmap).then(this.getLongmap)["catch"](function (err) {
         _this7.isError = true;
       });
@@ -2193,7 +2194,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     //           .setLngLat(center)
     //           .addTo(map);
     //   })
-    //         //      for (let i = 0; i < this.dioporco.length; i++) {
+    //         //      for (let i = 0; i < this.resultsapartment.length; i++) {
     //         //      new tt.Marker()
     //         //          .setLngLat([
     //         //              longmap[i],
@@ -4361,6 +4362,7 @@ var render = function () {
                   name: "rooms",
                   min: "1",
                   id: "rooms",
+                  placeholder: "1",
                   required: "",
                 },
                 domProps: { value: _vm.rooms },
@@ -4397,6 +4399,7 @@ var render = function () {
                   name: "beds",
                   min: "1",
                   id: "beds",
+                  placeholder: "1",
                   required: "",
                 },
                 domProps: { value: _vm.beds },
@@ -4431,6 +4434,7 @@ var render = function () {
                 ],
                 staticClass: "form-control ",
                 attrs: {
+                  step: "1000",
                   type: "range",
                   name: "radius",
                   min: "1000",
@@ -4445,6 +4449,10 @@ var render = function () {
                   },
                 },
               }),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(_vm.searchRadius / 1000) + " km"),
+              ]),
             ]
           ),
           _vm._v(" "),
@@ -4539,12 +4547,10 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
       _c(
         "ul",
         { staticClass: "row my-3" },
-        _vm._l(_vm.dioporco, function (apartment) {
+        _vm._l(_vm.resultsapartment, function (apartment) {
           return _c(
             "li",
             {
@@ -4642,18 +4648,7 @@ var render = function () {
     ]
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h5", [_vm._v("Mappa da aggiustare")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "map mb-3", attrs: { id: "map" } }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -21805,7 +21800,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

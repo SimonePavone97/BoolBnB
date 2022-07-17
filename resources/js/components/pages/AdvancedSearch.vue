@@ -13,17 +13,18 @@
             <!-- Filtro Stanze -->
             <div class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6">
                 <label for="rooms">N° di stanze</label>
-                <input type="number" v-model="rooms" name="rooms" min="1" class="text-center form-control " id="rooms" required>         
+                <input type="number" v-model="rooms" name="rooms" min="1" class="text-center form-control " id="rooms" placeholder="1" required>         
             </div>
             <!-- Filtro Bagni -->
             <div class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6">
                 <label for="beds">N° di bagni</label>
-                <input type="number" v-model="beds" name="beds" min="1" class="text-center form-control " id="beds" required>         
+                <input type="number" v-model="beds" name="beds" min="1" class="text-center form-control " id="beds" placeholder="1" required>         
             </div>
             <!-- Filtro Radius km -->
             <div class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6">
                 <label for="radius">Raggio di ricerca</label>
-                <input type="range" v-model="searchRadius" name="radius" min="1000" max="50000" class="form-control " id="radius" required>         
+                <input step="1000" type="range" v-model="searchRadius" name="radius" min="1000" max="50000" class="form-control " id="radius" required>  
+                <p class="text-center">{{searchRadius/1000}} km</p>       
             </div>
             <!-- Buttone Filtro Servizi -->  
             <button class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6 btn cerca_color my-4" type="button" data-toggle="collapse" data-target="#banana" aria-expanded="false" aria-controls="banana">
@@ -47,14 +48,14 @@
         </div>
         
         
-        <div>
+        <!-- <div>
             <h5>Mappa da aggiustare</h5>
             <div id="map" class="map mb-3"></div>
-        </div>
+        </div> -->
 
         <ul class="row my-3"> 
                 
-            <li class="d-flex justify-content-center align-items-center apartment-card" v-for="apartment in dioporco" :key="apartment.index" >
+            <li class="d-flex justify-content-center align-items-center apartment-card" v-for="apartment in resultsapartment" :key="apartment.index" >
 
                 <div v-show="apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
                 <!-- Visualizzazione card apartment -->
@@ -107,7 +108,7 @@ export default {
             resultsapi:[],
             latlon: "",
             jabroni: [],
-            dioporco: []         
+            resultsapartment: []         
         }
     },
 
@@ -117,19 +118,19 @@ export default {
             console.log(typeof(gnigni));
             console.log("CHECK", this.checkedService);
 
-            let madonna = [];
+            let apartmentArrserv = [];
                      gnigni.forEach(element => {
-                        madonna.push(element.id)
+                        apartmentArrserv.push(element.id)
                         // console.log("BIGNI", element.id)
                         });
 
                         let checkedExist = this.checkedService.every(value =>{
-                              return madonna.includes(value) 
+                              return apartmentArrserv.includes(value) 
                         });
 
-                    console.log("existdio", checkedExist)
+                    console.log("CheckedExist", checkedExist)
                     
-                    console.log("Puattanala", madonna)
+                    console.log("AppArrServ", apartmentArrserv)
                     
                     return checkedExist
                     
@@ -211,25 +212,25 @@ export default {
         }, 
         getLatmap(){
                     let latmap = [];
-                     this.dioporco.forEach(element => {
+                     this.resultsapartment.forEach(element => {
                         latmap.push(element.latitude)
                         console.log("latmap", element.latitude)
                         });
-                    console.log("cristina",latmap);
+                    console.log("latmap",latmap);
                 },
         getLongmap(){
                     let longmap = [];
-                     this.dioporco.forEach(element => {
+                     this.resultsapartment.forEach(element => {
                         longmap.push(element.longitude)
                         console.log("longmap", element.longitude)
                         });
-                    console.log("d'avena",longmap);
+                    console.log("longmap",longmap);
                 },
         Risultato(){
             axios.get(`https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{"type":"CIRCLE","position":"${this.latlon}","radius":${this.searchRadius}}]&poiList=`+ JSON.stringify(this.poilist))
                 .then((res) => {
                     this.resultsapi= [];
-                    this.dioporco= [];
+                    this.resultsapartment= [];
                     // console.log("Svuptato",this.resultsapi);
                     res.data.results.forEach(element => {
                         this.resultsapi.push(element.poi)    
@@ -240,10 +241,10 @@ export default {
                     console.log("FINAL",this.latlon)
                     this.apartmentsArr.forEach(cristo =>{
                         if (this.resultsapi.includes(cristo.id)) {
-                            this.dioporco.push(cristo)
+                            this.resultsapartment.push(cristo)
                         }
                     })   
-                    console.log("AAAAAA",this.dioporco)                 
+                    console.log("resultsapartment",this.resultsapartment)                 
                 })
                 .then(this.sponsoredApartments)
                 .then(this.getLatmap)
@@ -266,7 +267,7 @@ export default {
     //           .setLngLat(center)
     //           .addTo(map);
     //   })
-    //         //      for (let i = 0; i < this.dioporco.length; i++) {
+    //         //      for (let i = 0; i < this.resultsapartment.length; i++) {
     //         //      new tt.Marker()
                  
     //         //          .setLngLat([
