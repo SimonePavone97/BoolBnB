@@ -2802,6 +2802,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SearchComp',
   data: function data() {
@@ -2940,7 +2942,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".search-content[data-v-4974710e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/hero.jpg */ "./resources/images/hero.jpg")) + ");\n  background-size: cover;\n  background-position: 0% 80%;\n  padding: 200px 0;\n  margin-bottom: 50px;\n}\nh1[data-v-4974710e] {\n  font-size: 50px;\n  color: white;\n  margin-bottom: 60px;\n}\ninput[data-v-4974710e], button[data-v-4974710e] {\n  padding: 0 20px;\n  height: 40px;\n}\ninput[data-v-4974710e] {\n  width: 500px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: #ff385c;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n}\nbutton i[data-v-4974710e] {\n  font-size: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: var;\n}", ""]);
+exports.push([module.i, ".search-content[data-v-4974710e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/hero.jpg */ "./resources/images/hero.jpg")) + ");\n  background-size: cover;\n  background-position: 0% 80%;\n  padding: 200px 0;\n  margin-bottom: 50px;\n  height: 80vh;\n}\nh1[data-v-4974710e] {\n  font-size: 50px;\n  color: white;\n  margin-bottom: 60px;\n}\ninput[data-v-4974710e], button[data-v-4974710e] {\n  padding: 0 20px;\n  height: 40px;\n}\ninput[data-v-4974710e] {\n  width: 500px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: #ff385c;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n}\nbutton i[data-v-4974710e] {\n  font-size: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: var;\n}", ""]);
 
 // exports
 
@@ -5532,53 +5534,59 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "search-content" }, [
-      _c("h1", [_vm._v("Trova l'appartamento dei tuoi sogni")]),
-      _vm._v(" "),
-      _c("form", { staticClass: "form-inline d-flex justify-content-center" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.searchText,
-              expression: "searchText",
-            },
-          ],
-          attrs: { type: "text", placeholder: "Cerca una città..." },
-          domProps: { value: _vm.searchText },
-          on: {
-            keydown: function ($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
-              }
-              $event.preventDefault()
-              return _vm.$emit("searchFunction", _vm.searchText)
-            },
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.searchText = $event.target.value
-            },
-          },
-        }),
+      _c("div", [
+        _c("h1", [_vm._v("Trova l'appartamento dei tuoi sogni")]),
         _vm._v(" "),
         _c(
-          "button",
-          {
-            staticClass: "btn btn-danger",
-            attrs: { type: "submit" },
-            on: {
-              click: function ($event) {
-                $event.preventDefault()
-                return _vm.$emit("searchFunction", _vm.searchText)
+          "form",
+          { staticClass: "form-inline d-flex justify-content-center" },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.searchText,
+                  expression: "searchText",
+                },
+              ],
+              attrs: { type: "text", placeholder: "Cerca una città..." },
+              domProps: { value: _vm.searchText },
+              on: {
+                keydown: function ($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  $event.preventDefault()
+                  return _vm.$emit("searchFunction", _vm.searchText)
+                },
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.searchText = $event.target.value
+                },
               },
-            },
-          },
-          [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                attrs: { type: "submit" },
+                on: {
+                  click: function ($event) {
+                    $event.preventDefault()
+                    return _vm.$emit("searchFunction", _vm.searchText)
+                  },
+                },
+              },
+              [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
+            ),
+          ]
         ),
       ]),
     ]),

@@ -1,13 +1,15 @@
 <template>
     <div>
         <div class="search-content">
-            <h1>Trova l'appartamento dei tuoi sogni</h1>
-
-            <form class="form-inline d-flex justify-content-center" >
-                <input class="" type="text" v-model="searchText" @keydown.enter.prevent="$emit('searchFunction', searchText)" placeholder="Cerca una città...">
-                <button @click.prevent="$emit('searchFunction', searchText)" type="submit"
-                    class="btn btn-danger"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+            <div>
+                <h1>Trova l'appartamento dei tuoi sogni</h1>
+    
+                <form class="form-inline d-flex justify-content-center" >
+                    <input class="" type="text" v-model="searchText" @keydown.enter.prevent="$emit('searchFunction', searchText)" placeholder="Cerca una città...">
+                    <button @click.prevent="$emit('searchFunction', searchText)" type="submit"
+                        class="btn btn-danger"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
         </div>
     </div>
 </template>
@@ -30,11 +32,13 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         background-image: url('../../../../images/hero.jpg');
         background-size: cover;
         background-position: 0% 80%;
         padding: 200px 0;
         margin-bottom: 50px;
+        height: 80vh;
     }
 
     h1 {
