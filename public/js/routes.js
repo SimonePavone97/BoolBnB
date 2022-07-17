@@ -2450,9 +2450,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (_this4.resultsapi.includes(elm.id)) {
             _this4.risultati.push(elm);
           }
-
-          _this4.searchStatus = true;
         });
+
+        _this4.apartmentsArr = [];
       })["catch"](function (err) {
         _this4.isError = true;
       });
@@ -2461,6 +2461,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.searchText = searchedText;
       console.log(this.searchText);
       this.searchStatus = true;
+      this.getApartments();
       this.getAddress();
       this.Risultato();
     },
@@ -21158,7 +21159,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Boolean\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
+module.exports = __webpack_require__(/*! C:\Users\Ludovica\Desktop\corso_boolean\esercizi\BoolBnB\resources\js\routes.js */"./resources/js/routes.js");
 
 
 /***/ })
