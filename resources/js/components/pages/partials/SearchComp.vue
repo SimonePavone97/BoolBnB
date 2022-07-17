@@ -9,6 +9,11 @@
                     <button @click.prevent="$emit('searchFunction', searchText)" type="submit"
                         class="btn btn-danger"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
+                <div id="advanced-search">
+                    <router-link :to="{name: 'AdvancedSearch'}">
+                        <button>Riceca avanzata</button>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>
@@ -62,13 +67,19 @@ export default {
         background-color: #ff385c;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
+        i{
+            font-size: 20px;
+        }
     }
 
-    button i {
-        font-size: 20px;
-    }
-
-    button {
-        background-color: var;
+    #advanced-search{
+        text-align: center;
+        margin: 1.5em 0 0;
+        button{
+            background-color: #ff385c;
+            border-radius: 20px;
+            color: #fff;
+            font-weight: bold;
+        }
     }
 </style>

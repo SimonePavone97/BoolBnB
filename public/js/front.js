@@ -2805,6 +2805,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SearchComp',
   data: function data() {
@@ -2885,7 +2890,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".border_sponsor[data-v-317790a4] {\n  border: 3px solid #ff385c;\n}\n#container-home[data-v-317790a4] {\n  width: 80%;\n  margin: 0 auto;\n}\n#container-home .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home[data-v-317790a4] {\n    width: 95%;\n}\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n    font-size: 1em;\n}\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1999.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 8vh;\n}\n}", ""]);
+exports.push([module.i, ".border_sponsor[data-v-317790a4] {\n  border: 3px solid #ff385c;\n}\n#container-home[data-v-317790a4] {\n  width: 80%;\n  margin: 0 auto;\n}\n#container-home .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home[data-v-317790a4] {\n    width: 95%;\n}\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n    font-size: 1em;\n}\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1199.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 28vh;\n    width: 28vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 8vh;\n}\n}", ""]);
 
 // exports
 
@@ -2943,7 +2948,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".search-content[data-v-4974710e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/hero.jpg */ "./resources/images/hero.jpg")) + ");\n  background-size: cover;\n  background-position: 0% 80%;\n  padding: 200px 0;\n  margin-bottom: 50px;\n  height: 80vh;\n}\nh1[data-v-4974710e] {\n  font-size: 50px;\n  color: white;\n  margin-bottom: 60px;\n}\ninput[data-v-4974710e], button[data-v-4974710e] {\n  padding: 0 20px;\n  height: 40px;\n}\ninput[data-v-4974710e] {\n  width: 500px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: #ff385c;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n}\nbutton i[data-v-4974710e] {\n  font-size: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: var;\n}", ""]);
+exports.push([module.i, ".search-content[data-v-4974710e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/hero.jpg */ "./resources/images/hero.jpg")) + ");\n  background-size: cover;\n  background-position: 0% 80%;\n  padding: 200px 0;\n  margin-bottom: 50px;\n  height: 80vh;\n}\nh1[data-v-4974710e] {\n  font-size: 50px;\n  color: white;\n  margin-bottom: 60px;\n}\ninput[data-v-4974710e], button[data-v-4974710e] {\n  padding: 0 20px;\n  height: 40px;\n}\ninput[data-v-4974710e] {\n  width: 500px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: #ff385c;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n}\nbutton i[data-v-4974710e] {\n  font-size: 20px;\n}\n#advanced-search[data-v-4974710e] {\n  text-align: center;\n  margin: 1.5em 0 0;\n}\n#advanced-search button[data-v-4974710e] {\n  background-color: #ff385c;\n  border-radius: 20px;\n  color: #fff;\n  font-weight: bold;\n}", ""]);
 
 // exports
 
@@ -5582,6 +5587,17 @@ var render = function () {
               [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
             ),
           ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { attrs: { id: "advanced-search" } },
+          [
+            _c("router-link", { attrs: { to: { name: "AdvancedSearch" } } }, [
+              _c("button", [_vm._v("Riceca avanzata")]),
+            ]),
+          ],
+          1
         ),
       ]),
     ]),
