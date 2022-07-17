@@ -11,7 +11,7 @@
                 </form>
                 <div id="advanced-search">
                     <router-link :to="{name: 'AdvancedSearch'}">
-                        <button>Riceca avanzata</button>
+                        <button>Ricerca avanzata</button>
                     </router-link>
                 </div>
             </div>
