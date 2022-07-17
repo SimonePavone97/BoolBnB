@@ -1971,32 +1971,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -2004,9 +1978,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     return {
       isError: false,
       apartmentsArr: [],
-      sponsoredApartmentsArr: [],
       searchText: "",
-      searchRadius: 20000,
+      searchRadius: "",
       rooms: "",
       beds: "",
       checkedService: [],
@@ -2023,19 +1996,22 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   },
   methods: {
     getBanana: function getBanana(gnigni) {
-      // console.log("GNIGNI",gnigni);
+      console.log("GNIGNI", gnigni);
       console.log(_typeof(gnigni));
       console.log("CHECK", this.checkedService);
       var madonna = [];
       gnigni.forEach(function (element) {
-        madonna.push(element.id); // console.log("BIGNI", element.id)
+        madonna.push(element.id);
+        console.log("BIGNI", element.id);
       });
       var checkedExist = this.checkedService.every(function (value) {
         return madonna.includes(value);
       });
       console.log("existdio", checkedExist);
       console.log("Puattanala", madonna);
-      return checkedExist;
+      return checkedExist; // if (checkedExist == true) {
+      //     return true;
+      // }
     },
     getApartments: function getApartments() {
       var _this = this;
@@ -2047,159 +2023,89 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         console.log(error);
       });
     },
-    sponsoredApartments: function sponsoredApartments() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/sponsored/apartments').then(function (res) {
-        for (var i = res.data.length - 1; i >= 0; i--) {
-          res.data[i].forEach(function (element) {
-            _this2.sponsoredApartmentsArr.push(element);
-
-            console.log(_this2.sponsoredApartmentsArr);
-          });
-        }
-      })["catch"](function (error) {
-        console.warn(error);
-      });
-    },
     getServices: function getServices() {
-      var _this3 = this;
+      var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
         console.log(res.data);
-        _this3.services = res.data.services;
-        console.log('SERVIZI:', _this3.services);
+        _this2.services = res.data.services;
+        console.log('SERVIZI:', _this2.services);
       })["catch"](function (error) {
         console.log(error);
       });
     },
     getApaservices: function getApaservices() {
-      var _this4 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apaservice").then(function (res) {
-        _this4.apaservices = res.data.apaserviceid;
-        console.log('APASERVIZI:', _this4.apaservices);
+        _this3.apaservices = res.data.apaserviceid;
+        console.log('APASERVIZI:', _this3.apaservices);
       })["catch"](function (error) {
         console.log(error);
       });
     },
     getPoilist: function getPoilist() {
-      var _this5 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/positions").then(function (res) {
-        _this5.poilist = res.data;
-        console.log("POILIST", _this5.poilist);
+        _this4.poilist = res.data;
+        console.log("POILIST", _this4.poilist);
       })["catch"](function (err) {
-        _this5.isError = true;
+        _this4.isError = true;
       });
     },
     getAddress: function getAddress() {
-      var _this6 = this;
+      var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geocode/".concat(this.searchText, ".json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3")).then(function (res) {
-        _this6.latlon = []; // console.log("Svuptato LatLon",this.latlon);
+        _this5.latlon = []; // console.log("Svuptato LatLon",this.latlon);
 
-        _this6.address = []; // console.log("Svuptato address",this.address);
+        _this5.address = []; // console.log("Svuptato address",this.address);
 
-        _this6.position = [];
-        _this6.address = res.data.results;
+        _this5.position = [];
+        _this5.address = res.data.results;
 
-        _this6.position.push(_this6.address[0].position);
+        _this5.position.push(_this5.address[0].position);
 
-        _this6.latlon = _this6.position[0].lat + "," + _this6.position[0].lon;
-        console.log("POSITION", _this6.position, _typeof(_this6.position));
-        console.log("LAT", _this6.position[0].lat);
-        console.log("LON", _this6.position[0].lon);
-        console.log("Sdighidi", _this6.latlon);
+        _this5.latlon = _this5.position[0].lat + "," + _this5.position[0].lon;
+        console.log("POSITION", _this5.position, _typeof(_this5.position));
+        console.log("LAT", _this5.position[0].lat);
+        console.log("LON", _this5.position[0].lon);
+        console.log("Sdighidi", _this5.latlon);
       }).then(this.Risultato)["catch"](function (err) {
-        _this6.isError = true;
+        _this5.isError = true;
       });
-    },
-    getLatmap: function getLatmap() {
-      var latmap = [];
-      this.dioporco.forEach(function (element) {
-        latmap.push(element.latitude);
-        console.log("latmap", element.latitude);
-      });
-      console.log("cristina", latmap);
-    },
-    getLongmap: function getLongmap() {
-      var longmap = [];
-      this.dioporco.forEach(function (element) {
-        longmap.push(element.longitude);
-        console.log("longmap", element.longitude);
-      });
-      console.log("d'avena", longmap);
     },
     Risultato: function Risultato() {
-      var _this7 = this;
+      var _this6 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/geometryFilter.json?key=PsUYA2pnhpu22nLOAzS8KbMCWHziEWf3&geometryList=[{\"type\":\"CIRCLE\",\"position\":\"".concat(this.latlon, "\",\"radius\":").concat(this.searchRadius, "}]&poiList=") + JSON.stringify(this.poilist)).then(function (res) {
-        _this7.resultsapi = [];
-        _this7.dioporco = []; // console.log("Svuptato",this.resultsapi);
+        _this6.resultsapi = [];
+        _this6.dioporco = []; // console.log("Svuptato",this.resultsapi);
 
         res.data.results.forEach(function (element) {
-          _this7.resultsapi.push(element.poi);
+          _this6.resultsapi.push(element.poi);
         });
-        console.log("RISULTATI", _this7.resultsapi);
-        console.log(_this7.searchText);
-        console.log(_this7.searchRadius, "metri di radius");
-        console.log("FINAL", _this7.latlon);
+        console.log("RISULTATI", _this6.resultsapi);
+        console.log(_this6.searchText);
+        console.log(_this6.searchRadius, "metri di radius");
+        console.log("FINAL", _this6.latlon);
 
-        _this7.apartmentsArr.forEach(function (cristo) {
-          if (_this7.resultsapi.includes(cristo.id)) {
-            _this7.dioporco.push(cristo);
+        _this6.apartmentsArr.forEach(function (cristo) {
+          if (_this6.resultsapi.includes(cristo.id)) {
+            _this6.dioporco.push(cristo);
           }
         });
-
-        console.log("AAAAAA", _this7.dioporco);
-      }).then(this.sponsoredApartments).then(this.getLatmap).then(this.getLongmap)["catch"](function (err) {
-        _this7.isError = true;
+      })["catch"](function (err) {
+        _this6.isError = true;
       });
-    } //     getMap() {
-    //             let center = [this.latlon];
-    //             const map = tt.map({
-    //                 key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
-    //                 container: "map",
-    //                 center: center,
-    //                 zoom: 15
-    //             })
-    //             map.on('load', () => {
-    //              new tt.Marker()
-    //           .setLngLat(center)
-    //           .addTo(map);
-    //   })
-    //         //      for (let i = 0; i < this.dioporco.length; i++) {
-    //         //      new tt.Marker()
-    //         //          .setLngLat([
-    //         //              longmap[i],
-    //         //              latmap[i],
-    //         //          ])
-    //         //          .addTo(map);
-    //         //  }
-    //         },
-
+    }
   },
   mounted: function mounted() {
     this.getApartments();
     this.getServices();
     this.getApaservices();
-    this.getPoilist(); // setTimeout(() => {
-    //     console.log(this.apartment);
-    //     // Tomtom
-    //     let center = [this.apartment.longitude, this.apartment.latitude];
-    //     const map = tt.map({
-    //         key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
-    //         container: "map",
-    //         center: center,
-    //         zoom: 15
-    //     })
-    //     map.on('load', () => {
-    //         var marker = new tt.Marker()
-    //             .setLngLat(center)
-    //             .addTo(map);
-    //     })
-    // }, 500);
+    this.getPoilist();
   }
 });
 
@@ -2794,25 +2700,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "#container-home .apartment-card[data-v-781a2080] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-781a2080] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-781a2080] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-781a2080] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-781a2080] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home .apartment-card[data-v-781a2080] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-781a2080] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-781a2080] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-781a2080] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-781a2080] {\n    font-size: 1em;\n}\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-781a2080] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-781a2080] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-781a2080] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1999.9px) {\n#container-home .apartment-card[data-v-781a2080] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-781a2080] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card .apartment-details[data-v-781a2080] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-781a2080] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-781a2080] {\n    height: 8vh;\n}\n}\n.map[data-v-781a2080] {\n  height: 400px;\n  width: 90vw;\n  margin: 0 auto;\n}\n.cerca_color[data-v-781a2080] {\n  background-color: #ff385c;\n  color: white;\n}\n.widht_10[data-v-781a2080] {\n  width: 15%;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&lang=scss&scoped=true&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/ApartmentDetailPage.vue?vue&type=style&index=0&id=645c392c&lang=scss&scoped=true& ***!
@@ -2844,7 +2731,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".border_sponsor[data-v-317790a4] {\n  border: 3px solid #ff385c;\n}\n#container-home[data-v-317790a4] {\n  width: 80%;\n  margin: 0 auto;\n}\n#container-home .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home[data-v-317790a4] {\n    width: 95%;\n}\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n    font-size: 1em;\n}\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1999.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 8vh;\n}\n}", ""]);
+exports.push([module.i, ".border_sponsor[data-v-317790a4] {\n  border: 3px solid #ff385c;\n}\n#container-home[data-v-317790a4] {\n  width: 80%;\n  margin: 0 auto;\n}\n#container-home .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home[data-v-317790a4] {\n    width: 95%;\n}\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n    font-size: 1em;\n}\n}\n.border-sponsor[data-v-317790a4] {\n  border: 1px solid;\n  border-color: var(--pink);\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1999.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 8vh;\n}\n}", ""]);
 
 // exports
 
@@ -3366,36 +3253,6 @@ process.umask = function() { return 0; };
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
 
 /***/ }),
 
@@ -4120,9 +3977,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container", attrs: { id: "container-home" } },
     [
-      _c("div", { staticClass: "py-3 text-center" }, [
+      _c("div", [
         _c("input", {
           directives: [
             {
@@ -4132,7 +3988,6 @@ var render = function () {
               expression: "searchText",
             },
           ],
-          staticClass: "text-center",
           attrs: { type: "text", placeholder: "Cerca una città" },
           domProps: { value: _vm.searchText },
           on: {
@@ -4157,7 +4012,7 @@ var render = function () {
         _c(
           "button",
           {
-            staticClass: "btn cerca_color mx-2",
+            staticClass: "btn btn-secondary mx-2",
             attrs: { type: "submit" },
             on: { click: _vm.getAddress },
           },
@@ -4165,324 +4020,233 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row justify-content-around" }, [
-          _c(
-            "div",
-            { staticClass: "col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6" },
-            [
-              _c("label", { attrs: { for: "rooms" } }, [
-                _vm._v("N° di stanze"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.rooms,
-                    expression: "rooms",
-                  },
-                ],
-                staticClass: "text-center form-control ",
-                attrs: {
-                  type: "number",
-                  name: "rooms",
-                  min: "1",
-                  id: "rooms",
-                  required: "",
-                },
-                domProps: { value: _vm.rooms },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.rooms = $event.target.value
-                  },
-                },
-              }),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6" },
-            [
-              _c("label", { attrs: { for: "beds" } }, [_vm._v("N° di bagni")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.beds,
-                    expression: "beds",
-                  },
-                ],
-                staticClass: "text-center form-control ",
-                attrs: {
-                  type: "number",
-                  name: "beds",
-                  min: "1",
-                  id: "beds",
-                  required: "",
-                },
-                domProps: { value: _vm.beds },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.beds = $event.target.value
-                  },
-                },
-              }),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6" },
-            [
-              _c("label", { attrs: { for: "radius" } }, [
-                _vm._v("Raggio di ricerca"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.searchRadius,
-                    expression: "searchRadius",
-                  },
-                ],
-                staticClass: "form-control ",
-                attrs: {
-                  type: "range",
-                  name: "radius",
-                  min: "1000",
-                  max: "50000",
-                  id: "radius",
-                  required: "",
-                },
-                domProps: { value: _vm.searchRadius },
-                on: {
-                  __r: function ($event) {
-                    _vm.searchRadius = $event.target.value
-                  },
-                },
-              }),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6 btn cerca_color my-4",
-              attrs: {
-                type: "button",
-                "data-toggle": "collapse",
-                "data-target": "#banana",
-                "aria-expanded": "false",
-                "aria-controls": "banana",
-              },
-            },
-            [_vm._v("\n            Mostra filtro Servizi\n        ")]
-          ),
+      _c("div", [
+        _c("label", { attrs: { for: "radius" } }, [
+          _vm._v("Raggio di ricerca"),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "collapse py-3 ", attrs: { id: "banana" } }, [
-          _c(
-            "div",
-            { staticClass: "d-flex flex-wrap" },
-            _vm._l(_vm.services, function (service) {
-              return _c(
-                "div",
-                {
-                  key: "service-" + service.id,
-                  staticClass: "form-check col-6 col-md-4",
-                },
-                [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.checkedService,
-                        expression: "checkedService",
-                      },
-                    ],
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "service-" + service.id },
-                    domProps: {
-                      value: service.id,
-                      checked: Array.isArray(_vm.checkedService)
-                        ? _vm._i(_vm.checkedService, service.id) > -1
-                        : _vm.checkedService,
-                    },
-                    on: {
-                      change: function ($event) {
-                        var $$a = _vm.checkedService,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = service.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 && (_vm.checkedService = $$a.concat([$$v]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.checkedService = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.checkedService = $$c
-                        }
-                      },
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "service-" + service.id },
-                    },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(service.name) +
-                          " \n                "
-                      ),
-                    ]
-                  ),
-                ]
-              )
-            }),
-            0
-          ),
-        ]),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.searchRadius,
+              expression: "searchRadius",
+            },
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "range",
+            name: "radius",
+            min: "1",
+            max: "20000",
+            id: "radius",
+            required: "",
+          },
+          domProps: { value: _vm.searchRadius },
+          on: {
+            __r: function ($event) {
+              _vm.searchRadius = $event.target.value
+            },
+          },
+        }),
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", [
+        _c("label", { attrs: { for: "rooms" } }, [_vm._v("N° di stanze")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.rooms,
+              expression: "rooms",
+            },
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "number",
+            name: "rooms",
+            min: "1",
+            id: "rooms",
+            required: "",
+          },
+          domProps: { value: _vm.rooms },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.rooms = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("label", { attrs: { for: "beds" } }, [_vm._v("N° di bagni")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.beds,
+              expression: "beds",
+            },
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "number",
+            name: "beds",
+            min: "1",
+            id: "beds",
+            required: "",
+          },
+          domProps: { value: _vm.beds },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.beds = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.services, function (service) {
+        return _c(
+          "div",
+          { key: "service-" + service.id, staticClass: "form-check" },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checkedService,
+                  expression: "checkedService",
+                },
+              ],
+              staticClass: "form-check-input",
+              attrs: { type: "checkbox", id: "service-" + service.id },
+              domProps: {
+                value: service.id,
+                checked: Array.isArray(_vm.checkedService)
+                  ? _vm._i(_vm.checkedService, service.id) > -1
+                  : _vm.checkedService,
+              },
+              on: {
+                change: function ($event) {
+                  var $$a = _vm.checkedService,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = service.id,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.checkedService = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.checkedService = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.checkedService = $$c
+                  }
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "form-check-label",
+                attrs: { for: "service-" + service.id },
+              },
+              [_vm._v("\n            " + _vm._s(service.name) + " \n        ")]
+            ),
+          ]
+        )
+      }),
       _vm._v(" "),
       _c(
         "ul",
-        { staticClass: "row my-3" },
         _vm._l(_vm.dioporco, function (apartment) {
-          return _c(
-            "li",
-            {
-              key: apartment.index,
-              staticClass:
-                "d-flex justify-content-center align-items-center apartment-card",
-            },
-            [
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value:
-                        apartment.rooms >= _vm.rooms &&
-                        apartment.beds >= _vm.beds &&
-                        _vm.getBanana(apartment.services),
-                      expression:
-                        "apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)",
-                    },
-                  ],
-                },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "text-dark row justify-content-center w-100",
-                      attrs: {
-                        to: {
-                          name: "apartment-detail",
-                          params: { id: apartment.id },
-                        },
+          return _c("li", { key: apartment.index }, [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value:
+                      apartment.rooms >= _vm.rooms &&
+                      apartment.beds >= _vm.beds &&
+                      _vm.getBanana(apartment.services),
+                    expression:
+                      "apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)",
+                  },
+                ],
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "apartment-detail",
+                        params: { id: apartment.id },
                       },
                     },
-                    [
-                      _c("div", {
-                        staticClass: "apartment-img",
-                        style: {
-                          backgroundImage:
-                            "url(../../../images/apartments/" +
-                            apartment.image +
-                            ")",
-                        },
-                      }),
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: { src: apartment.image, alt: "Card image cap" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(apartment.title)),
+                      ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "apartment-details" }, [
-                        _c("h5", { staticClass: "apartment-title" }, [
-                          _c("strong", [_vm._v(_vm._s(apartment.title))]),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(apartment.description)),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Stanze: " + _vm._s(apartment.rooms)),
                         ]),
                         _vm._v(" "),
-                        _c("div", [
-                          "" + apartment.rooms == 1
-                            ? _c("span", { staticClass: "apartment-text" }, [
-                                _vm._v(_vm._s(apartment.rooms) + " camera - "),
-                              ])
-                            : _c("span", { staticClass: "apartment-text" }, [
-                                _vm._v(_vm._s(apartment.rooms) + " camere - "),
-                              ]),
-                          _vm._v(" "),
-                          "" + apartment.beds == 1
-                            ? _c("span", { staticClass: "apartment-text" }, [
-                                _vm._v(_vm._s(apartment.beds) + " letto - "),
-                              ])
-                            : _c("span", { staticClass: "apartment-text" }, [
-                                _vm._v(_vm._s(apartment.beds) + " letti - "),
-                              ]),
-                          _vm._v(" "),
-                          "" + apartment.bathrooms == 1
-                            ? _c("span", { staticClass: "apartment-text" }, [
-                                _vm._v(
-                                  _vm._s(apartment.bathrooms) + " bagno - "
-                                ),
-                              ])
-                            : _c("span", { staticClass: "apartment-text" }, [
-                                _vm._v(
-                                  _vm._s(apartment.bathrooms) + " bagni - "
-                                ),
-                              ]),
-                          _vm._v(" "),
-                          _c("span", [_vm._v(_vm._s(apartment.mq) + " mq")]),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Bagni: " + _vm._s(apartment.bathrooms)),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "card-text" }, [
+                          _vm._v("Mq: " + _vm._s(apartment.mq)),
                         ]),
                       ]),
-                    ]
-                  ),
-                ],
-                1
-              ),
-            ]
-          )
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            ),
+          ])
         }),
         0
       ),
-    ]
+    ],
+    2
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h5", [_vm._v("Mappa da aggiustare")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "map mb-3", attrs: { id: "map" } }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -4693,7 +4457,7 @@ var render = function () {
                     ],
                     key: index,
                     staticClass:
-                      "d-flex justify-content-center align-items-center apartment-card",
+                      "d-flex justify-content-center align-items-center apartment-card rounded border-sponsor",
                     attrs: { apartment: apartment },
                   },
                   [
@@ -20714,9 +20478,7 @@ module.exports = "/images/logo.png?38f5414b6b8853c33bf1457fc240e65f";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdvancedSearch_vue_vue_type_template_id_781a2080_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=template&id=781a2080&scoped=true& */ "./resources/js/components/pages/AdvancedSearch.vue?vue&type=template&id=781a2080&scoped=true&");
 /* harmony import */ var _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/AdvancedSearch.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _AdvancedSearch_vue_vue_type_style_index_0_id_781a2080_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true& */ "./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -20724,7 +20486,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AdvancedSearch_vue_vue_type_template_id_781a2080_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _AdvancedSearch_vue_vue_type_template_id_781a2080_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -20753,22 +20515,6 @@ component.options.__file = "resources/js/components/pages/AdvancedSearch.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/AdvancedSearch.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true&":
-/*!********************************************************************************************************************!*\
-  !*** ./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true& ***!
-  \********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_781a2080_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/AdvancedSearch.vue?vue&type=style&index=0&id=781a2080&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_781a2080_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_781a2080_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_781a2080_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_781a2080_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 

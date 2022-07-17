@@ -17,7 +17,7 @@
                 <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
             </div>
             <div class="d-flex justify-content-center">
-                <div class="d-flex justify-content-center align-items-center apartment-card"
+                <div class="d-flex justify-content-center align-items-center apartment-card rounded border-sponsor"
                     v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment"
                     v-show="!searchStatus">
                     <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
@@ -283,6 +283,11 @@
         }
     }
 
+}
+
+.border-sponsor{
+    border: 1px solid;
+    border-color: var(--pink);
 }
 
 // sm
