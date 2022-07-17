@@ -1,9 +1,9 @@
 <template>
     <div>
 
-        <SearchComp/>
+        <SearchComp @searchFunction="search"/>
         
-       <div id="container-home">
+        <div id="container-home">
 
             <div v-if="sponsoredApartmentsArr.length != 0 && this.searchedApartmentsArr == ''">
             <div class="text-center">
