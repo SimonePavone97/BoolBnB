@@ -5,7 +5,7 @@
                 <h1>Trova l'appartamento dei tuoi sogni</h1>
     
                 <form class="form-inline d-flex justify-content-center" >
-                    <input class="" type="text" v-model="searchText" @keydown.enter.prevent="$emit('searchFunction', searchText)" placeholder="Cerca una città...">
+                    <input type="text" v-model="searchText" @keydown.enter.prevent="$emit('searchFunction', searchText)" placeholder="Cerca una città...">
                     <button @click.prevent="$emit('searchFunction', searchText)" type="submit"
                         class="btn btn-danger"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
@@ -53,7 +53,7 @@ export default {
     }
 
     input {
-        width: 500px;
+        width: 50%;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
