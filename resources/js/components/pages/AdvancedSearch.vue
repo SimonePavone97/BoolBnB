@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="contanier-home">
+    <div class="container" id="container-home">
         <!-- Ricerca città/indirizzo -->
         <div class="py-3 text-center">
             <input class="text-center" type="text" v-model="searchText" @keyup.enter="getAddress" placeholder="Cerca una città">
@@ -11,22 +11,22 @@
 
             <div class="row justify-content-around">
             <!-- Filtro Stanze -->
-            <div class="">
+            <div class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6">
                 <label for="rooms">N° di stanze</label>
                 <input type="number" v-model="rooms" name="rooms" min="1" class="text-center form-control " id="rooms" required>         
             </div>
             <!-- Filtro Bagni -->
-            <div class="">
+            <div class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6">
                 <label for="beds">N° di bagni</label>
                 <input type="number" v-model="beds" name="beds" min="1" class="text-center form-control " id="beds" required>         
             </div>
             <!-- Filtro Radius km -->
-            <div>
+            <div class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6">
                 <label for="radius">Raggio di ricerca</label>
                 <input type="range" v-model="searchRadius" name="radius" min="1000" max="50000" class="form-control " id="radius" required>         
             </div>
             <!-- Buttone Filtro Servizi -->  
-            <button class="btn cerca_color my-4" type="button" data-toggle="collapse" data-target="#banana" aria-expanded="false" aria-controls="banana">
+            <button class="col-xl-3 col-lg-3 col-sm-6 col-xs-6 col-md-6 btn cerca_color my-4" type="button" data-toggle="collapse" data-target="#banana" aria-expanded="false" aria-controls="banana">
                 Mostra filtro Servizi
             </button>
         </div>
@@ -51,8 +51,6 @@
             <h5>Mappa da aggiustare</h5>
             <div id="map" class="map mb-3"></div>
         </div>
-
-        <div >
 
             <div v-if="sponsoredApartmentsArr.length != 0">
                 <div class="text-center">
@@ -86,7 +84,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
         <ul class="row my-3"> 
                 
@@ -326,8 +323,6 @@ export default {
 <style lang="scss" scoped>
 
     #container-home{
-    width: 80%;
-    margin: 0 auto;
     .apartment-card{
         width: calc(100%/10 * 2 - 1em);
         margin: 1em 0.5em;
@@ -356,7 +351,7 @@ export default {
 @media screen and (max-width: 575.90px) {
     
     #container-home{
-        width: 95%;
+        
         .apartment-card{
             width: calc(100%/12 * 12 - 1em);
             .apartment-img{
@@ -383,12 +378,6 @@ export default {
     
     #container-home{
         .apartment-card{
-            width: calc(100%/12 * 6 - 1em);
-        }
-    }
-
-   #container_filters{
-        .abra{
             width: calc(100%/12 * 6 - 1em);
         }
     }
