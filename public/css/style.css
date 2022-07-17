@@ -172,6 +172,7 @@ header .nav-item i {
 }
 
 .apartment-info i {
+    width: 40px;
     font-size: 22px;
     color: var(--pink);
 }
