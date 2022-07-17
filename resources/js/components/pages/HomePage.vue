@@ -304,7 +304,7 @@
 }
 
 // lg
-@media screen and (min-width: 992px) and (max-width: 1999.90px) {
+@media screen and (min-width: 992px) and (max-width: 1199.90px) {
     
     #container-home{
         .apartment-card{
@@ -322,6 +322,11 @@
     
     #container-home{
         .apartment-card{
+            width: calc(100%/12 * 3 - 1em);
+            .apartment-img{
+                height: 28vh;
+                width: 28vh;
+            }
             .apartment-details{
                 height: 10vh;
             }
