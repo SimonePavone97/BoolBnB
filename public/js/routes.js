@@ -2780,6 +2780,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SearchComp',
   data: function data() {
@@ -2899,7 +2904,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".search-content[data-v-4974710e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/hero.jpg */ "./resources/images/hero.jpg")) + ");\n  background-size: cover;\n  background-position: 0% 80%;\n  padding: 200px 0;\n  margin-bottom: 50px;\n  height: 80vh;\n}\nh1[data-v-4974710e] {\n  font-size: 50px;\n  color: white;\n  margin-bottom: 60px;\n}\ninput[data-v-4974710e], button[data-v-4974710e] {\n  padding: 0 20px;\n  height: 40px;\n}\ninput[data-v-4974710e] {\n  width: 500px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: #ff385c;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n}\nbutton i[data-v-4974710e] {\n  font-size: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: var;\n}", ""]);
+exports.push([module.i, ".search-content[data-v-4974710e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../images/hero.jpg */ "./resources/images/hero.jpg")) + ");\n  background-size: cover;\n  background-position: 0% 80%;\n  padding: 200px 0;\n  margin-bottom: 50px;\n  height: 80vh;\n}\nh1[data-v-4974710e] {\n  font-size: 50px;\n  color: white;\n  margin-bottom: 60px;\n}\ninput[data-v-4974710e], button[data-v-4974710e] {\n  padding: 0 20px;\n  height: 40px;\n}\ninput[data-v-4974710e] {\n  width: 500px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n}\nbutton[data-v-4974710e] {\n  background-color: #ff385c;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n}\nbutton i[data-v-4974710e] {\n  font-size: 20px;\n}\n#advanced-search[data-v-4974710e] {\n  text-align: center;\n  margin: 1.5em 0 0;\n}\n#advanced-search button[data-v-4974710e] {\n  background-color: #ff385c;\n  border-radius: 20px;\n  color: #fff;\n  font-weight: bold;\n}", ""]);
 
 // exports
 
@@ -5490,6 +5495,17 @@ var render = function () {
               [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
             ),
           ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { attrs: { id: "advanced-search" } },
+          [
+            _c("router-link", { attrs: { to: { name: "AdvancedSearch" } } }, [
+              _c("button", [_vm._v("Riceca avanzata")]),
+            ]),
+          ],
+          1
         ),
       ]),
     ]),
