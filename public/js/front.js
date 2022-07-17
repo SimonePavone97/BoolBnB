@@ -2224,9 +2224,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (_this4.resultsapi.includes(elm.id)) {
             _this4.risultati.push(elm);
           }
-
-          _this4.searchStatus = true;
         });
+
+        _this4.apartmentsArr = [];
       })["catch"](function (err) {
         _this4.isError = true;
       });
@@ -2235,6 +2235,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.searchText = searchedText;
       console.log(this.searchText);
       this.searchStatus = true;
+      this.getApartments();
       this.getAddress();
       this.Risultato();
     },

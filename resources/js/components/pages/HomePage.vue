@@ -192,17 +192,17 @@
                             if (this.resultsapi.includes(elm.id)) {
                                 this.risultati.push(elm)
                             }
-                        this.searchStatus = true;
                         })
-
+                        this.apartmentsArr =  [];
                     }).catch((err) => {
-                    this.isError = true;
+                        this.isError = true;
                 });
             },
             search(searchedText) {
                 this.searchText = searchedText;
                 console.log(this.searchText);
                 this.searchStatus = true;
+                this.getApartments();
                 this.getAddress();
                 this.Risultato();
             },
