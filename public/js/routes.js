@@ -2788,6 +2788,7 @@ render._withStripped = true;
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+<<<<<<< HEAD
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
@@ -2941,6 +2942,10 @@ var render = function render() {
     }, [_vm._v(_vm._s(apartment.bathrooms) + " bagni - ")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(apartment.mq) + " mq")])])])])], 1)]);
   })], 2)])], 1);
 };
+=======
+// module
+exports.push([module.i, ".border_sponsor[data-v-317790a4] {\n  border: 3px solid #ff385c;\n}\n#container-home[data-v-317790a4] {\n  width: 80%;\n  margin: 0 auto;\n}\n#container-home .apartment-card[data-v-317790a4] {\n  width: calc(20% - 1em);\n  margin: 1em 0.5em;\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n  height: 25vh;\n  width: 25vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 15px;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n  height: 8vh;\n  margin-top: 0.8em;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n  font-size: 1.1em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n  font-size: 0.9em;\n}\n@media screen and (max-width: 575.9px) {\n#container-home[data-v-317790a4] {\n    width: 95%;\n}\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(100% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 40vh;\n    width: 40vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 7vh;\n}\n#container-home .apartment-card .apartment-details .apartment-title[data-v-317790a4] {\n    text-align: center;\n    font-size: 1.2em;\n}\n#container-home .apartment-card .apartment-details .apartment-text[data-v-317790a4] {\n    font-size: 1em;\n}\n}\n@media screen and (min-width: 576px) and (max-width: 768.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(50% - 1em);\n}\n}\n@media screen and (min-width: 768px) and (max-width: 991.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(33.3333333333% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 992px) and (max-width: 1199.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 20vh;\n    width: 20vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1200px) and (max-width: 1399.9px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(25% - 1em);\n}\n#container-home .apartment-card .apartment-img[data-v-317790a4] {\n    height: 28vh;\n    width: 28vh;\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 10vh;\n}\n}\n@media screen and (min-width: 1400px) {\n#container-home .apartment-card[data-v-317790a4] {\n    width: calc(20% - 1em);\n}\n#container-home .apartment-card .apartment-details[data-v-317790a4] {\n    height: 8vh;\n}\n}", ""]);
+>>>>>>> 1888e98ef8ac9bbabd705fd90e8831a6750d937a
 
 var staticRenderFns = [];
 render._withStripped = true;

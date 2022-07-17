@@ -45,9 +45,6 @@
         </table>
 
     </div>
-
-    {{-- Bottone provvisorio, in attesa di fare la pagina apposta dove inserirlo nel frontend --}}
-    <a href=" {{route('admin.messages.create')}} " class="btn btn-success mb-2">Invia un messaggio</a>  
     
 <div>
 @endsection
