@@ -202,7 +202,7 @@
                 this.searchText = searchedText;
                 console.log(this.searchText);
                 this.searchStatus = true;
-                this.getApartments();
+                // this.getApartments();
                 this.getAddress();
                 this.Risultato();
             },

@@ -2554,8 +2554,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     search: function search(searchedText) {
       this.searchText = searchedText;
       console.log(this.searchText);
-      this.searchStatus = true;
-      this.getApartments();
+      this.searchStatus = true; // this.getApartments();
+
       this.getAddress();
       this.Risultato();
     },
