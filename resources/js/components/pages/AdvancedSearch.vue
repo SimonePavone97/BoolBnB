@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" id="contanier-home">
         <!-- Ricerca città/indirizzo -->
         <div class="py-3 text-center">
             <input class="text-center" type="text" v-model="searchText" @keyup.enter="getAddress" placeholder="Cerca una città">
@@ -7,14 +7,16 @@
                     class="btn cerca_color mx-2">Cerca</button>            
         </div>
 
-        <div class="d-flex justify-content-around">
+        <div class="container">
+
+            <div class="row justify-content-around">
             <!-- Filtro Stanze -->
-            <div>
+            <div class="">
                 <label for="rooms">N° di stanze</label>
                 <input type="number" v-model="rooms" name="rooms" min="1" class="text-center form-control " id="rooms" required>         
             </div>
             <!-- Filtro Bagni -->
-            <div>
+            <div class="">
                 <label for="beds">N° di bagni</label>
                 <input type="number" v-model="beds" name="beds" min="1" class="text-center form-control " id="beds" required>         
             </div>
@@ -41,56 +43,58 @@
                 </div>  
             </div>      
         </div>
+
+        </div>
+        
         
         <div>
             <h5>Mappa da aggiustare</h5>
             <div id="map" class="map mb-3"></div>
         </div>
 
-        <div id="contanier-home">
+        <div >
 
             <div v-if="sponsoredApartmentsArr.length != 0">
-            <div class="text-center">
-                <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
-            </div>
-            <div class="d-flex justify-content-center">
-                <div class="d-flex justify-content-center align-items-center apartment-card"
-                    v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment">
-                    <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
-                        <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
-                        <div class="apartment-details">
-                            <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
-                            <!--<p class="apartment-text">{{apartment.description}}</p>-->
-                            <div>
-                                <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
-                                <span class="apartment-text" v-else>{{ apartment.rooms }} camere - </span>
-        
-                                <span class="apartment-text" v-if="`${apartment.beds}` == 1">{{ apartment.beds }} letto - </span>
-                                <span class="apartment-text" v-else>{{ apartment.beds }} letti - </span>
-        
-                                <span class="apartment-text" v-if="`${apartment.bathrooms}` == 1">{{ apartment.bathrooms }} bagno - </span>
-                                <span class="apartment-text" v-else>{{ apartment.bathrooms }} bagni - </span>
-        
-                                <span>{{ apartment.mq }} mq</span>
+                <div class="text-center">
+                    <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center align-items-center apartment-card"
+                        v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment">
+                        <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
+                            <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
+                            <div class="apartment-details">
+                                <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
+                                <!--<p class="apartment-text">{{apartment.description}}</p>-->
+                                <div>
+                                    <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
+                                    <span class="apartment-text" v-else>{{ apartment.rooms }} camere - </span>
+            
+                                    <span class="apartment-text" v-if="`${apartment.beds}` == 1">{{ apartment.beds }} letto - </span>
+                                    <span class="apartment-text" v-else>{{ apartment.beds }} letti - </span>
+            
+                                    <span class="apartment-text" v-if="`${apartment.bathrooms}` == 1">{{ apartment.bathrooms }} bagno - </span>
+                                    <span class="apartment-text" v-else>{{ apartment.bathrooms }} bagni - </span>
+            
+                                    <span>{{ apartment.mq }} mq</span>
+                                </div>
+                                <div class="text-center">
+                                    <h4>Sponsorizzato</h4>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <h4>Sponsorizzato</h4>
-                            </div>
-                        </div>
-                    </router-link>
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </div>
 
-        </div>
-
-              <ul class="row my-3"> 
+        <ul class="row my-3"> 
                 
-                <li class="d-flex justify-content-center align-items-center apartment-card" v-for="apartment in dioporco" :key="apartment.index" >
+            <li class="d-flex justify-content-center align-items-center apartment-card" v-for="apartment in dioporco" :key="apartment.index" >
 
-                    <div v-show="apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
+                <div v-show="apartment.rooms >= rooms && apartment.beds >= beds && getBanana(apartment.services)">
                 <!-- Visualizzazione card apartment -->
-                <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
+                    <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
                         <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
                         <div class="apartment-details">
                             <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
@@ -111,8 +115,7 @@
                     </router-link>
                 </div>
             </li>
-
-              </ul>         
+        </ul>         
     </div>
 </template>
 
@@ -380,6 +383,12 @@ export default {
     
     #container-home{
         .apartment-card{
+            width: calc(100%/12 * 6 - 1em);
+        }
+    }
+
+   #container_filters{
+        .abra{
             width: calc(100%/12 * 6 - 1em);
         }
     }
