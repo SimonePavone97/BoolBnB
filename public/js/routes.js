@@ -1997,39 +1997,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
@@ -2186,36 +2153,53 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         });
 
         console.log("AAAAAA", _this7.dioporco);
-      }).then(this.sponsoredApartments).then(this.getLatmap).then(this.getLongmap) // .then(this.getMap)
-      ["catch"](function (err) {
+      }).then(this.sponsoredApartments).then(this.getLatmap).then(this.getLongmap)["catch"](function (err) {
         _this7.isError = true;
       });
-    },
-    getMap: function getMap() {
-      var center = [this.latlon];
-      var map = tt.map({
-        key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
-        container: "map",
-        center: center,
-        zoom: 15
-      });
-      map.on('load', function () {
-        new tt.Marker().setLngLat(center).addTo(map);
-      }); //      for (let i = 0; i < this.dioporco.length; i++) {
-      //      new tt.Marker()
-      //          .setLngLat([
-      //              longmap[i],
-      //              latmap[i],
-      //          ])
-      //          .addTo(map);
-      //  }
-    }
+    } //     getMap() {
+    //             let center = [this.latlon];
+    //             const map = tt.map({
+    //                 key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+    //                 container: "map",
+    //                 center: center,
+    //                 zoom: 15
+    //             })
+    //             map.on('load', () => {
+    //              new tt.Marker()
+    //           .setLngLat(center)
+    //           .addTo(map);
+    //   })
+    //         //      for (let i = 0; i < this.dioporco.length; i++) {
+    //         //      new tt.Marker()
+    //         //          .setLngLat([
+    //         //              longmap[i],
+    //         //              latmap[i],
+    //         //          ])
+    //         //          .addTo(map);
+    //         //  }
+    //         },
+
   },
   mounted: function mounted() {
     this.getApartments();
     this.getServices();
     this.getApaservices();
-    this.getPoilist();
+    this.getPoilist(); // setTimeout(() => {
+    //     console.log(this.apartment);
+    //     // Tomtom
+    //     let center = [this.apartment.longitude, this.apartment.latitude];
+    //     const map = tt.map({
+    //         key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+    //         container: "map",
+    //         center: center,
+    //         zoom: 15
+    //     })
+    //     map.on('load', () => {
+    //         var marker = new tt.Marker()
+    //             .setLngLat(center)
+    //             .addTo(map);
+    //     })
+    // }, 500);
   }
 });
 
@@ -4387,106 +4371,6 @@ var render = function () {
       ]),
       _vm._v(" "),
       _vm._m(0),
-      _vm._v(" "),
-      _vm.sponsoredApartmentsArr.length != 0
-        ? _c("div", [
-            _c("div", { staticClass: "text-center" }, [
-              _vm.sponsoredApartmentsArr != ""
-                ? _c("h2", [_vm._v("In evidenza")])
-                : _vm._e(),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "d-flex justify-content-center" },
-              _vm._l(_vm.sponsoredApartmentsArr, function (apartment, index) {
-                return _c(
-                  "div",
-                  {
-                    key: index,
-                    staticClass:
-                      "d-flex justify-content-center align-items-center apartment-card",
-                    attrs: { apartment: apartment },
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass:
-                          "text-dark row justify-content-center w-100",
-                        attrs: {
-                          to: {
-                            name: "apartment-detail",
-                            params: { id: apartment.id },
-                          },
-                        },
-                      },
-                      [
-                        _c("div", {
-                          staticClass: "apartment-img",
-                          style: {
-                            backgroundImage:
-                              "url(../../../images/apartments/" +
-                              apartment.image +
-                              ")",
-                          },
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "apartment-details" }, [
-                          _c("h5", { staticClass: "apartment-title" }, [
-                            _c("strong", [_vm._v(_vm._s(apartment.title))]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", [
-                            "" + apartment.rooms == 1
-                              ? _c("span", { staticClass: "apartment-text" }, [
-                                  _vm._v(
-                                    _vm._s(apartment.rooms) + " camera - "
-                                  ),
-                                ])
-                              : _c("span", { staticClass: "apartment-text" }, [
-                                  _vm._v(
-                                    _vm._s(apartment.rooms) + " camere - "
-                                  ),
-                                ]),
-                            _vm._v(" "),
-                            "" + apartment.beds == 1
-                              ? _c("span", { staticClass: "apartment-text" }, [
-                                  _vm._v(_vm._s(apartment.beds) + " letto - "),
-                                ])
-                              : _c("span", { staticClass: "apartment-text" }, [
-                                  _vm._v(_vm._s(apartment.beds) + " letti - "),
-                                ]),
-                            _vm._v(" "),
-                            "" + apartment.bathrooms == 1
-                              ? _c("span", { staticClass: "apartment-text" }, [
-                                  _vm._v(
-                                    _vm._s(apartment.bathrooms) + " bagno - "
-                                  ),
-                                ])
-                              : _c("span", { staticClass: "apartment-text" }, [
-                                  _vm._v(
-                                    _vm._s(apartment.bathrooms) + " bagni - "
-                                  ),
-                                ]),
-                            _vm._v(" "),
-                            _c("span", [_vm._v(_vm._s(apartment.mq) + " mq")]),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "text-center" }, [
-                            _c("h4", [_vm._v("Sponsorizzato")]),
-                          ]),
-                        ]),
-                      ]
-                    ),
-                  ],
-                  1
-                )
-              }),
-              0
-            ),
-          ])
-        : _vm._e(),
       _vm._v(" "),
       _c(
         "ul",

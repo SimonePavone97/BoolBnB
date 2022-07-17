@@ -52,39 +52,6 @@
             <div id="map" class="map mb-3"></div>
         </div>
 
-            <div v-if="sponsoredApartmentsArr.length != 0">
-                <div class="text-center">
-                    <h2 v-if="sponsoredApartmentsArr != ''">In evidenza</h2>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <div class="d-flex justify-content-center align-items-center apartment-card"
-                        v-for="(apartment,index) in sponsoredApartmentsArr" :key="index" :apartment="apartment">
-                        <router-link :to="{name: 'apartment-detail', params: {id: apartment.id}}" class="text-dark row justify-content-center w-100">
-                            <div class="apartment-img" :style="{backgroundImage : `url(../../../images/apartments/${apartment.image})`}"></div>
-                            <div class="apartment-details">
-                                <h5 class="apartment-title"><strong>{{apartment.title}}</strong></h5>
-                                <!--<p class="apartment-text">{{apartment.description}}</p>-->
-                                <div>
-                                    <span class="apartment-text" v-if="`${apartment.rooms}` == 1">{{ apartment.rooms }} camera - </span>
-                                    <span class="apartment-text" v-else>{{ apartment.rooms }} camere - </span>
-            
-                                    <span class="apartment-text" v-if="`${apartment.beds}` == 1">{{ apartment.beds }} letto - </span>
-                                    <span class="apartment-text" v-else>{{ apartment.beds }} letti - </span>
-            
-                                    <span class="apartment-text" v-if="`${apartment.bathrooms}` == 1">{{ apartment.bathrooms }} bagno - </span>
-                                    <span class="apartment-text" v-else>{{ apartment.bathrooms }} bagni - </span>
-            
-                                    <span>{{ apartment.mq }} mq</span>
-                                </div>
-                                <div class="text-center">
-                                    <h4>Sponsorizzato</h4>
-                                </div>
-                            </div>
-                        </router-link>
-                    </div>
-                </div>
-            </div>
-
         <ul class="row my-3"> 
                 
             <li class="d-flex justify-content-center align-items-center apartment-card" v-for="apartment in dioporco" :key="apartment.index" >
@@ -281,40 +248,56 @@ export default {
                 .then(this.sponsoredApartments)
                 .then(this.getLatmap)
                 .then(this.getLongmap)
-                // .then(this.getMap)
+
                 .catch((err) => {
                    this.isError = true;
                 });
         },
-        getMap() {
-                let center = [this.latlon];
-                const map = tt.map({
-                    key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
-                    container: "map",
-                    center: center,
-                    zoom: 15
-                })
-                map.on('load', () => {
-                 new tt.Marker()
-              .setLngLat(center)
-              .addTo(map);
-      })
-            //      for (let i = 0; i < this.dioporco.length; i++) {
-            //      new tt.Marker()
+    //     getMap() {
+    //             let center = [this.latlon];
+    //             const map = tt.map({
+    //                 key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+    //                 container: "map",
+    //                 center: center,
+    //                 zoom: 15
+    //             })
+    //             map.on('load', () => {
+    //              new tt.Marker()
+    //           .setLngLat(center)
+    //           .addTo(map);
+    //   })
+    //         //      for (let i = 0; i < this.dioporco.length; i++) {
+    //         //      new tt.Marker()
                  
-            //          .setLngLat([
-            //              longmap[i],
-            //              latmap[i],
-            //          ])
-            //          .addTo(map);
-            //  }
-            },
+    //         //          .setLngLat([
+    //         //              longmap[i],
+    //         //              latmap[i],
+    //         //          ])
+    //         //          .addTo(map);
+    //         //  }
+    //         },
     },
     mounted() {
         this.getApartments(); 
         this.getServices(); 
         this.getApaservices(); 
         this.getPoilist();  
+        // setTimeout(() => {
+        //     console.log(this.apartment);
+        //     // Tomtom
+        //     let center = [this.apartment.longitude, this.apartment.latitude];
+        //     const map = tt.map({
+        //         key: "cMTORuMrpmoMysQnNBGRyAx2g8Nmo8P9",
+        //         container: "map",
+        //         center: center,
+        //         zoom: 15
+        //     })
+        //     map.on('load', () => {
+        //         var marker = new tt.Marker()
+        //             .setLngLat(center)
+        //             .addTo(map);
+        //     })
+        // }, 500);
     },
 }
 
