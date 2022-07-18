@@ -36,6 +36,8 @@
             </div>
         </div>
 
+        <hr>
+
         <ul class="row my-3">
 
             <li class="d-flex justify-content-center align-items-center apartment-card" v-for="apartment in apartmentsArr" :key="apartment.id" v-show="!searchStatus">
