@@ -1,0 +1,191 @@
+/* Color palette */
+:root {
+    --pink: #ff385c;
+    --lightpink: #fdd7de;
+    --gray: #717171;
+    --bg-lightgray: #ececec;
+    --bg-white: #ffffff;
+    --text-dark: #333333;
+    --text-darker: #161616;
+}
+
+/* Commons */
+body {
+    background-color: var(--bg-white);
+}
+
+/* HEADER */
+header .logo {
+    height: 65px;
+}
+
+header .nav-item i {
+    font-size: 22px;
+    margin-right: 10px;
+    color: var(--pink);
+}
+
+/* DASHBOARD */
+.heading {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--lightpink);
+    padding: 30px 0;
+}
+
+.dashboard-content {
+    width: 100%;
+    color: var(--text-dark);
+    font-size: 17px;
+    margin: 50px 0;
+}
+
+.dashboard-content ul {
+    padding: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.dashboard-action, .infobox {
+    padding: 30px;
+    border: 1px solid var(--bg-lightgray);
+    border-radius: 8px;
+}
+
+.dashboard-action li {
+    margin-bottom: 12px;
+}
+
+.dashboard-action i {
+    font-size: 20px;
+    color: var(--pink);
+    margin-right: 10px;
+}
+
+.dashboard-action a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Dashboard infobox */
+.infobox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% / 2.5);
+    margin: 0 8px;
+    height: 70%;
+}
+
+.infobox-text, .infobox-text:hover {
+    color: var(--text-darker);
+}
+
+.infobox-icon {
+    font-size: 30px;
+    color: var(--pink);
+}
+
+@media screen and (max-width: 768px) {
+
+    .dashboard-action {
+        padding-left: 25%;
+    }
+
+    .infobox-text p {
+        display: none;
+    }
+
+    .infobox-icon {
+        font-size: 25px;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
+}
+
+/* Dashboard Sponsor */
+.sponsor {
+    padding: 10px;
+}
+
+.bg_primary {
+    background-color: var(--lightpink);
+}
+
+.text-gray {
+    color: var(--gray);
+}
+
+/* CREATE */
+
+#create-apartment input:focus {
+    outline: none !important;
+    border: 1px solid var(--lightpink);
+    box-shadow: 0 0 10px var(--pink);
+}
+
+/* Buttons */
+.btn-pink {
+    color: white;
+    background-color: var(--pink);
+}
+
+/* INDEX */
+
+#apartment-index td a,
+#apartment-index td button {
+    font-size: 14px;
+    padding: 3px 5px;
+    margin: 5px;
+}
+
+#apartment-index tr:nth-child(even) {
+    background-color: var(--bg-lightgray);
+}
+
+/* SHOW */
+.map {
+    display: block;
+    height: 300px;
+}
+
+.apartment-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
+
+.apartment-info ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.apartment-info li {
+    margin: 10px 0;
+}
+
+.apartment-info i {
+    font-size: 22px;
+    color: var(--pink);
+}
+
+.apartment-info .info-label {
+    margin: 0 10px;
+}
+
+.apartment-info .info-data {
+    text-align: right;
+    font-weight: bold;
+}
+
+.services ul {
+    list-style-type: none;
+}
+

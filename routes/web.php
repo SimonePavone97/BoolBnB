@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+// localhost:8000/admin
+Route::middleware('auth')
+->prefix('admin') //legato alla uri
+->name('admin.')
+->namespace('Admin')
+->group( function(){
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('apartments', 'ApartmentController');
+    Route::resource('messages', 'MessageController');
+    Route::resource('user', 'UserController');
+    Route::get('/sponsorship/{apartment}', 'SponsorshipController@index')->name('sponsorship.index');
+    Route::get('/payment/{sponsorship}/{apartment}', 'PaymentController@index')->name('payment.index');
+    Route::post('/payment/checkout/{sponsorship}/{apartment}', 'PaymentController@store')->name('payment.checkout');
 });
 
-Auth::routes();
+Route::get('{any?}', function(){
+    return view('guest.welcome');
+} )->where("any", ".*");
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
